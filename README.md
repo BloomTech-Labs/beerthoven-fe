@@ -1,4 +1,6 @@
-[![Maintainability](https://api.codeclimate.com/v1/badges/aa287e926495123f6e4d/maintainability)](https://codeclimate.com/github/Lambda-School-Labs/beerthoven-be/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/71267fd34487dce0c8b9/maintainability)](https://codeclimate.com/github/Lambda-School-Labs/beerthoven-fe/maintainability)
+
+[![Test Coverage](https://api.codeclimate.com/v1/badges/71267fd34487dce0c8b9/test_coverage)](https://codeclimate.com/github/Lambda-School-Labs/beerthoven-fe/test_coverage)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
