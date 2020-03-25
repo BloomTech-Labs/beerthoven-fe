@@ -1,19 +1,27 @@
 import React from  "react";
 import { useForm } from 'react-hook-form';
+import { Form, Input, Button, Checkbox } from 'antd';
 
-
-export default function Login() {
-  const { register, handleSubmit, watch, errors } = useForm()
+function Login() {
+  const { register, handleSubmit, errors } = useForm()
   const onSubmit = data => { console.log("Here's Johnny!", data) }  
 
   return (
-    <form onSubmit={handleSubmit(onsubmit)}>
-      <input name="userName" defautValue="Email" ref={register({ required: true })} />
-      <input name="password" defautValue="Password" ref={register({ required: true })} />
+    <Form onSubmit={handleSubmit(onsubmit)}>      
+      <Input
+        type='text'
+        placeholder='Email'      
+        ref={register({ required: true })} />
+      <Input 
+      type='text'
+      placeholder='Password'      
+      ref={register({ required: true })} />
       {errors.userName && <span>This field is required</span>}
       {errors.password && <span>This field is required</span>}
-    </form>    
+      <Button type='default'>Login</Button>   
+    </Form>
   )
   
 }
 
+export default Login;
