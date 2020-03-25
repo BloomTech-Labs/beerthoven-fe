@@ -8,6 +8,8 @@ import PeopleForm from './components/forms/PeopleForm';
 import EventForm from './components/forms/EventForm';
 import BackDrop from './components/BackDrop/BackDrop';
 import TicketForm from './components/forms/TicketForm';
+import VolunteerForm from './components/forms/VolunteerForm';
+
 
 function App () {
 	return (
@@ -21,6 +23,9 @@ function App () {
 				</Route>
 				<Route path='/people'>
 					<PeopleForm />
+				</Route>
+				<Route path='/volunteer'>
+					<VolunteerForm />
 				</Route>
         <Route path="/event">
           <EventForm />
