@@ -1,11 +1,33 @@
-import React from 'react'
-import { useForm } from 'react-hook-forms'
+import React from 'react';
+import { useForm } from 'react-hook-form';
 
-const 
-const Form = () =>(
-    <div>
-        <h1>Form</h1>
-    </div>
-)
+//### CRUD Functionality for Tickets
 
-export default Form
+//- **ticketID**
+//(number, references ticketID in User Talent Table)
+//- **ticketPurchaser**
+//(String)
+//- **ticketHolder**
+//(String)
+//- **ticketPrice**
+//(number)
+//- **ticketType**
+//(String)
+
+const TicketForm = () => {
+	const { handleSubmit, register, errors } = useForm();
+	const onSubmit = values => {
+		console.log(values);
+	};
+
+	return (
+		<form onSubmit={handleSubmit(onSubmit)}>
+			<input name='register' type="text" ref={register({ required: true, })} />
+			<input name='register' type="text" ref={register({ required: true, })} />
+			<input name='register' type="number" ref={register({ required: true, })} />
+			<input name='register' ref={register({ required: true, })} />
+		</form>
+	);
+};
+
+export default TicketForm;

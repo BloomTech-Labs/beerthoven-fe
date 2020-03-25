@@ -7,6 +7,7 @@ import Login from './components/pages/Login';
 import PeopleForm from './components/forms/PeopleForm';
 import EventForm from './components/forms/EventForm';
 import BackDrop from './components/BackDrop/BackDrop';
+import TicketForm from './components/forms/TicketForm';
 
 function App () {
 	return (
@@ -14,6 +15,9 @@ function App () {
 			<Switch>
 				<Route path='/login'>
 					<Login />
+				</Route>
+				<Route path='/ticket'>
+					<TicketForm />
 				</Route>
 				<Route path='/people'>
 					<PeopleForm />
