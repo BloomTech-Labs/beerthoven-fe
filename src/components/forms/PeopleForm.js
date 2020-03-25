@@ -15,7 +15,7 @@ const PeopleForm = () => {
 	return (
 		<Form onSubmit={handleSubmit(onSubmit)}>
 			<h1>Add New Profile</h1>
-			<Row>
+			<Row gutter={[16, 16]}>
 				<Col span={12}>
 					<Form.Item name='first_name' label="First Name">
 						<Input type="text" placeholder='Enter first name' ref={register({ required: true })}/>
@@ -39,7 +39,7 @@ const PeopleForm = () => {
 				</Col>
 			</Row>
 
-			<Row>
+			<Row gutter={[16, 16]}>
 				<Col>
 					<Form.Item name='address' label="Address">
 						<Input type='text' placeholder='Enter street address' />
@@ -47,7 +47,7 @@ const PeopleForm = () => {
 				</Col>
 			</Row>
 
-			<Row>
+			<Row gutter={[16, 16]}>
 				<Col span={12}>
 					<Form.Item name='address2' label="Address line 2 (optional)">
 						<Input type='text' placeholder='Enter apartment, suite, etc' />
@@ -60,7 +60,7 @@ const PeopleForm = () => {
 				</Col>
 			</Row>
 			
-			<Row>
+			<Row gutter={[16, 16]}>
 				<Col span={6}>
 					<Form.Item name='state' label="State">
 						<Input type='text' placeholder='Enter state' />
