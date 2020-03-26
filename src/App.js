@@ -13,6 +13,7 @@ import BenefactorForm from './components/forms/BenefactorForm';
 import BoardMemberForm from './components/forms/BoardMemberForm';
 import Example from './components/forms/Example';
 import ComposerForm from './components/forms/ComposerForm';
+import PerformerForm from './components/forms/PerformerForm';
 
 function App () {
 	return (
@@ -35,6 +36,9 @@ function App () {
 				</Route>
 				<Route path='/composer'>
 					<ComposerForm />
+				</Route>
+				<Route path='/performer'>
+					<PerformerForm />
 				</Route>
 				<Route path='/volunteer'>
 					<VolunteerForm />

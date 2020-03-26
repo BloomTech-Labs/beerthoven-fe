@@ -24,7 +24,7 @@ function VolunteerForm() {
     <>
     
     
-    <form onSubmit={form.handleSubmit(onSubmit)}>
+    <Form onSubmit={form.handleSubmit(onSubmit)}>
     <Form.Item name=''>
 				<Select style={{width: 400}}>
 					<Option>Volunteer Form</Option>
@@ -101,8 +101,8 @@ function VolunteerForm() {
        {errors.exampleRequired && <p>This field is required</p>}
     </Form.Item> */}
 
-    <button>Submit</button>
-    </form>
+    <Button>Submit</Button>
+    </Form>
 {/* 
         <pre style={{marginTop: 54 }}>
           {JSON.stringify(form.watch(), null, 2)}

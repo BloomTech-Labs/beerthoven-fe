@@ -12,8 +12,9 @@ const ComposerForm = () => {
 const {register, handleSubmit, errors} = useForm();
 const form = useForm({ defaultValues })
 
-const onSubmit = data => {
+const onSubmit = (data, e) => {
     console.log(data)
+    e.target.reset()
 }
 
 return (

@@ -15,21 +15,16 @@ export default function Example() {
 
   return (
 	  <>
-	  <h1>Example Form</h1>
+	  <h1>Things to complete</h1>
 
 	  
-	  <input type="checkbox" name="validation" checked/>
-	  <label>Validation</label>
+	 <span> <input type="checkbox" name="validation" checked/>
+	  <label>Validation</label></span>
 
-	  <input type="checkbox" name="validationmessage" checked/>
-	  <label>Validation</label>
-	  
-		  {/* <input type="checkbox" id="scales" name="scales"
-         checked />
-			 <label for="scales">Validation</label>
+	 <span style={{marginLeft: '20px'}}> <input type="checkbox" name="errormessage"/>
+	  <label>Error Message</label></span>
 
-			 <input type="checkbox" id="message" name="message"/>
-			 <label for="message">Error Message</label> */}
+	 <div> <h1>Example Form</h1></div>
 		 
     {/* "handleSubmit" will validate your inputs before invoking "onSubmit" */}
     <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -43,8 +38,22 @@ export default function Example() {
 	control={form.control}
 	rules={{ required: true }}
 	error={!!errors.example}
-	helperText={errors.example && "Required."}
+	helperText={errors.example && <span>This field is required</span>}
 	name="example" placeholder="example" type="text"/>
+  </Form.Item>
+
+  <Form.Item label="Something" >
+  <Controller 
+	as={Input} 
+	control={form.control}
+	rules={{
+		validate: {
+		  inputTelRequired: "SOMETHING HERE"
+		}
+	  }}
+	error={!!errors.something}
+	helperText={errors.something && <span>This field is required</span>}
+	name="something" placeholder="something" type="text"/>
   </Form.Item>
       
       {/* include validation with required or other standard HTML validation rules */}
