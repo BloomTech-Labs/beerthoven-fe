@@ -16,6 +16,21 @@ export default function Example() {
   return (
 	  <>
 	  <h1>Example Form</h1>
+
+	  
+	  <input type="checkbox" name="validation" checked/>
+	  <label>Validation</label>
+
+	  <input type="checkbox" name="validationmessage" checked/>
+	  <label>Validation</label>
+	  
+		  {/* <input type="checkbox" id="scales" name="scales"
+         checked />
+			 <label for="scales">Validation</label>
+
+			 <input type="checkbox" id="message" name="message"/>
+			 <label for="message">Error Message</label> */}
+		 
     {/* "handleSubmit" will validate your inputs before invoking "onSubmit" */}
     <form onSubmit={form.handleSubmit(onSubmit)}>
 
@@ -34,7 +49,7 @@ export default function Example() {
       
       {/* include validation with required or other standard HTML validation rules */}
       <Form.Item label="Example Required" >
-	  <Controller as={Input} control={form.control} name="exampleRequired" ref={register({ required: true })} />
+	  <Controller as={Input} control={form.control} name="exampleRequired"/>
       {/* errors will return when field validation fails  */}
       {errors.exampleRequired && <span>This field is required</span>}
 	  </Form.Item>

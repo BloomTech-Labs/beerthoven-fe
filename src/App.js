@@ -12,6 +12,7 @@ import VolunteerForm from './components/forms/VolunteerForm';
 import BenefactorForm from './components/forms/BenefactorForm';
 import BoardMemberForm from './components/forms/BoardMemberForm';
 import Example from './components/forms/Example';
+import ComposerForm from './components/forms/ComposerForm';
 
 function App () {
 	return (
@@ -31,6 +32,9 @@ function App () {
 				</Route>
 				<Route path='/people'>
 					<PeopleForm />
+				</Route>
+				<Route path='/composer'>
+					<ComposerForm />
 				</Route>
 				<Route path='/volunteer'>
 					<VolunteerForm />
