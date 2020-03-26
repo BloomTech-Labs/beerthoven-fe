@@ -10,6 +10,7 @@ import BackDrop from './components/BackDrop/BackDrop';
 import TicketForm from './components/forms/TicketForm';
 import VolunteerForm from './components/forms/VolunteerForm';
 import BenefactorForm from './components/forms/BenefactorForm'
+import BoardMemberForm from './components/forms/BoardMemberForm';
 
 
 function App () {
@@ -24,6 +25,9 @@ function App () {
 				</Route>
 				<Route path='/benefactor'>
 					<BenefactorForm />
+				</Route>
+				<Route path='/boardmember'>
+					<BoardMemberForm />
 				</Route>
 				<Route path='/people'>
 					<PeopleForm />
