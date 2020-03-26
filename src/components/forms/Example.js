@@ -7,11 +7,18 @@ const {Search} = Input;
 const defaultValues = {example: "", exampleRequired: ""}
 
 
+
+
 export default function Example() {
-	const { control, register, handleSubmit, errors, reset, rules } = useForm();
+	const { control, register, handleSubmit, errors, reset, rules } = useForm({reValidateMode: "onSubmit"});
 	const form = useForm({ defaultValues });
 
   const onSubmit = data => { console.log(data) }
+
+  const isNotFilledTel = v => {
+	const clearedTel = "clearTel(v)";
+	return clearedTel;
+  };
 
   return (
 	  <>
@@ -48,7 +55,7 @@ export default function Example() {
 	control={form.control}
 	rules={{
 		validate: {
-		  inputTelRequired: "SOMETHING HERE"
+		  inputreq: isNotFilledTel
 		}
 	  }}
 	error={!!errors.something}
