@@ -1,5 +1,5 @@
 import React from 'react';
-import { useForm, Controller, FormContext } from "react-hook-form";
+import { useForm, Controller, FormContext, useFormContext } from "react-hook-form";
 import { Form, Input, Button, Select, DatePicker, Row, Radio } from 'antd';
 const {Option} = Select;
 const {Search} = Input;
@@ -10,14 +10,19 @@ const defaultValues = {example: "", exampleRequired: ""}
 
 
 export default function Example() {
-	const { control, register, handleSubmit, errors, reset, rules } = useForm({reValidateMode: "onSubmit"});
+
+	const methods = useForm();
+	const { control, register, handleSubmit, errors, reset, rules } = methods;
 	const form = useForm({ defaultValues });
 
   const onSubmit = data => { console.log(data) }
 
   const isNotFilledTel = v => {
 	const clearedTel = "clearTel(v)";
-	return clearedTel;
+	// return clearedTel;
+	console.log(clearedTel)
+	// return clearedTel;
+
   };
 
   return (
@@ -34,7 +39,8 @@ export default function Example() {
 	 <div> <h1>Example Form</h1></div>
 		 
     {/* "handleSubmit" will validate your inputs before invoking "onSubmit" */}
-    <form onSubmit={form.handleSubmit(onSubmit)}>
+	<FormContext {...methods} >
+    <form onSubmit={form.handleSubmit(onSubmit)} noValidate>
 
 
 
@@ -54,9 +60,7 @@ export default function Example() {
 	as={Input} 
 	control={form.control}
 	rules={{
-		validate: {
-		  inputreq: isNotFilledTel
-		}
+		validate: {inputVal: "required"}
 	  }}
 	error={!!errors.something}
 	helperText={errors.something && <span>This field is required</span>}
@@ -72,6 +76,7 @@ export default function Example() {
       
       <input type="submit" />
     </form>
+	</FormContext>
 
 	<pre style={{marginTop: 54 }}>
           {JSON.stringify(form.watch(), null, 2)}
