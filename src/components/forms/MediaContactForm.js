@@ -1,12 +1,11 @@
 import React from 'react';
-import { useForm, Controller, FormContext } from 'react-hook-form';
-import { Form, Input, Button, Select, DatePicker, Row, Radio } from 'antd';
+import { useForm, Controller } from 'react-hook-form';
+import { Form, Input, Button, Select} from 'antd';
 const { Option } = Select;
 const { Search } = Input;
-const { TextArea } = Input;
 
 const MediaContactForm = () => {
-	const { control, register, handleSubmit, errors, reset } = useForm();
+	const { control, handleSubmit, errors, reset } = useForm();
 
 	const onSubmit = (data, e) => {
 		console.log(data);
@@ -20,12 +19,12 @@ const MediaContactForm = () => {
 	return (
 		<Form>
 			<form onSubmit={handleSubmit(onSubmit)}>
-				<Form.Item name=''>
+				<Form.Item>
 					<Select style={{ width: 400 }}>
 						<Option>Media Contact Form</Option>
 					</Select>
 				</Form.Item>
-				<Form.Item name=''>
+				<Form.Item>
 					<Search
 						placeholder='Search for record'
 						onSearch={value => console.log(value)}
