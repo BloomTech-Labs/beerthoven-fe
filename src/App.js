@@ -16,9 +16,10 @@ import ComposerForm from './components/forms/ComposerForm';
 import PerformerForm from './components/forms/PerformerForm';
 import HouseConcertHostForm from './components/forms/HouseContactHostForm';
 import BusinessPartnerForm from './components/forms/BusinessPartnerForm';
-import MediaContactForm from './components/forms/MediaContactForm'
+import MediaContactForm from './components/forms/MediaContactForm';
 import WorkContactForm from './components/forms/WorkContactForm';
 import BusinesInfoForm from './components/forms/BusinessInfoForm';
+import RecentBenefactorForm from './components/forms/RecentBenefactorForm';
 
 function App () {
 	return (
@@ -68,6 +69,9 @@ function App () {
 				</Route>
 				<Route path='/businessinfo'>
 					<BusinesInfoForm />
+				</Route>
+				<Route path='/recentbenefactor'>
+					<RecentBenefactorForm />
 				</Route>
 				<Route>
 					<Dashboard />
