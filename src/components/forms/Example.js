@@ -1,86 +1,65 @@
-import React from 'react';
-import { useForm, Controller, FormContext, useFormContext } from "react-hook-form";
-import { Form, Input, Button, Select, DatePicker, Row, Radio } from 'antd';
-const {Option} = Select;
-const {Search} = Input;
+import React, { useState } from "react";
+import ReactDOM from "react-dom";
+import { useForm, Controller } from "react-hook-form";
+import { Form, Input } from "antd";
 
-const defaultValues = {example: "", exampleRequired: ""}
+const defaultValues = { example: "" };
 
+export default function App() {
+  const { errors, handleSubmit, control } = useForm();
+  const [dataInput, setDataInput] = useState(defaultValues);
+  const some = useForm(defaultValues);
 
-
-
-export default function Example() {
-
-	const methods = useForm();
-	const { control, register, handleSubmit, errors, reset, rules } = methods;
-	const form = useForm({ defaultValues });
-
-  const onSubmit = data => { console.log(data) }
-
-  const isNotFilledTel = v => {
-	const clearedTel = "clearTel(v)";
-	// return clearedTel;
-	console.log(clearedTel)
-	// return clearedTel;
-
+  const onSubmit = data => {
+    setDataInput(data);
   };
 
+  console.log('dataInput insdie', dataInput)
   return (
-	  <>
-	  <h1>Things to complete</h1>
-
-	  
-	 <span> <input type="checkbox" name="validation" checked/>
-	  <label>Validation</label></span>
-
-	 <span style={{marginLeft: '20px'}}> <input type="checkbox" name="errormessage"/>
-	  <label>Error Message</label></span>
-
-	 <div> <h1>Example Form</h1></div>
-		 
-    {/* "handleSubmit" will validate your inputs before invoking "onSubmit" */}
-	<FormContext {...methods} >
-    <form onSubmit={form.handleSubmit(onSubmit)} noValidate>
-
-
-
+    <>
+      <form onSubmit={handleSubmit(onSubmit)}>
 
 	  <Form.Item label="Example" >
-	<Controller 
-	as={Input} 
-	control={form.control}
-	rules={{ required: true }}
-	error={!!errors.example}
-	helperText={errors.example && <span>This field is required</span>}
-	name="example" placeholder="example" type="text"/>
-  </Form.Item>
+        <Controller
+          as={Input}
+          control={control}
+          name="example"
+          rules={{
+            required: true,
+            validate: value => value.length >= 0 || "error message"
+          }}
+        />
+        {errors.singleErrorInput && <span>Required</span>}
+		</Form.Item>
 
-  <Form.Item label="Something" >
-  <Controller 
-	as={Input} 
-	control={form.control}
-	rules={{
-		validate: {inputVal: "required"}
-	  }}
-	error={!!errors.something}
-	helperText={errors.something && <span>This field is required</span>}
-	name="something" placeholder="something" type="text"/>
-  </Form.Item>
-      
-      {/* include validation with required or other standard HTML validation rules */}
-      <Form.Item label="Example Required" >
-	  <Controller as={Input} control={form.control} name="exampleRequired"/>
-      {/* errors will return when field validation fails  */}
-      {errors.exampleRequired && <span>This field is required</span>}
-	  </Form.Item>
-      
-      <input type="submit" />
-    </form>
-	</FormContext>
+    <Form.Item label="Demo" >
+        <Controller
+          as={Input}
+          control={control}
+          name="demo"
+          rules={{
+            required: true,
+            validate: value => value.length >= 0 || "error message"
+          }}
+        />
+        {errors.singleErrorInput && <span>Required</span>}
+		</Form.Item>
 
-	<pre style={{marginTop: 54 }}>
-          {JSON.stringify(form.watch(), null, 2)}
-        </pre>
-	</>
-  )
+    
+
+        <button type="submit">Submit</button>
+      </form>
+
+{/* {console.log('dataInput insdie', dataInput)} */}
+
+      
+
+      <pre style={{ marginTop: 54 }}>
+      {JSON.stringify(dataInput, null, 2)}
+      </pre>
+    </>
+  );
 }
+
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);
