@@ -14,7 +14,8 @@ import BoardMemberForm from './components/forms/BoardMemberForm';
 import Example from './components/forms/Example';
 import ComposerForm from './components/forms/ComposerForm';
 import PerformerForm from './components/forms/PerformerForm';
-import HouseConcertHostForm from './components/forms/HouseContactHostForm'
+import HouseConcertHostForm from './components/forms/HouseContactHostForm';
+import BusinessPartnerForm from './components/forms/BusinessPartnerForm';
 
 function App () {
 	return (
@@ -34,6 +35,9 @@ function App () {
 				</Route>
 				<Route path='/people'>
 					<PeopleForm />
+				</Route>
+				<Route path='/businesspartner'>
+					<BusinessPartnerForm />
 				</Route>
 				<Route path='/composer'>
 					<ComposerForm />
