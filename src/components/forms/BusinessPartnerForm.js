@@ -18,43 +18,49 @@ const BusinessPartnerForm = () => {
 	};
 
 	return (
-		<Form onSubmit={handleSubmit(onSubmit)}>
-			<Form.Item name=''>
-				<Select style={{ width: 400 }}>
-					<Option>Business Partner Form</Option>
-				</Select>
-			</Form.Item>
-			<Form.Item name=''>
-				<Search placeholder='Search for record' onSearch={value => console.log(value)} style={{ width: 400 }} />
-			</Form.Item>
-			<h1>Business Partner Form</h1>
-			<Form.Item label='Name of business' {...fieldProps}>
-				<Controller
-					as={Input}
-					type='text'
-					control={control}
-					name='name_of_business'
-					placeholder='Business Name'
-				/>
-				{errors.name_of_business && <p>Required</p>}
-			</Form.Item>
-			<Form.Item label='Business type' {...fieldProps}>
-				<Controller as={Input} type='text' control={control} name='business_type' placeholder='Industry' />
-				{errors.business_type && <p>Required</p>}
-			</Form.Item>
-			<Form.Item label='Occassion business was solicited with Beerthoven' {...fieldProps}>
-				<Controller
-					as={Input}
-					type='text'
-					control={control}
-					name='solicitation_occasion'
-					placeholder='Solicitation occasion'
-				/>
-				{errors.solicitation_occasion && <p>Required</p>}
-			</Form.Item>
-			<Controller name='submit' as={Button} type='primary' htmlType='submit' control={control}>
-				Submit
-			</Controller>
+		<Form>
+			<form onSubmit={handleSubmit(onSubmit)}>
+				<Form.Item name=''>
+					<Select style={{ width: 400 }}>
+						<Option>Business Partner Form</Option>
+					</Select>
+				</Form.Item>
+				<Form.Item name=''>
+					<Search
+						placeholder='Search for record'
+						onSearch={value => console.log(value)}
+						style={{ width: 400 }}
+					/>
+				</Form.Item>
+				<h1>Business Partner Form</h1>
+				<Form.Item label='Name of business' {...fieldProps}>
+					<Controller
+						as={Input}
+						type='text'
+						control={control}
+						name='name_of_business'
+						placeholder='Business Name'
+					/>
+					{errors.name_of_business && <p>Required</p>}
+				</Form.Item>
+				<Form.Item label='Business type' {...fieldProps}>
+					<Controller as={Input} type='text' control={control} name='business_type' placeholder='Industry' />
+					{errors.business_type && <p>Required</p>}
+				</Form.Item>
+				<Form.Item label='Occassion business was solicited with Beerthoven' {...fieldProps}>
+					<Controller
+						as={Input}
+						type='text'
+						control={control}
+						name='solicitation_occasion'
+						placeholder='Solicitation occasion'
+					/>
+					{errors.solicitation_occasion && <p>Required</p>}
+				</Form.Item>
+				<Controller name='submit' as={Button} type='primary' htmlType='submit' control={control}>
+					Submit
+				</Controller>
+			</form>
 		</Form>
 	);
 };
