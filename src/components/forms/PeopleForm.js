@@ -129,7 +129,7 @@ const PeopleForm = () => {
 						<Form.Item name='method-of-add' label='Method of Add' {...fieldProps}>
 							<Controller as={Select} control={control} name='method-of-add'>
 								<Option>select</Option>
-								<Option value='option1'>Option 1</Option>
+								< value='option1'>Option 1</Option>
 								<Option value='option2'>Option 2</Option>
 							</Controller>
 						</Form.Item>
