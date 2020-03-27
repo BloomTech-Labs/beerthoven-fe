@@ -1,18 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 
-//### CRUD Functionality for Tickets
-
-//- **ticketID**
-//(number, references ticketID in User Talent Table)
-//- **ticketPurchaser**
-//(String)
-//- **ticketHolder**
-//(String)
-//- **ticketPrice**
-//(number)
-//- **ticketType**
-//(String)
 
 const TicketForm = () => {
 	const { handleSubmit, register, errors } = useForm();
