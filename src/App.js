@@ -18,6 +18,7 @@ import HouseConcertHostForm from './components/forms/HouseContactHostForm';
 import BusinessPartnerForm from './components/forms/BusinessPartnerForm';
 import MediaContactForm from './components/forms/MediaContactForm'
 import WorkContactForm from './components/forms/WorkContactForm';
+import BusinesInfoForm from './components/forms/BusinessInfoForm';
 
 function App () {
 	return (
@@ -64,6 +65,9 @@ function App () {
 				</Route>
 				<Route path='/example'>
 					<Example />
+				</Route>
+				<Route path='/businessinfo'>
+					<BusinesInfoForm />
 				</Route>
 				<Route>
 					<Dashboard />

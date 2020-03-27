@@ -22,7 +22,7 @@ const MediaContactForm = () => {
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<Form.Item name=''>
 					<Select style={{ width: 400 }}>
-						<Option>Medica Contact Form</Option>
+						<Option>Media Contact Form</Option>
 					</Select>
 				</Form.Item>
 				<Form.Item name=''>
