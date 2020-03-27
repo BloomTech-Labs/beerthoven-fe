@@ -17,6 +17,7 @@ import PerformerForm from './components/forms/PerformerForm';
 import HouseConcertHostForm from './components/forms/HouseContactHostForm';
 import BusinessPartnerForm from './components/forms/BusinessPartnerForm';
 import MediaContactForm from './components/forms/MediaContactForm'
+import WorkContactForm from './components/forms/WorkContactForm';
 
 function App () {
 	return (
@@ -57,6 +58,9 @@ function App () {
 				</Route>
 				<Route path='/event'>
 					<EventForm />
+				</Route>
+				<Route path='/work'>
+					<WorkContactForm />
 				</Route>
 				<Route path='/example'>
 					<Example />

@@ -32,7 +32,7 @@ const MediaContactForm = () => {
 						style={{ width: 400 }}
 					/>
 				</Form.Item>
-				<h1>Medica Contact Form</h1>
+				<h1>Media Contact Form</h1>
 				<Form.Item label='Job title' {...fieldProps}>
 					<Controller as={Input} type='text' control={control} name='job_title' placeholder='Business Name' />
 					{errors.job_title && <p>Required</p>}
