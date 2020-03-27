@@ -5,9 +5,6 @@ import './App.css';
 import Dashboard from './components/pages/Dashboard';
 import Login from './components/pages/Login';
 import PeopleForm from './components/forms/PeopleForm';
-import EventForm from './components/forms/EventForm';
-import BackDrop from './components/BackDrop/BackDrop';
-import TicketForm from './components/forms/TicketForm';
 import VolunteerForm from './components/forms/VolunteerForm';
 import BenefactorForm from './components/forms/BenefactorForm';
 import BoardMemberForm from './components/forms/BoardMemberForm';
@@ -27,9 +24,6 @@ function App () {
 			<Switch>
 				<Route path='/login'>
 					<Login />
-				</Route>
-				<Route path='/ticket'>
-					<TicketForm />
 				</Route>
 				<Route path='/benefactor'>
 					<BenefactorForm />
@@ -58,10 +52,7 @@ function App () {
 				<Route path='/housecontact'>
 					<HouseContactHostForm />
 				</Route>
-				<Route path='/event'>
-					<EventForm />
-				</Route>
-				<Route path='/work'>
+				<Route path='/workcontact'>
 					<WorkContactForm />
 				</Route>
 				<Route path='/example'>

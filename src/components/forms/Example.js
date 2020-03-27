@@ -1,56 +1,63 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { useForm, Controller } from "react-hook-form";
-import { Form, Input } from "antd";
+import { Form, Input, Select } from "antd";
 
-const defaultValues = { example: "" };
+const { Option } = Select;
+
+const defaultValues = { singleErrorInput: "" };
 
 export default function App() {
-  const { errors, handleSubmit, control } = useForm();
+  const { errors, handleSubmit, control} = useForm();
   const [dataInput, setDataInput] = useState(defaultValues);
-  const some = useForm(defaultValues);
 
   const onSubmit = data => {
     setDataInput(data);
   };
 
-  console.log('dataInput insdie', dataInput)
+  function handleChange(value) {
+    console.log(`selected ${value}`);
+  }
+
+  const validError = (value)=>{
+    return value.length >= 0 || "error message"
+  }
+
+
+
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
 
-	  <Form.Item label="Example" >
+      <Form.Item label='singleErrorInput'>
         <Controller
           as={Input}
           control={control}
-          name="example"
+          name="singleErrorInput"
           rules={{
             required: true,
-            validate: value => value.length >= 0 || "error message"
+            validate: validError
           }}
         />
         {errors.singleErrorInput && <span>Required</span>}
-		</Form.Item>
+        </Form.Item>
 
-    <Form.Item label="Demo" >
-        <Controller
-          as={Input}
-          control={control}
-          name="demo"
-          rules={{
-            required: true,
-            validate: value => value.length >= 0 || "error message"
-          }}
-        />
-        {errors.singleErrorInput && <span>Required</span>}
-		</Form.Item>
+        <Form.Item label='dropDown'>
+        <Select name="dropDown" defaultValue="" style={{ width: 120 }} onChange={handleChange}>
+      <Option value="jack">Jack</Option>
+      <Option value="lucy">Lucy</Option>
+      <Option value="Yiminghe">yiminghe</Option>
+    </Select>
+    </Form.Item>
 
-    
+
 
         <button type="submit">Submit</button>
+
+        
       </form>
 
-{/* {console.log('dataInput insdie', dataInput)} */}
+{console.log('dataInput insdie', dataInput)}
 
       
 

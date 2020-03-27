@@ -11,8 +11,12 @@ function VolunteerForm () {
 		console.log('data', data);
 	};
 
+	const fieldProps = {
+		colon : false,
+	};
+
 	return (
-		<Form>
+		<Form layout='vertical'>
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<Form.Item name=''>
 					<Select style={{ width: 400 }}>
@@ -27,7 +31,7 @@ function VolunteerForm () {
 					/>
 				</Form.Item>
 				<h1>Volunteer Form</h1>
-				<Form.Item label='Event date'>
+				<Form.Item label='Event date' {...fieldProps}>
 					<Controller
 						as={DatePicker}
 						type='text'
@@ -37,15 +41,15 @@ function VolunteerForm () {
 					/>
 					{errors.firstName && <p>Required</p>}
 				</Form.Item>
-				<Form.Item label='Role served'>
+				<Form.Item label='Role served' {...fieldProps}>
 					<Controller as={Input} control={control} name='role' placeholder='Enter volunteer role' />
 					{errors.example && <p>Required</p>}
 				</Form.Item>
 				<Row>
-					<Form.Item label='Time in'>
+					<Form.Item label='Time in' {...fieldProps}>
 						<Controller as={Input} control={control} name='time_in_hour' placeholder='Hour' type='text' />
 					</Form.Item>
-					<Form.Item>
+					<Form.Item {...fieldProps}>
 						<Controller
 							as={Input}
 							control={control}
@@ -55,40 +59,40 @@ function VolunteerForm () {
 						/>
 					</Form.Item>
 					<Radio.Group>
-						<Form.Item label='AM'>
+						<Form.Item label='AM' {...fieldProps}>
 							<Controller as={Radio} control={control} name='time_in_am' value={1} />
 						</Form.Item>
-						<Form.Item label='PM'>
+						<Form.Item label='PM' {...fieldProps}>
 							<Controller as={Radio} control={control} name='time_in_pm' value={2} />
 						</Form.Item>
 					</Radio.Group>
-					<Form.Item label='Time out'>
+					<Form.Item label='Time out' {...fieldProps}>
 						<Controller as={Input} control={control} name='time_out_hour' placeholder='Hour' />
 					</Form.Item>
 					<Form.Item>
 						<Controller as={Input} control={control} name='time_out_minute' placeholder='Minute' />
 					</Form.Item>
 					<Radio.Group>
-						<Form.Item label='AM'>
+						<Form.Item label='AM' {...fieldProps}>
 							<Controller as={Radio} control={control} name='time_out_am' value={1} />
 						</Form.Item>
-						<Form.Item label='PM'>
+						<Form.Item label='PM' {...fieldProps}>
 							<Controller as={Radio} control={control} name='time_out_pm' value={2} />
 						</Form.Item>
 					</Radio.Group>
 				</Row>
 				<Row>
-					<Form.Item label='Total hours served'>
+					<Form.Item label='Total hours served' {...fieldProps}>
 						<Controller as={Input} control={control} name='total_hours' placeholder='Total hours' />
 					</Form.Item>
 				</Row>
 				<Row>
-					<Form.Item label='Certifications'>
+					<Form.Item label='Certifications' {...fieldProps}>
 						<Controller as={Input} control={control} name='certifications' placeholder='Certifications' />
 					</Form.Item>
 				</Row>
 				<Row>
-					<Form.Item label='Notes on performance'>
+					<Form.Item label='Notes on performance' {...fieldProps}>
 						<Controller
 							as={TextArea}
 							control={control}

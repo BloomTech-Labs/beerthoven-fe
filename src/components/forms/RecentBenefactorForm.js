@@ -17,7 +17,7 @@ const RecentBenefactorForm = () => {
 	};
 
 	return (
-		<Form>
+		<Form layout='vertical'>
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<Form.Item >
 					<Select style={{ width: 400 }}>
