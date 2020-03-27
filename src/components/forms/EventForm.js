@@ -1,30 +1,32 @@
-           import React from 'react';
-import { useForm } from 'react-hook-form';
+import React from 'react';
+import { useForm, Controller } from 'react-hook-form';
 import { Form, Input, Button } from 'antd';
 
-const EventForm = props => {
-	const { handleSubmit, event, errors } = useForm();
-	const onSubmit = values => {
-		console.log('submit successful', values);
+const EventForm = () => {
+	const { handleSubmit, control, errors } = useForm();
+	const onSubmit = data => {
+		console.log('data', data);
 	};
 
-	const onFail = err => {
-		console.warn('error submitting', err);
+	const fieldProps = {
+		colon : false,
 	};
 
 	return (
-		<Form name='event_form' onFinish={handleSubmit(onSubmit)} onFinishFailed={onFail}>
-			<Form.Item label='Event name' name='event_name'>
-				<Input />
-			</Form.Item>
-			<Form.Item label='Event type' name='event_type'>
-				<Input />
-			</Form.Item>
-			<Form.Item>
-				<Button type='primary' htmlType='submit'>
-					Submit
-				</Button>
-			</Form.Item>
+		<Form name='event_form'>
+			<form onSubmit={handleSubmit(onSubmit)}>
+				<Form.Item label='Event name' name='event_name'>
+					<Input />
+				</Form.Item>
+				<Form.Item label='Event type' name='event_type'>
+					<Input />
+				</Form.Item>
+				<Form.Item>
+					<Controller name='submit' as={Button} type='primary' htmlType='submit' control={control}>
+						Submit
+					</Controller>
+				</Form.Item>
+			</form>
 		</Form>
 	);
 };

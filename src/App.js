@@ -14,7 +14,7 @@ import BoardMemberForm from './components/forms/BoardMemberForm';
 import Example from './components/forms/Example';
 import ComposerForm from './components/forms/ComposerForm';
 import PerformerForm from './components/forms/PerformerForm';
-import HouseConcertHostForm from './components/forms/HouseContactHostForm';
+import HouseContactHostForm from './components/forms/HouseContactHostForm';
 import BusinessPartnerForm from './components/forms/BusinessPartnerForm';
 import MediaContactForm from './components/forms/MediaContactForm';
 import WorkContactForm from './components/forms/WorkContactForm';
@@ -55,8 +55,8 @@ function App () {
 				<Route path='/volunteer'>
 					<VolunteerForm />
 				</Route>
-				<Route path='/houseconcert'>
-					<HouseConcertHostForm />
+				<Route path='/housecontact'>
+					<HouseContactHostForm />
 				</Route>
 				<Route path='/event'>
 					<EventForm />

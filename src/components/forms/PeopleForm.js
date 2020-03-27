@@ -6,7 +6,7 @@ import { Form, Input, Button, Select, Row, Col } from 'antd';
 const { Option } = Select;
 
 const PeopleForm = () => {
-	const { control, register, handleSubmit, errors } = useForm();
+	const { control, handleSubmit, errors } = useForm();
 	const onSubmit = data => {
 		console.log('data', data);
 	};
