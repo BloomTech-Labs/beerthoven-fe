@@ -71,6 +71,9 @@ export default function App() {
           {errors.normal_input_custom && <span>Required</span>}
         </Form.Item>
 
+
+        
+
         {/* <Form.Item name='method-of-add' label='Method of Add'>
       <Controller as={Select} control={control} name='method-of-add'>
       <Option value="jack">Jack</Option>
@@ -189,6 +192,10 @@ export default function App() {
           <Radio value={4}>D</Radio>
         </Radio.Group>
 
+
+
+
+
         <section>
           <Form.Item label='RadioKilla'>
             <Controller
@@ -207,20 +214,21 @@ export default function App() {
 
 
         <section>
+          **** THIS IS THE ONE THAT WORKS BEST... BUT ITS NOT STYLED  ****
           <Form.Item label='Genderallowed'>
             <Controller
               as={
                 <>
-                  {/* <input type="radio" id="male" name="gender2" value="male" ref={register({required: false})}/>
+                  <input type="radio" id="male" name="gender2" value="male" ref={register({required: false})}/>
   <label for="male">Male</label>
   <input type="radio" id="female" name="gender2" value="female" ref={register({required: false})}/>
   <label for="female">Female</label>
   <input type="radio" id="other" name="gender2" value="other" ref={register({required: false})}/>
-  <label for="other">Other</label> */}
-                  <select name="Developer" ref={register({ required: true })}>
+  <label for="other">Other</label>
+                  {/* <select name="Developer" ref={register({ required: true })}>
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
-                  </select>
+                  </select> */}
                 </>
               }
               name="class_intensity2"
@@ -254,7 +262,7 @@ export default function App() {
           <Form.Item label='Genderallowed 3'>
             <Controller
               type="radio"
-              as={Radio}
+              as={Radio.Group}
               name="class_gender3"
 
               options={[
@@ -316,7 +324,6 @@ export default function App() {
         </section>
 
         <section>
-DAY 3
 
         <Form.Item label='DAY5'>
             <Controller
@@ -360,6 +367,27 @@ DAY 3
                </Controller>
           </Form.Item>
         </section>
+
+        <section>
+  Day 6
+  <Radio.Group ref={register({ required: false })} name="DAY6_">
+  <Controller
+              as={Radio}
+              value={1}
+              name="DAY6_"
+              control={control}
+            >A 1</Controller>
+            <Controller
+              as={Radio}
+              value={2}
+              name="DAY6_"
+              control={control}
+            >B 2</Controller>
+        </Radio.Group>
+
+
+
+</section>
 
 
         {/* <section>
