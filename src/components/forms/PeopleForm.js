@@ -117,19 +117,31 @@ const PeopleForm = () => {
 					]}>
 					<Col span={6}>
 						<Form.Item label='State' {...fieldProps}>
-							<Controller as={Input} type='text' control={control} name='state' placeholder='Enter state' />
+							<Controller
+								as={Input}
+								type='text'
+								control={control}
+								name='state'
+								placeholder='Enter state'
+							/>
 						</Form.Item>
 					</Col>
 					<Col span={6}>
 						<Form.Item label='Zip code' {...fieldProps}>
-							<Controller as={Input} type='text' control={control} name='zip' placeholder='Enter zip code' />
+							<Controller
+								as={Input}
+								type='text'
+								control={control}
+								name='zip'
+								placeholder='Enter zip code'
+							/>
 						</Form.Item>
 					</Col>
 					<Col span={6}>
 						<Form.Item name='method-of-add' label='Method of Add' {...fieldProps}>
 							<Controller as={Select} control={control} name='method-of-add'>
 								<Option>select</Option>
-								< value='option1'>Option 1</Option>
+								<Option value='option1'>Option 1</Option>
 								<Option value='option2'>Option 2</Option>
 							</Controller>
 						</Form.Item>
