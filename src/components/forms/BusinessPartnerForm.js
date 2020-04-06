@@ -1,12 +1,11 @@
 import React from 'react';
-import { useForm, Controller, FormContext } from 'react-hook-form';
-import { Form, Input, Button, Select, DatePicker, Row, Radio } from 'antd';
+import { useForm, Controller} from 'react-hook-form';
+import { Form, Input, Button, Select} from 'antd';
 const { Option } = Select;
 const { Search } = Input;
-const { TextArea } = Input;
 
 const BusinessPartnerForm = () => {
-	const { control, register, handleSubmit, errors, reset } = useForm();
+	const { control, handleSubmit, errors, reset } = useForm();
 
 	const onSubmit = (data, e) => {
 		console.log(data);
@@ -18,7 +17,7 @@ const BusinessPartnerForm = () => {
 	};
 
 	return (
-		<Form>
+		<Form layout='vertical'>
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<Form.Item name=''>
 					<Select style={{ width: 400 }}>

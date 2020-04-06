@@ -3,10 +3,9 @@ import { useForm, Controller, FormContext } from 'react-hook-form';
 import { Form, Input, Button, Select, DatePicker, Row, Radio } from 'antd';
 const { Option } = Select;
 const { Search } = Input;
-const { TextArea } = Input;
 
 const RecentBenefactorForm = () => {
-	const { control, register, handleSubmit, errors, reset } = useForm();
+	const { control, handleSubmit, errors, reset } = useForm();
 
 	const onSubmit = (data, e) => {
 		console.log(data);
@@ -18,14 +17,14 @@ const RecentBenefactorForm = () => {
 	};
 
 	return (
-		<Form>
+		<Form layout='vertical'>
 			<form onSubmit={handleSubmit(onSubmit)}>
-				<Form.Item name=''>
+				<Form.Item >
 					<Select style={{ width: 400 }}>
 						<Option>Most Recent Benefactor Season Form</Option>
 					</Select>
 				</Form.Item>
-				<Form.Item name=''>
+				<Form.Item>
 					<Search
 						placeholder='Search for record'
 						onSearch={value => console.log(value)}
