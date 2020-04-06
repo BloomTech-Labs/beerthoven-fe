@@ -16,7 +16,7 @@ const BoardMemberForm = () => {
 	};
 
 	return (
-		<Form>
+		<Form layout='vertical'>
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<Form.Item name=''>
 					<Select style={{ width: 400 }}>
