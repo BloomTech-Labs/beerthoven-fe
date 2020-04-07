@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
+import gql from 'graphql-tag';
 import { useForm, Controller } from 'react-hook-form';
-
+import { useQuery, useMutation } from '@apollo/react-hooks';
 import { Form, Input, Button, Row, Col, Select } from 'antd';
 
 const { Option } = Select;
@@ -8,10 +9,12 @@ const { TextArea } = Input;
 const { Search } = Input;
 
 const BenefactorForm = () => {
+	
 	const { control, handleSubmit, errors } = useForm();
 	const onSubmit = data => {
 		console.log(data);
 	};
+
 
 	const fieldProps = {
 		colon : false,
