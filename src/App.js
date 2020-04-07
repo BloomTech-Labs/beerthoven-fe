@@ -4,7 +4,7 @@ import './App.css';
 
 import Dashboard from './components/pages/Dashboard';
 import Login from './components/pages/Login';
-import PeopleForm from './components/forms/PeopleForm';
+import People from './components/pages/People';
 import VolunteerForm from './components/forms/VolunteerForm';
 import BenefactorForm from './components/forms/BenefactorForm';
 import BoardMemberForm from './components/forms/BoardMemberForm';
@@ -32,7 +32,7 @@ function App () {
 					<BoardMemberForm />
 				</Route>
 				<Route path='/people'>
-					<PeopleForm />
+					<People />
 				</Route>
 				<Route path='/businesspartner'>
 					<BusinessPartnerForm />
