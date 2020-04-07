@@ -11,7 +11,7 @@ const PeopleForm = ({ onSubmit }) => {
 	};
 
 	return (
-		<form onSubmit={handleSubmit(onSubmit)}>
+		<Form layout="vertical" onFinish={onSubmit}>
 			<h1>Add New Profile</h1>
 			<Row
 				gutter={[
@@ -19,46 +19,40 @@ const PeopleForm = ({ onSubmit }) => {
 					16,
 				]}>
 				<Col span={12}>
-					<Form.Item label='First Name' {...fieldProps}>
-						<Controller
-							as={Input}
-							type='text'
-							control={control}
-							name='first_name'
-							placeholder='Enter first name'
-						/>
-						{errors.first_name && <p>Required</p>}
+					<Form.Item
+						label='First Name'
+						name="first_name"
+						{...fieldProps}
+						rules={[{ required: true }]}
+					>
+						<Input placeholder="Enter first name" />
 					</Form.Item>
-					<Form.Item label='Email' {...fieldProps}>
-						<Controller
-							as={Input}
-							type='email'
-							control={control}
-							name='email'
-							placeholder='Enter email address'
-						/>
+					<Form.Item
+						label='Email'
+						name="email"
+						{...fieldProps}
+						rules={[{ required: true }]}
+					>
+						<Input type="email" placeholder="Enter email address" />
 					</Form.Item>
 				</Col>
 
 				<Col span={12}>
-					<Form.Item label='Last Name' {...fieldProps}>
-						<Controller
-							as={Input}
-							type='text'
-							control={control}
-							name='last_name'
-							placeholder='Enter last name'
-						/>
+					<Form.Item
+						label='Last Name'
+						name="last_name"
+						{...fieldProps}
+						rules={[{ required: true }]}
+					>
+						<Input placeholder="Enter last name" />
 					</Form.Item>
 
-					<Form.Item label='Phone number' {...fieldProps}>
-						<Controller
-							as={Input}
-							type='number'
-							control={control}
-							name='phone'
-							placeholder='Enter phone number'
-						/>
+					<Form.Item
+						label='Phone number'
+						name="phone"
+						{...fieldProps}
+					>
+						<Input type="number" placeholder="Enter phone number" />
 					</Form.Item>
 				</Col>
 			</Row>
@@ -69,14 +63,12 @@ const PeopleForm = ({ onSubmit }) => {
 					16,
 				]}>
 				<Col>
-					<Form.Item label='Address' {...fieldProps}>
-						<Controller
-							as={Input}
-							type='text'
-							control={control}
-							name='address'
-							placeholder='Enter street address'
-						/>
+					<Form.Item
+						label='Address'
+						name="address"
+						{...fieldProps}
+					>
+						<Input placeholder="Enter street address" />
 					</Form.Item>
 				</Col>
 			</Row>
@@ -87,19 +79,21 @@ const PeopleForm = ({ onSubmit }) => {
 					16,
 				]}>
 				<Col span={12}>
-					<Form.Item label='Address line 2 (optional)' {...fieldProps}>
-						<Controller
-							as={Input}
-							type='text'
-							control={control}
-							name='address2'
-							placeholder='Enter apartment, suite, etc'
-						/>
+					<Form.Item
+						label='Address line 2 (optional)'
+						name="address2"
+						{...fieldProps}
+					>
+						<Input placeholder='Enter apartment, suite, etc' />
 					</Form.Item>
 				</Col>
 				<Col span={12}>
-					<Form.Item label='City' {...fieldProps}>
-						<Controller as={Input} type='text' control={control} name='city' placeholder='Enter city' />
+					<Form.Item
+						label='City'
+						name="city"
+						{...fieldProps}
+					>
+						<Input placeholder='Enter city' />
 					</Form.Item>
 				</Col>
 			</Row>
@@ -110,22 +104,33 @@ const PeopleForm = ({ onSubmit }) => {
 					16,
 				]}>
 				<Col span={6}>
-					<Form.Item label='State' {...fieldProps}>
-						<Controller as={Input} type='text' control={control} name='state' placeholder='Enter state' />
+					<Form.Item
+						label='State'
+						name="state"
+						{...fieldProps}
+					>
+						<Input placeholder='Enter state' />
 					</Form.Item>
 				</Col>
 				<Col span={6}>
-					<Form.Item label='Zip code' {...fieldProps}>
-						<Controller as={Input} type='text' control={control} name='zip' placeholder='Enter zip code' />
+					<Form.Item
+						label='Zip code'
+						name="zip"
+						{...fieldProps}
+						rules={[{ required: true }]}
+					>
+						<Input placeholder='Enter zip code' />
 					</Form.Item>
 				</Col>
 				<Col span={12} />
 			</Row>
 
-			<Controller name='submit' as={Button} type='primary' htmlType='submit' control={control}>
-				Submit
-			</Controller>
-		</form>
+			<Form.Item>
+				<Button type="primary" htmlType="submit">
+					Submit
+				</Button>
+			</Form.Item>
+		</Form>
 	);
 };
 
