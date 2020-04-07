@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
-
+import { BrowserRouter as Router } from 'react-router-dom';
 import Dashboard from './components/pages/Dashboard';
 import Login from './components/pages/Login';
 import People from './components/pages/People';
@@ -21,53 +21,55 @@ import RecentBenefactorForm from './components/forms/RecentBenefactorForm';
 function App () {
 	return (
 		<div className='App'>
-			<Switch>
-				<Route path='/login'>
-					<Login />
-				</Route>
-				<Route path='/benefactor'>
-					<BenefactorForm />
-				</Route>
-				<Route path='/boardmember'>
-					<BoardMemberForm />
-				</Route>
-				<Route path='/people'>
-					<People />
-				</Route>
-				<Route path='/businesspartner'>
-					<BusinessPartnerForm />
-				</Route>
-				<Route path='/composer'>
-					<ComposerForm />
-				</Route>
-				<Route path='/performer'>
-					<PerformerForm />
-				</Route>
-				<Route path='/media'>
-					<MediaContactForm />
-				</Route>
-				<Route path='/volunteer'>
-					<VolunteerForm />
-				</Route>
-				<Route path='/housecontact'>
-					<HouseContactHostForm />
-				</Route>
-				<Route path='/workcontact'>
-					<WorkContactForm />
-				</Route>
-				<Route path='/example'>
-					<Example />
-				</Route>
-				<Route path='/businessinfo'>
-					<BusinessInfoForm />
-				</Route>
-				<Route path='/recentbenefactor'>
-					<RecentBenefactorForm />
-				</Route>
-				<Route>
-					<Dashboard />
-				</Route>
-			</Switch>
+			<Router>
+				<Switch>
+					<Route path='/login'>
+						<Login />
+					</Route>
+					<Route path='/benefactor'>
+						<BenefactorForm />
+					</Route>
+					<Route path='/boardmember'>
+						<BoardMemberForm />
+					</Route>
+					<Route path='/people'>
+						<People />
+					</Route>
+					<Route path='/businesspartner'>
+						<BusinessPartnerForm />
+					</Route>
+					<Route path='/composer'>
+						<ComposerForm />
+					</Route>
+					<Route path='/performer'>
+						<PerformerForm />
+					</Route>
+					<Route path='/media'>
+						<MediaContactForm />
+					</Route>
+					<Route path='/volunteer'>
+						<VolunteerForm />
+					</Route>
+					<Route path='/housecontact'>
+						<HouseContactHostForm />
+					</Route>
+					<Route path='/workcontact'>
+						<WorkContactForm />
+					</Route>
+					<Route path='/example'>
+						<Example />
+					</Route>
+					<Route path='/businessinfo'>
+						<BusinessInfoForm />
+					</Route>
+					<Route path='/recentbenefactor'>
+						<RecentBenefactorForm />
+					</Route>
+					<Route>
+						<Dashboard />
+					</Route>
+				</Switch>
+			</Router>
 		</div>
 	);
 }
