@@ -1,10 +1,7 @@
 import React from 'react';
-import { useForm, Controller } from 'react-hook-form';
-
-import { Form, Input, Button, Select, Row, Col } from 'antd';
+import { Form, Input, Button, Row, Col } from 'antd';
 
 const PeopleForm = ({ onSubmit }) => {
-	const { control, handleSubmit, errors } = useForm();
 
 	const fieldProps = {
 		colon : false,
@@ -27,16 +24,7 @@ const PeopleForm = ({ onSubmit }) => {
 					>
 						<Input placeholder="Enter first name" />
 					</Form.Item>
-					<Form.Item
-						label='Email'
-						name="email"
-						{...fieldProps}
-						rules={[{ required: true }]}
-					>
-						<Input type="email" placeholder="Enter email address" />
-					</Form.Item>
 				</Col>
-
 				<Col span={12}>
 					<Form.Item
 						label='Last Name'
@@ -46,7 +34,25 @@ const PeopleForm = ({ onSubmit }) => {
 					>
 						<Input placeholder="Enter last name" />
 					</Form.Item>
+				</Col>
+			</Row>
 
+			<Row
+				gutter={[
+					16,
+					16,
+				]}>
+				<Col span={12}>
+					<Form.Item
+						label='Email'
+						name="email"
+						{...fieldProps}
+						rules={[{ required: true }]}
+					>
+						<Input type="email" placeholder="Enter email address" />
+					</Form.Item>
+				</Col>
+				<Col span={12}>
 					<Form.Item
 						label='Phone number'
 						name="phone"
