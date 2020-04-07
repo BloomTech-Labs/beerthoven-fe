@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Form, Input, Button, Row, Col } from 'antd';
 
 const PeopleForm = ({ onSubmit }) => {
+
+	const [submitted, setSubmitted] = useState(false);
 
 	const fieldProps = {
 		colon : false,
 	};
 
-	return (
-		<Form layout="vertical" onFinish={onSubmit}>
+	const submitForm = values => {
+		setSubmitted(true);
+		onSubmit(values);
+	};
+
+	return !submitted ? (
+		<Form layout="vertical" onFinish={submitForm}>
 			<h1>Add New Profile</h1>
 			<Row
 				gutter={[
@@ -137,6 +144,8 @@ const PeopleForm = ({ onSubmit }) => {
 				</Button>
 			</Form.Item>
 		</Form>
+	) : (
+		<p>Submitted successfully</p>
 	);
 };
 
