@@ -1,101 +1,115 @@
 import React from 'react';
-import { useForm, Controller } from 'react-hook-form';
+import { Form, Input, Button, Row, Col } from 'antd';
 
-import { Form, Input, Button, Row, Col, Select } from 'antd';
-
-const { Option } = Select;
-const { Search } = Input;
-const BoardMemberForm = () => {
-	const { handleSubmit, control} = useForm();
-	const onSubmit = data => {
-		console.log('data', data);
-	};
-
-	const fieldProps = {
-		colon : false,
-	};
+const BoardMemberForm = ({ onSubmit }) => {
 
 	return (
-		<Form layout='vertical'>
-			<form onSubmit={handleSubmit(onSubmit)}>
-				<Form.Item name=''>
-					<Select style={{ width: 400 }}>
-						<Option>Board Member Form</Option>
-					</Select>
-				</Form.Item>
-				<Form.Item name=''>
-					<Search
-						placeholder='Search for record'
-						onSearch={value => console.log(value)}
-						style={{ width: 400 }}
-					/>
-				</Form.Item>
-				<h1>Board Member Form</h1>
-				<Row>
-					<Col>
-						<Form.Item label='Board service dates' {...fieldProps}>
-							<Controller as={Input} name="board_service_dates" control={control} placeholder='Board service dates' style={{ width: 600 }} />
-						</Form.Item>
-					</Col>
-				</Row>
-				<Row>
-					<Col>
-						<Form.Item label='Special Skills' {...fieldProps}>
-							<Controller as={Input} name="special_skills"  control={control} placeholder='Special Skills' style={{ width: 600 }} />
-						</Form.Item>
-					</Col>
-				</Row>
-				<Row>
-					<Col>
-						<Form.Item label='Officer' {...fieldProps}>
-							<Controller as={Input} name="officer" control={control} placeholder='Officer' style={{ width: 300 }} />
-						</Form.Item>
-					</Col>
-					<Col>
-						<Form.Item label='Committee chair' {...fieldProps}>
-							<Controller as={Input} name="committee_chair" control={control} placeholder='Committee chair' style={{ width: 300 }} />
-						</Form.Item>
-					</Col>
-				</Row>
-				<Row>
-					<Col>
-						<Form.Item label='Committees Served' {...fieldProps}>
-							<Controller as={Input} name="committees_served" control={control} placeholder='Perk' style={{ width: 600 }} />
-						</Form.Item>
-					</Col>
-				</Row>
-				<Row>
-					<Col>
-						<Form.Item label='Business website' {...fieldProps}>
-							<Controller as={Input} name="business_website" control={control} placeholder='Business website address' style={{ width: 600 }} />
-						</Form.Item>
-					</Col>
-				</Row>
-				<Row>
-					<Col>
-						<Form.Item label='Business street address' {...fieldProps}>
-							<Controller as={Input} name="business_address" control={control} placeholder='Business street address' style={{ width: 600 }} />
-						</Form.Item>
-					</Col>
-				</Row>
-				<Row>
-					<Col>
-						<Form.Item label='Business email' {...fieldProps}>
-							<Controller as={Input} name="business_email" type="email" control={control} placeholder='Business email address' style={{ width: 600 }} />
-						</Form.Item>
-					</Col>
-				</Row>
-				<Row>
-					<Col>
-						<Form.Item label='Business phone number' {...fieldProps}>
-							<Controller as={Input} name="business_phone_number" control={control} placeholder='(XXX) XXX-XXXX' style={{ width: 600 }} />
-						</Form.Item>
-					</Col>
-				</Row>
-				<Controller name='submit' as={Button} type='primary' htmlType='submit' control={control}>
+		<Form layout='vertical' onFinish={onSubmit}>
+			<h1>Board Member Form</h1>
+			<Row>
+				<Col>
+					<Form.Item
+						label='Board service dates'
+						name="board_service_dates"
+						style={{ width: 600 }}
+					>
+						<Input
+							placeholder='Board service dates'
+						/>
+					</Form.Item>
+				</Col>
+			</Row>
+			<Row>
+				<Col>
+					<Form.Item
+						label='Special Skills'
+						name="special_skills" 
+						style={{ width: 600 }}
+					>
+						<Input placeholder='Special Skills'  />
+					</Form.Item>
+				</Col>
+			</Row>
+			<Row>
+				<Col>
+					<Form.Item
+						label='Officer'
+						name="officer"
+						style={{ width: 300 }}
+					>
+						<Input placeholder='Officer' />
+					</Form.Item>
+				</Col>
+				<Col>
+					<Form.Item
+						label='Committee chair'
+						name="committee_chair"
+						style={{ width: 300 }}
+					>
+						<Input placeholder='Committee chair' />
+					</Form.Item>
+				</Col>
+			</Row>
+			<Row>
+				<Col>
+					<Form.Item
+						label='Committees Served'
+						name="committees_served"
+						style={{ width: 600 }}
+					>
+						<Input placeholder='Committees served' />
+					</Form.Item>
+				</Col>
+			</Row>
+			<Row>
+				<Col>
+					<Form.Item
+						label='Business website'
+						name="business_website"
+						style={{ width: 600 }}
+					>
+						<Input placeholder='Business website address' />
+					</Form.Item>
+				</Col>
+			</Row>
+			<Row>
+				<Col>
+					<Form.Item
+						label='Business street address'
+						name="business_address"
+						style={{ width: 600 }}
+					>
+						<Input placeholder='Business street address' />
+					</Form.Item>
+				</Col>
+			</Row>
+			<Row>
+				<Col>
+					<Form.Item
+						label='Business email'
+						name="business_email"
+						style={{ width: 600 }}
+					>
+						<Input type="email" placeholder='Business email address' />
+					</Form.Item>
+				</Col>
+			</Row>
+			<Row>
+				<Col>
+					<Form.Item
+						label='Business phone number'
+						name="business_phone_number"
+						style={{ width: 600 }}
+					>
+						<Input type="tel" placeholder='(XXX) XXX-XXXX' />
+					</Form.Item>
+				</Col>
+			</Row>
+			<Form.Item>
+				<Button type='primary' htmlType='submit'>
 					Submit
-				</Controller>
-			</form>
+				</Button>
+			</Form.Item>
 		</Form>
 	);
 };

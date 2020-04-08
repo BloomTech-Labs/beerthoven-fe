@@ -5,8 +5,8 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import Dashboard from './components/pages/Dashboard';
 import Login from './components/pages/Login';
 import People from './components/pages/People';
-import VolunteerForm from './components/forms/VolunteerForm';
-import BenefactorForm from './components/forms/BenefactorForm';
+import Volunteer from './components/pages/Volunteer';
+import Benefactor from './components/pages/Benefactor';
 import BoardMemberForm from './components/forms/BoardMemberForm';
 import Example from './components/forms/Example';
 import ComposerForm from './components/forms/ComposerForm';
@@ -14,7 +14,7 @@ import PerformerForm from './components/forms/PerformerForm';
 import HouseContactHostForm from './components/forms/HouseContactHostForm';
 import BusinessPartnerForm from './components/forms/BusinessPartnerForm';
 import MediaContactForm from './components/forms/MediaContactForm';
-import WorkContactForm from './components/forms/WorkContactForm';
+import WorkContact from './components/pages/WorkContact';
 import BusinessInfoForm from './components/forms/BusinessInfoForm';
 import RecentBenefactorForm from './components/forms/RecentBenefactorForm';
 
@@ -27,7 +27,7 @@ function App () {
 						<Login />
 					</Route>
 					<Route path='/benefactor'>
-						<BenefactorForm />
+						<Benefactor />
 					</Route>
 					<Route path='/boardmember'>
 						<BoardMemberForm />
@@ -48,13 +48,13 @@ function App () {
 						<MediaContactForm />
 					</Route>
 					<Route path='/volunteer'>
-						<VolunteerForm />
+						<Volunteer />
 					</Route>
 					<Route path='/housecontact'>
 						<HouseContactHostForm />
 					</Route>
 					<Route path='/workcontact'>
-						<WorkContactForm />
+						<WorkContact />
 					</Route>
 					<Route path='/example'>
 						<Example />

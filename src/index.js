@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter as Router } from 'react-router';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { ApolloProvider } from 'react-apollo';
 import { ApolloClient } from 'apollo-client';
 import { createHttpLink } from 'apollo-link-http';
@@ -23,12 +23,10 @@ const client = new ApolloClient({
 
 ReactDOM.render(
 	//Render the root component of your React app. The App is wrapped with the high-order component ApolloProvider that gets passed the client as a prop.
-	<Router>
-		<ApolloProvider client={client}>
-			<App />
-		</ApolloProvider>
-	</Router>,
-	document.getElementById('root'),
+	<ApolloProvider client={client}>
+		<App />
+	</ApolloProvider>,
+	document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change
