@@ -3,3 +3,17 @@
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom/extend-expect';
+
+// for form submissions with antd
+if (typeof window !== 'undefined') { 
+    const matchMediaPolyfill = function matchMediaPolyfill() { 
+        return { 
+            matches: false, 
+            addListener() { 
+            }, 
+            removeListener() { 
+            }, 
+        }; 
+    }; 
+    window.matchMedia = window.matchMedia || matchMediaPolyfill; 
+}
