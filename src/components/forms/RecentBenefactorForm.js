@@ -20,14 +20,14 @@ const RecentBenefactorForm = ({onSubmit}) => {
 					</Form.Item>
 
 					{/* this part won't pull up calendar if deleted */}
-					<Form.Item label='Date of donation' name='date_of_donation'>
+					<Form.Item label='Date of donation'>
 						{/* <DatePicker
 							type='text'
 							placeholder='Select donation'
 						/> */}
 					</Form.Item>
 
-					<Form.Item  name='date_of_donation'>
+					<Form.Item  label='Date of donation' name='date_of_donation'>
 					<DatePicker type='text' placeholder='Select donation date' />
 					{/* {errors.date_thanked && <p>Required</p>} */}
 				</Form.Item>

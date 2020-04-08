@@ -7,16 +7,16 @@ import Login from './components/pages/Login';
 import People from './components/pages/People';
 import Volunteer from './components/pages/Volunteer';
 import Benefactor from './components/pages/Benefactor';
-import BoardMemberForm from './components/forms/BoardMemberForm';
+import BoardMember from './components/pages/BoardMember';
 import Example from './components/forms/Example';
 import ComposerForm from './components/forms/ComposerForm';
-import PerformerForm from './components/forms/PerformerForm';
+import Performer from './components/pages/Performer';
 import HouseContactHostForm from './components/forms/HouseContactHostForm';
 import BusinessPartnerForm from './components/forms/BusinessPartnerForm';
 import MediaContactForm from './components/forms/MediaContactForm';
 import WorkContact from './components/pages/WorkContact';
 import BusinessInfoForm from './components/forms/BusinessInfoForm';
-import RecentBenefactorForm from './components/forms/RecentBenefactorForm';
+import RecentBenefactor from './components/pages/RecentBenefactor';
 
 function App () {
 	return (
@@ -30,7 +30,7 @@ function App () {
 						<Benefactor />
 					</Route>
 					<Route path='/boardmember'>
-						<BoardMemberForm />
+						<BoardMember />
 					</Route>
 					<Route path='/people'>
 						<People />
@@ -42,7 +42,7 @@ function App () {
 						<ComposerForm />
 					</Route>
 					<Route path='/performer'>
-						<PerformerForm />
+						<Performer />
 					</Route>
 					<Route path='/media'>
 						<MediaContactForm />
@@ -63,7 +63,7 @@ function App () {
 						<BusinessInfoForm />
 					</Route>
 					<Route path='/recentbenefactor'>
-						<RecentBenefactorForm />
+						<RecentBenefactor />
 					</Route>
 					<Route>
 						<Dashboard />
