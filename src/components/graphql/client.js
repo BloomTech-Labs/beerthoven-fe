@@ -16,7 +16,7 @@ const delay = setContext(
 
 const cache = new InMemoryCache();
 const http = new HttpLink({
-	uri : 'http://localhost:4000',
+	uri : 'https://apollo.beerthoven.dev/',
 });
 
 const link = ApolloLink.from([

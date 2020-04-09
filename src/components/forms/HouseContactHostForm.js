@@ -5,139 +5,96 @@ const { Option } = Select;
 const { Search } = Input;
 const { TextArea } = Input;
 
+const HouseContactHostForm = ({onSubmit}) => {
 
-const HouseContactHostForm = () => {
-
-
-		// <Form layout='vertical'>
-			<form onSubmit={handleSubmit(onSubmit)}>
-		e.target.reset(); //supposed to reset
-	};
 	return (
-		<Form layout='vertical'>
-			<form onSubmit={handleSubmit(onSubmit)}>
-				<Form.Item>
-					<Select style={{ width: 400 }}>
-						<Option>House Concert Host Form</Option>
-					</Select>
-				</Form.Item>
-				<Form.Item>
-					<Search
-						placeholder='Search for record'
-						onSearch={value => console.log(value)}
-						style={{ width: 400 }}
-					/>
-				</Form.Item>
+		<Form layout='vertical' onFinish={onSubmit}>
 				<h1>House Concert Host Form</h1>
 				<Row>
-					<Form.Item label='Event hosted'>
-						<Controller as={Input} control={control} name='event_hosted' placeholder='Event hosted' />
+					<Form.Item label='Event hosted' name='event_hosted'>
+						<Input  placeholder='Event hosted' />
 					</Form.Item>
-					<Form.Item label='Event date'>
-						<Controller
-							as={DatePicker}
-							control={control}
-							name='event_date'
+					<Form.Item label='Event date' name='event_date'>
+						<DatePicker
 							placeholder='Select event date'
 						/>
 					</Form.Item>
 				</Row>
 				<Row>
-					<Form.Item label='Equipment load in time'>
-						<Controller as={Input} control={control} name='equipment_load_in' placeholder='Load in time' />
+					<Form.Item label='Equipment load in time' name='equipment_load_in'>
+						<Input  placeholder='Load in time' />
 					</Form.Item>
-					<Form.Item label='Equipment load out time'>
-						<Controller
-							as={Input}
-							control={control}
-							name='equipment_load_out'
+					<Form.Item name='equipment_load_out' label='Equipment load out time'>
+						<Input
 							placeholder='Load out time'
 						/>
 					</Form.Item>
 				</Row>
 				<Row>
-					<Form.Item label='Square footage of concert space'>
-						<Controller
-							as={Input}
-							control={control}
-							name='square_footage'
-							placeholder='Venue square footage'
+					<Form.Item name='square_footage' label='Square footage of concert space'>
+						<Input placeholder='Venue square footage'
 						/>
 					</Form.Item>
-					<Form.Item label='Guest capacity'>
-						<Controller as={Input} control={control} name='guest_capacity' placeholder='Guest capacity' />
+					<Form.Item label='Guest capacity' name='guest_capacity'>
+						<Input  placeholder='Guest capacity' />
 					</Form.Item>
 				</Row>
-				<Form.Item label='Notes on accessibility'>
-					<Controller
-						as={TextArea}
-						control={control}
-						name='accessibility_notes'
-						placeholder='Accessibility notes'
+				<Form.Item label='Notes on accessibility' name='accessibility_notes'>
+					<TextArea placeholder='Accessibility notes'
 					/>
 				</Form.Item>
 				<Row>
 					<Form.Item label='Host guest preferences'>
 						<Select style={{ width: 400 }}>
-							<Controller as={Option} control={control} name='host_guest_preferences' />
+							<Option name='host_guest_preferences' />
 						</Select>
 					</Form.Item>
-					<Form.Item label='Host musical preferences'>
-						<Controller
-							as={Input}
-							control={control}
-							name='musical_preferences'
-							placeholder='Musical preferences'
+					<Form.Item name='musical_preferences' label='Host musical preferences'>
+						<Input placeholder='Musical preferences'
 						/>
 					</Form.Item>
 				</Row>
 				<Row>
 					<Radio.Group>
 						<p>Owns a quality piano</p>
-						<Form.Item label='Yes'>
-							<Controller as={Radio} control={control} name='owns_piano' value={1} />
+						<Form.Item label='Yes' name='owns_piano'>
+							<Radio  value={1} />
 						</Form.Item>
-						<Form.Item label='No'>
-							<Controller as={Radio} control={control} name='owns_piano' value={2} />
+						<Form.Item label='No' name='owns_piano'>
+							<Radio  value={2} />
 						</Form.Item>
 					</Radio.Group>
 					<Radio.Group>
 						<p>Photography allowed</p>
-						<Form.Item label='Yes'>
-							<Controller as={Radio} control={control} name='photography_allowed' value={1} />
+						<Form.Item label='Yes' name='photography_allowed'>
+							<Radio value={1} />
 						</Form.Item>
-						<Form.Item label='No'>
-							<Controller as={Radio} control={control} name='photography_allowed' value={2} />
+						<Form.Item label='No' name='photography_allowed'>
+							<Radio value={2} />
 						</Form.Item>
 					</Radio.Group>
 				</Row>
-				<Form.Item label='Notes about piano'>
-					<Controller as={TextArea} control={control} name='piano_notes' placeholder='Piano notes' />
+				<Form.Item label='Notes about piano' name='piano_notes'>
+					<TextArea placeholder='Piano notes' />
 				</Form.Item>
-				<Form.Item label='Parking notes'>
-					<Controller as={TextArea} control={control} name='parking_notes' placeholder='Parking notes' />
+				<Form.Item label='Parking notes' name='parking_notes'>
+					<TextArea placeholder='Parking notes' />
 				</Form.Item>
-				<Form.Item label='Other notes on space'>
-					<Controller
-						as={TextArea}
-						control={control}
-						name='other_space_notes'
+				<Form.Item label='Other notes on space' name='other_space_notes'>
+					<TextArea 
 						placeholder='Additional notes about venue'
 					/>
 				</Form.Item>
-				<Form.Item label='Other relevant notes'>
-					<Controller
-						as={TextArea}
-						control={control}
-						name='other_relevant_notes'
+				<Form.Item label='Other relevant notes' name='other_relevant_notes'>
+					<TextArea 
 						placeholder='Additional notes'
-			</form>
-			</form>
-		// 		</Form.Item>
-				<Controller name='submit' as={Button} type='primary' htmlType='submit' control={control}>
+					/>
+				</Form.Item>
+				<Form.Item>
+				<Button type='primary' htmlType='submit'>
 					Submit
-				</Controller>
-			</form>
+				</Button>
+			</Form.Item>
 		</Form>
 	);
 };

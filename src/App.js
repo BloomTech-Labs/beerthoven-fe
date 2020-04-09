@@ -6,6 +6,7 @@ import { ApolloProvider } from 'react-apollo';
 import { ApolloClient } from 'apollo-client';
 import { createHttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
+import client from './components/graphql/client'
 import Dashboard from './components/pages/Dashboard';
 import Login from './components/pages/Login';
 import People from './components/pages/People';
