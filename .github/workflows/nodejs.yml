@@ -27,10 +27,11 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
-      env:
-        CI: true
     - name: Code Climate Coverage
-    - uses: marsam/codeclimate-action@master
+      uses: marsam/codeclimate-action@master
       with:
         command: npx jest --coverage --coverageReporters=lcov
         reporter-id: ${{ secrets.CC_TEST_REPORTER_ID }} 
+      env:
+        CI: true
+
