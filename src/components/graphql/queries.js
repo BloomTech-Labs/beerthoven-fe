@@ -1,8 +1,8 @@
 import gql from 'graphql-tag';
 
-export const allPersons = gql`
-	query people($person: String) {
-		people(where: { person: $person }) {
+export const ALL_PERSONS = gql`
+	query {
+		persons {
 			id
 			first_name
 			last_name

@@ -1,18 +1,11 @@
 import React, { useState } from 'react';
 import { Form, Input, Button, Row, Col } from 'antd';
-import { useMutation } from '@apollo/react-hooks';
-import { ADD_PERSON } from '../graphql/mutations';
 
 const PeopleForm = ({ onSubmit }) => {
-	let input;
 	const [
 		submitted,
 		setSubmitted,
 	] = useState(false);
-	const [
-		addPerson,
-		{ data },
-	] = useMutation(ADD_PERSON);
 
 	const fieldProps = {
 		colon : false,
@@ -21,9 +14,6 @@ const PeopleForm = ({ onSubmit }) => {
 	const submitForm = values => {
 		setSubmitted(true);
 		onSubmit(values);
-		addPerson({ variables: { type: input.value } });
-		input.value = '';
-		console.log({ data });
 	};
 
 	return !submitted ? (
