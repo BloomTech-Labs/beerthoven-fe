@@ -1,14 +1,13 @@
 import gql from 'graphql-tag';
 
-export const ADD_PERSON = gql`
-	mutation AddPerson($person: PersonCreateInput!) {
-		addPerson(data: $person) {
+export const CREATE_PERSON = gql`
+	mutation {
+		createPerson(data: PersonCreateInput) {
+			id
 			first_name
 			last_name
-			email
 			phone
 			address
-			address2
 			city
 			state
 			zip

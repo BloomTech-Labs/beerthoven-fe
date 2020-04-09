@@ -2,6 +2,9 @@ import React from 'react';
 import PeopleForm from '../forms/PeopleForm';
 import { Link, Route, Switch } from 'react-router-dom';
 import { Button } from 'antd';
+import { useMutation } from '@apollo/react-hooks';
+import { CREATE_PERSON } from '../graphql/mutations';
+import { ALL_PERSONS } from '../graphql/queries';
 
 /**
  * This component should have internal routing to both a list of 
@@ -9,9 +12,11 @@ import { Button } from 'antd';
  */
 
 const People = () => {
+    const [createPerson, newPerson] = useMutation(CREATE_PERSON);
 
     const onSubmit = data => {
-		console.log('data', data);
+        console.log('data', data);
+        createPerson(data);
 	};
 
     return (
