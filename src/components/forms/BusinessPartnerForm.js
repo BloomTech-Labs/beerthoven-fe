@@ -5,7 +5,7 @@ const { Option } = Select;
 const { Search } = Input;
 
 const BusinessPartnerForm = () => {
-	const { control, handleSubmit, errors, reset } = useForm();
+	const { control, handleSubmit, errors } = useForm();
 
 	const onSubmit = (data, e) => {
 		console.log(data);

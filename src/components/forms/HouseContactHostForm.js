@@ -5,10 +5,10 @@ const { Option } = Select;
 const { Search } = Input;
 const { TextArea } = Input;
 
-const defaultValues = { firstName: '', example: '', name: '', exampleRequired: '' };
+// const defaultValues = { firstName: '', example: '', name: '', exampleRequired: '' };
 
-const HouseContactHostForm = ({submit}) => {
-	const { control, handleSubmit, errors, reset } = useForm();
+const HouseContactHostForm = () => {
+	const { control, handleSubmit } = useForm();
 
 	const onSubmit = (data, e) => {
 		console.log(data);

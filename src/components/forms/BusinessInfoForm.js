@@ -1,69 +1,40 @@
 import React from 'react';
-import { useForm, Controller} from 'react-hook-form';
-import { Form, Input, Button, Select} from 'antd';
-const { Option } = Select;
-const { Search } = Input;
+import { Form, Input, Button } from 'antd';
 
-const BusinessInfoForm = () => {
-	const { control, handleSubmit, errors, reset } = useForm();
-
-	const onSubmit = (data, e) => {
-		console.log(data);
-		e.target.reset(); //supposed to reset
-	};
-
-	const fieldProps = {
-		colon : false,
-	};
+const BusinessInfoForm = ({ onSubmit }) => {
 
 	return (
-		<Form layout='vertical'>
-			<form onSubmit={handleSubmit(onSubmit)}>
-				<Form.Item name=''>
-					<Select style={{ width: 400 }}>
-						<Option>Business Info Form</Option>
-					</Select>
-				</Form.Item>
-				<Form.Item name=''>
-					<Search
-						placeholder='Search for record'
-						onSearch={value => console.log(value)}
-						style={{ width: 400 }}
-					/>
-				</Form.Item>
-				<h1>Business Info Form</h1>
-				<Form.Item label='Website' {...fieldProps}>
-					<Controller
-						as={Input}
-						type='text'
-						control={control}
-						name='website_address'
-						placeholder='Website address'
-					/>
-					{errors.website_address && <p>Required</p>}
-				</Form.Item>
-				<Form.Item label='Street address' {...fieldProps}>
-					<Controller
-						as={Input}
-						type='text'
-						control={control}
-						name='street_address'
-						placeholder='Street address'
-					/>
-					{errors.street_address && <p>Required</p>}
-				</Form.Item>
-				<Form.Item label='Email' {...fieldProps}>
-					<Controller as={Input} type='text' control={control} name='email' placeholder='Email address' />
-					{errors.email && <p>Required</p>}
-				</Form.Item>
-				<Form.Item label='Phone' {...fieldProps}>
-					<Controller as={Input} type='text' control={control} name='phone' placeholder='(XXX) XXX-XXXX' />
-					{errors.phone && <p>Required</p>}
-				</Form.Item>
-				<Controller name='submit' as={Button} type='primary' htmlType='submit' control={control}>
+		<Form layout='vertical' onFinish={onSubmit}>
+			<h1>Business Info Form</h1>
+			<Form.Item
+				label='Website'
+				name='website_address'
+			>
+				<Input placeholder='Website address' />
+			</Form.Item>
+			<Form.Item
+				label='Street address'
+				name='street_address'
+			>
+				<Input placeholder='Street address' />
+			</Form.Item>
+			<Form.Item
+				label='Email'
+				name='email'
+			>
+				<Input placeholder='Email address' />
+			</Form.Item>
+			<Form.Item
+				label='Phone'
+				name='phone'
+			>
+				<Input placeholder='(XXX) XXX-XXXX' />
+			</Form.Item>
+			<Form.Item>
+				<Button type='primary' htmlType='submit'>
 					Submit
-				</Controller>
-			</form>
+				</Button>
+			</Form.Item>
 		</Form>
 	);
 };

@@ -30,7 +30,7 @@ test('all data is submitted', async () => {
     fireEvent.change(committeeChairNode, { target: { value: mockBoardMember.committee_chair } });
     fireEvent.change(committeesServedNode, { target: { value: mockBoardMember.committees_served } });
     fireEvent.change(businessWebsiteNode, { target: { value: mockBoardMember.business_website } });
-    fireEvent.change(businessStreetAddress, { target: { value: mockBoardMember.businessStreetAddress } });
+    fireEvent.change(businessStreetAddress, { target: { value: mockBoardMember.business_address } });
     fireEvent.change(businessEmailNode, { target: { value: mockBoardMember.business_email } });
     fireEvent.change(businessPhoneNode, { target: { value: mockBoardMember.business_phone_number } });
 
