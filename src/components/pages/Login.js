@@ -1,13 +1,13 @@
 import React from  "react";
 import { useForm } from 'react-hook-form';
-import { Form, Input, Button, Checkbox } from 'antd';
+import { Form, Input, Button } from 'antd';
 
 function Login() {
   const { register, handleSubmit, errors } = useForm()
   const onSubmit = data => { console.log("Here's Johnny!", data) }  
 
   return (
-    <Form onSubmit={handleSubmit(onsubmit)}>      
+    <Form onSubmit={handleSubmit(onSubmit)}>      
       <Input
         type='text'
         placeholder='Email'      

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Input, Button, Row, Col } from 'antd';
-import { useQuery, useMutation } from '@apollo/react-hooks';
-import gql from 'graphql-tag';
+import { useMutation } from '@apollo/react-hooks';
 import { ADD_PERSON } from '../graphql/mutations';
 
 const PeopleForm = ({ onSubmit }) => {

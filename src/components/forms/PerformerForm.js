@@ -1,8 +1,5 @@
 import React from 'react';
-import { useForm, Controller} from 'react-hook-form';
-import { Form, Input, Button, Select } from 'antd';
-const { Option } = Select;
-const { Search } = Input;
+import { Form, Input, Button } from 'antd';
 
 const PerformerForm = ({onSubmit}) => {
 
