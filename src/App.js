@@ -22,22 +22,11 @@ import WorkContact from './components/pages/WorkContact';
 import BusinessInfo from './components/pages/BusinessInfo';
 import RecentBenefactor from './components/pages/RecentBenefactor';
 
-//This creates the httpLink that will connect your ApolloClient with the GraphQL API.
-const httpLink = createHttpLink({
-	uri : 'http://localhost:3000',
-});
-
-//This instantiates Apolloclient by passing in the httpLink and a new instance of InMemoryCache.
-const client = new ApolloClient({
-	link  : httpLink,
-	cache : new InMemoryCache(),
-});
-
 function App () {
 	return (
 		<div className='App'>
-			<ApolloProvider client={client}>
-				<Router>
+			<Router>
+				<ApolloProvider client={client}>
 					<Switch>
 						<Route path='/login'>
 							<Login />
@@ -85,8 +74,8 @@ function App () {
 							<Dashboard />
 						</Route>
 					</Switch>
-				</Router>
-			</ApolloProvider>
+				</ApolloProvider>
+			</Router>
 		</div>
 	);
 }

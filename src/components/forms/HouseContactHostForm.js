@@ -5,13 +5,12 @@ const { Option } = Select;
 const { Search } = Input;
 const { TextArea } = Input;
 
-// const defaultValues = { firstName: '', example: '', name: '', exampleRequired: '' };
 
 const HouseContactHostForm = () => {
-	const { control, handleSubmit } = useForm();
 
-	const onSubmit = (data, e) => {
-		console.log(data);
+
+		// <Form layout='vertical'>
+			<form onSubmit={handleSubmit(onSubmit)}>
 		e.target.reset(); //supposed to reset
 	};
 	return (
@@ -132,8 +131,9 @@ const HouseContactHostForm = () => {
 						control={control}
 						name='other_relevant_notes'
 						placeholder='Additional notes'
-					/>
-				</Form.Item>
+			</form>
+			</form>
+		// 		</Form.Item>
 				<Controller name='submit' as={Button} type='primary' htmlType='submit' control={control}>
 					Submit
 				</Controller>
