@@ -7,7 +7,7 @@ const { TextArea } = Input;
 
 const defaultValues = { firstName: '', example: '', name: '', exampleRequired: '' };
 
-const HouseContactHostForm = () => {
+const HouseContactHostForm = ({submit}) => {
 	const { control, handleSubmit, errors, reset } = useForm();
 
 	const onSubmit = (data, e) => {

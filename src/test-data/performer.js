@@ -1,4 +1,4 @@
 export default {
-    instrument: null
+    instrument: null,
 events_performed: null
 }
