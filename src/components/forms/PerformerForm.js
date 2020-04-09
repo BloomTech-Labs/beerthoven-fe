@@ -1,48 +1,25 @@
 import React from 'react';
-import { useForm, Controller} from 'react-hook-form';
-import { Form, Input, Button, Select } from 'antd';
-const { Option } = Select;
-const { Search } = Input;
+import { Form, Input, Button } from 'antd';
 
-const PerformerForm = () => {
-	const { control, handleSubmit, errors, reset } = useForm();
-	const onSubmit = (data, e) => {
-		console.log(data);
-		e.target.reset(); //supposed to reset
-	};
+const PerformerForm = ({onSubmit}) => {
 
 	return (
-		<Form layout='vertical'>
-			<form onSubmit={handleSubmit(onSubmit)}>
-				<Form.Item>
-					<Select style={{ width: 400 }}>
-						<Option>Performer Form</Option>
-					</Select>
-				</Form.Item>
-				<Form.Item>
-					<Search
-						placeholder='Search for record'
-						onSearch={value => console.log(value)}
-						style={{ width: 400 }}
-					/>
-				</Form.Item>
+		<Form layout='vertical' onFinish={onSubmit}>
 				<h1>Performer Form</h1>
-				<Form.Item label='Instrument'>
-					<Controller as={Input} control={control} name='instrument' placeholder='Instrument' type='text' />
+				<Form.Item label='Instrument' name='instrument'>
+					<Input  placeholder='Instrument' type='text' />
 				</Form.Item>
-				<Form.Item label='Beerthoven events performed'>
-					<Controller
-						as={Input}
-						control={control}
-						name='events_performed'
+				<Form.Item name='events_performed' label='Beerthoven events performed'>
+					<Input
 						placeholder='Beerthoven events performed'
 						type='text'
 					/>
 				</Form.Item>
-				<Controller name='submit' as={Button} type='primary' htmlType='submit' control={control}>
+				<Form.Item>
+				<Button type='primary' htmlType='submit'>
 					Submit
-				</Controller>
-			</form>
+				</Button>
+			</Form.Item>
 		</Form>
 	);
 };

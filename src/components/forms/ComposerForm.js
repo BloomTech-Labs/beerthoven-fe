@@ -5,7 +5,7 @@ const { Option } = Select;
 const { Search } = Input;
 
 const ComposerForm = () => {
-	const { handleSubmit, control, errors } = useForm();
+	const { handleSubmit, control } = useForm();
     const onSubmit = (data, e) => {
 		console.log(data);
 		e.target.reset();
@@ -14,8 +14,6 @@ const ComposerForm = () => {
     const fieldProps = {
 		colon : false,
 	};
-
-
 
 	return (
 		<Form layout='vertical'>

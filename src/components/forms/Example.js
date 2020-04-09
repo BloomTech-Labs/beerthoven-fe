@@ -1,37 +1,21 @@
 import React, { useState } from "react";
-import ReactDOM from "react-dom";
 import { useForm, Controller } from "react-hook-form";
-import { Form, Input, Select, Button, Radio } from "antd";
+import { Form, Input, Button, Radio } from "antd";
 import ReactSelect from "react-select";
-
-const { Option } = Select;
-
 
 const defaultValues = { singleErrorInput: "" };
 
 export default function App() {
-  const { errors, handleSubmit, control, register, setValue } = useForm();
+  const { errors, handleSubmit, control, register } = useForm();
   const [dataInput, setDataInput] = useState(defaultValues);
 
   const onSubmit = data => {
     setDataInput(data);
   };
 
-  function handleChange(value) {
-    console.log(`selected ${value}`);
-  }
-
   const validError = (value) => {
     return value.length >= 0 || "error message"
   }
-
-  const fieldProps = {
-    colon: false,
-  };
-
-  const emailError = errors.email && 'Enter your email address';
-
-
 
   return (
     <>
