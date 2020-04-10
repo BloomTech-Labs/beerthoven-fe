@@ -6,7 +6,7 @@ import { ApolloProvider } from 'react-apollo';
 import { ApolloClient } from 'apollo-client';
 import { createHttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
-import client from './components/graphql/client'
+import client from './components/graphql/client';
 import { Layout } from 'antd';
 import Dashboard from './components/pages/Dashboard';
 import Login from './components/pages/Login';
@@ -24,18 +24,7 @@ import WorkContact from './components/pages/WorkContact';
 import BusinessInfo from './components/pages/BusinessInfo';
 import RecentBenefactor from './components/pages/RecentBenefactor';
 
-const { Header, Sider, Content,Footer } = Layout;
-
-//This creates the httpLink that will connect your ApolloClient with the GraphQL API.
-const httpLink = createHttpLink({
-	uri : 'http://localhost:3000',
-});
-
-//This instantiates Apolloclient by passing in the httpLink and a new instance of InMemoryCache.
-const client = new ApolloClient({
-	link  : httpLink,
-	cache : new InMemoryCache(),
-});
+const { Header, Sider, Content, Footer } = Layout;
 
 function App () {
 	return (
@@ -44,19 +33,18 @@ function App () {
 				<Layout>
 					<Sider
 						style={{
-							overflow: 'auto',
-							height: '100vh',
-							position: 'fixed',
-							left: 0,
-						}}
-					>
+							overflow : 'auto',
+							height   : '100vh',
+							position : 'fixed',
+							left     : 0,
+						}}>
 						Side menu
 					</Sider>
-					<Layout style={{ 
-							marginLeft: 200,
-							height: '100vh' 
-						}}
-					>
+					<Layout
+						style={{
+							marginLeft : 200,
+							height     : '100vh',
+						}}>
 						<Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
 							<Router>
 								<Switch>
