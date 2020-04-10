@@ -11,6 +11,7 @@ export const CREATE_PERSON = gql`
 			city
 			state
 			zip
+			
 		}
 	}
 `;
