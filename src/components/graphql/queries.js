@@ -1,8 +1,8 @@
 import gql from 'graphql-tag';
 
 export const ALL_PERSONS = gql`
-	query {
-		persons {
+		query allpersons {
+			persons{
 			id
 			first_name
 			last_name

@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PeopleForm from '../forms/PeopleForm';
 import { Link, Route, Switch } from 'react-router-dom';
 import { Button } from 'antd';
-import { useMutation } from '@apollo/react-hooks';
+import { useMutation, useQuery } from '@apollo/react-hooks';
 import { CREATE_PERSON } from '../graphql/mutations';
 import { ALL_PERSONS } from '../graphql/queries';
 
@@ -12,28 +12,39 @@ import { ALL_PERSONS } from '../graphql/queries';
  */
 
 const People = () => {
-    const [createPerson, newPerson] = useMutation(CREATE_PERSON);
+	const [ createPerson, newPerson ] = useMutation(CREATE_PERSON);
 
-    const onSubmit = data => {
-        console.log('data', data);
-        createPerson(data);
+	const { loading, error,  data } = useQuery(ALL_PERSONS);
+    
+	useEffect(() => {
+		if(!loading) {
+            console.log(data);
+        }
+    }, [loading, data]);
+    
+	const onSubmit = data => {
+		console.log('data', data);
+		createPerson({
+            variables: {newPerson: data}
+        });
 	};
 
-    return (
-        <div>
-            <Switch>
-                <Route path="/people/form">
-                    <PeopleForm onSubmit={onSubmit} />
-                </Route>
-                <Route>
-                    <Link to="/people/form">
-                        <Button type="primary">Add</Button>
-                    </Link>
-                    <p>People list here</p>
-                </Route>
-            </Switch>
-        </div>
-    );
+	return (
+		<div>
+			<Switch>
+				<Route path='/people/form'>
+					<PeopleForm onSubmit={onSubmit} />
+				</Route>
+				<Route>
+					<Link to='/people/form'>
+						<Button type='primary'>Add</Button>
+                        {data && JSON.stringify(data)}
+					</Link>
+					<p>People list here</p>
+				</Route>
+			</Switch>
+		</div>
+	);
 };
 
 export default People;
