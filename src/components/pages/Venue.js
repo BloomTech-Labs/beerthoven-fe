@@ -17,7 +17,7 @@ const Venue = () => {
 		createVenue,
 	] = useMutation(CREATE_VENUE);
 
-	const { loading, error, data } = useQuery(ALL_VENUES);
+	const { loading, data } = useQuery(ALL_VENUES);
 
 	useEffect(
 		() => {

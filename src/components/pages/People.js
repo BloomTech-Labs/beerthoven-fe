@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PeopleForm from '../forms/PeopleForm';
 import PeopleList from '../lists/PeopleList';
 import { Link, Route, Switch } from 'react-router-dom';
 import { Button } from 'antd';
 import { useMutation, useQuery } from '@apollo/react-hooks';
-import { CREATE_PERSON } from '../graphql/mutations';
+import { CREATE_PERSON, DELETE_PERSON } from '../graphql/mutations';
 import { ALL_PERSONS } from '../graphql/queries';
 
 /**
@@ -17,25 +17,36 @@ const People = () => {
 		createPerson,
 	] = useMutation(CREATE_PERSON);
 
-	const { loading, error, data } = useQuery(ALL_PERSONS);
+	const [
+		deletePerson,
+	] = useMutation(DELETE_PERSON, {
+		// when a delete is performed, run this update
+		update (cache, { data: { deletePerson } }) {
+			// read ALL_PERSONS
+			const allPersons = cache.readQuery({ query: ALL_PERSONS });
 
-	useEffect(
-		() => {
-			if (!loading) {
-				console.log(data);
-			}
+			// write delete to the cache
+			cache.writeQuery({
+				query : ALL_PERSONS,
+				data  : { persons: allPersons.persons.filter(person => person.id !== deletePerson.id) },
+			});
 		},
-		[
-			loading,
-			data,
-		],
-	);
+	});
+	const { loading, data } = useQuery(ALL_PERSONS);
 
-	const onSubmit = data => {
-		console.log('data', data);
+	const onSubmit = formData => {
+		console.log('data', formData);
 		createPerson({
-			variables : { newPerson: data },
+			variables : { newPerson: formData },
 		});
+	};
+
+	const onDelete = personId => {
+		if (window.confirm('Are you sure you want to delete this record?')) {
+			deletePerson({
+				variables : { id: personId },
+			});
+		}
 	};
 
 	return (
@@ -48,7 +59,9 @@ const People = () => {
 					<Link to='/people/form'>
 						<Button type='primary'>Add</Button>
 					</Link>
-					{loading ? <p>Loading...</p> : <PeopleList list={data} onEdit={() => {}} onDelete={() => {}} />}
+					{loading && <p>Loading...</p>}
+					{data &&
+					data.persons.length && <PeopleList list={data.persons} onEdit={() => {}} onDelete={onDelete} />}
 				</Route>
 			</Switch>
 		</div>

@@ -13,7 +13,7 @@ import { ALL_EVENTS } from '../graphql/queries';
 
 const Event = () => {
 	const [ createEvent ] = useMutation(CREATE_EVENT);
-	const { loading, error,  data } = useQuery(ALL_EVENTS);
+	const { loading, data } = useQuery(ALL_EVENTS);
     
 	useEffect(() => {
 		if(!loading) {

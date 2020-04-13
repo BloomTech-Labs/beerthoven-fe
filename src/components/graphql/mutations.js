@@ -18,6 +18,24 @@ export const CREATE_PERSON = gql`
 	}
 `;
 
+export const DELETE_PERSON = gql`
+	mutation deletePerson($id: ID!) {
+		deletePerson(where: { id: $id }) {
+			id
+			date_created
+			first_name
+			last_name
+			email
+			phone
+			address
+			address2
+			city
+			state
+			zip
+		}
+	}
+`;
+
 export const CREATE_EVENT = gql`
 	mutation createEvent($newEvent: EventCreateInput!) {
 		createEvent(data: $newEvent) {

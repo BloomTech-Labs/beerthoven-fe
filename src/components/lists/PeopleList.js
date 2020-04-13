@@ -30,17 +30,17 @@ const PeopleList = ({ list, onDelete, onEdit }) => {
             title: 'Action',
             dataIndex: '',
             key: 'x',
-            render: () => (
+            render: row => (
                 <>
-                    <Button type="link">Edit</Button>
-                    <Button type="link">Delete</Button>
+                    <Button type="link" onClick={() => onEdit(row.id)}>Edit</Button> |
+                    <Button type="link" onClick={() => onDelete(row.id)}>Delete</Button>
                 </>
             )
         }
     ];
 
     // define the data of the table
-    const data = list.reduce(item => {
+    const data = list.map(item => {
         return { ...item, key: item.id };
     });
 

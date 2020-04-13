@@ -3,9 +3,6 @@ import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ApolloProvider } from 'react-apollo';
-import { ApolloClient } from 'apollo-client';
-import { createHttpLink } from 'apollo-link-http';
-import { InMemoryCache } from 'apollo-cache-inmemory';
 import client from './components/graphql/client';
 import { Layout } from 'antd';
 import Dashboard from './components/pages/Dashboard';
@@ -25,7 +22,7 @@ import BusinessInfo from './components/pages/BusinessInfo';
 import RecentBenefactor from './components/pages/RecentBenefactor';
 import Event from './components/pages/Event';
 import Venue from './components/pages/Venue';
-const { Header, Sider, Content, Footer } = Layout;
+const { Sider, Content } = Layout;
 
 function App () {
 	return (
