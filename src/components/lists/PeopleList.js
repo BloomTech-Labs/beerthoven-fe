@@ -40,7 +40,9 @@ const PeopleList = ({ list, onDelete, onEdit }) => {
     ];
 
     // define the data of the table
-    const data = list;
+    const data = list.reduce(item => {
+        return { ...item, key: item.id };
+    });
 
     // define the table
     return (

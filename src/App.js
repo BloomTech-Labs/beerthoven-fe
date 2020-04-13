@@ -23,9 +23,8 @@ import MediaContactForm from './components/forms/MediaContactForm';
 import WorkContact from './components/pages/WorkContact';
 import BusinessInfo from './components/pages/BusinessInfo';
 import RecentBenefactor from './components/pages/RecentBenefactor';
-import EventForm from './components/forms/EventForm'
-import VenueForm from './components/forms/VenueForm'
-import Event from './components/pages/Event'
+import Event from './components/pages/Event';
+import Venue from './components/pages/Venue';
 const { Header, Sider, Content, Footer } = Layout;
 
 function App () {
@@ -92,11 +91,11 @@ function App () {
 									<Route path='/recentbenefactor'>
 										<RecentBenefactor />
 									</Route>
-									<Route path='/venue'>
-										<VenueForm />
-									</Route>
 									<Route path='/event'>
 										<Event />
+									</Route>
+									<Route path='/venue'>
+										<Venue />
 									</Route>
 									<Route>
 										<Dashboard />

@@ -13,22 +13,29 @@ import { ALL_PERSONS } from '../graphql/queries';
  */
 
 const People = () => {
-	const [ createPerson] = useMutation(CREATE_PERSON);
-	// const [deletePerson] = useMutation(DELETE_PERSON);
+	const [
+		createPerson,
+	] = useMutation(CREATE_PERSON);
 
-	const { loading, error,  data } = useQuery(ALL_PERSONS);
-    
-	useEffect(() => {
-		if(!loading) {
-            console.log(data);
-        }
-    }, [loading, data]);
-    
+	const { loading, error, data } = useQuery(ALL_PERSONS);
+
+	useEffect(
+		() => {
+			if (!loading) {
+				console.log(data);
+			}
+		},
+		[
+			loading,
+			data,
+		],
+	);
+
 	const onSubmit = data => {
 		console.log('data', data);
 		createPerson({
-            variables: {newPerson: data}
-        });
+			variables : { newPerson: data },
+		});
 	};
 
 	return (
@@ -40,19 +47,8 @@ const People = () => {
 				<Route>
 					<Link to='/people/form'>
 						<Button type='primary'>Add</Button>
-                        {data && JSON.stringify(data)}
 					</Link>
-					{loading ? (
-						<p>Loading...</p>
-					)
-					:
-					(
-						<PeopleList
-							list={data}
-							onEdit={() => {}}
-							onDelete={() => {}}
-						/>	
-					)}
+					{loading ? <p>Loading...</p> : <PeopleList list={data} onEdit={() => {}} onDelete={() => {}} />}
 				</Route>
 			</Switch>
 		</div>

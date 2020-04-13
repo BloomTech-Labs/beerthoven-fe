@@ -4,6 +4,7 @@ export const CREATE_PERSON = gql`
 	mutation createPerson($newPerson: PersonCreateInput!) {
 		createPerson(data: $newPerson) {
 			id
+			date_created
 			first_name
 			last_name
 			email
@@ -56,6 +57,41 @@ export const CREATE_EVENT = gql`
 			parking_max_capacity
 			sales_gross
 			sales_net
+		}
+	}
+`;
+
+export const CREATE_VENUE = gql`
+	mutation createVenue($newVenue: VenueCreateInput!) {
+		createVenue(data: $newVenue) {
+			id
+			date_created
+			name
+			venue_type
+			address
+			city
+			state
+			zip
+			max_capacity
+			min_income
+			deposit_amount
+			smoking_allowed
+			under21_allowed
+			under18_allowed
+			wheelchair_accessible
+			alcohol_beer_provided
+			alcohol_wine_provided
+			alcohol_spirits_provided
+			food_served
+			max_decibel
+			opening_time
+			closing_time
+			dance_floor_size
+			indoor_venue
+			outdoor_venue
+			parking_lot_available
+			parking_max_capacity
+			tabc_certified
 		}
 	}
 `;
