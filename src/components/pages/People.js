@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import PeopleForm from '../forms/PeopleForm';
+import PeopleList from '../lists/PeopleList';
 import { Link, Route, Switch } from 'react-router-dom';
 import { Button } from 'antd';
 import { useMutation, useQuery } from '@apollo/react-hooks';
@@ -12,7 +13,8 @@ import { ALL_PERSONS } from '../graphql/queries';
  */
 
 const People = () => {
-	const [ createPerson, newPerson ] = useMutation(CREATE_PERSON);
+	const [ createPerson] = useMutation(CREATE_PERSON);
+	// const [deletePerson] = useMutation(DELETE_PERSON);
 
 	const { loading, error,  data } = useQuery(ALL_PERSONS);
     
@@ -40,7 +42,17 @@ const People = () => {
 						<Button type='primary'>Add</Button>
                         {data && JSON.stringify(data)}
 					</Link>
-					<p>People list here</p>
+					{loading ? (
+						<p>Loading...</p>
+					)
+					:
+					(
+						<PeopleList
+							list={data}
+							onEdit={() => {}}
+							onDelete={() => {}}
+						/>	
+					)}
 				</Route>
 			</Switch>
 		</div>
