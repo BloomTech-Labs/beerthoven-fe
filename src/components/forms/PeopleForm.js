@@ -7,10 +7,6 @@ const PeopleForm = ({ onSubmit }) => {
 		setSubmitted,
 	] = useState(false);
 
-	const fieldProps = {
-		colon : false,
-	};
-
 	const submitForm = values => {
 		setSubmitted(true);
 		onSubmit(values);
@@ -28,7 +24,6 @@ const PeopleForm = ({ onSubmit }) => {
 					<Form.Item
 						label='First Name'
 						name='first_name'
-						{...fieldProps}
 						rules={[
 							{ required: true },
 						]}>
@@ -39,7 +34,6 @@ const PeopleForm = ({ onSubmit }) => {
 					<Form.Item
 						label='Last Name'
 						name='last_name'
-						{...fieldProps}
 						rules={[
 							{ required: true },
 						]}>
@@ -57,7 +51,6 @@ const PeopleForm = ({ onSubmit }) => {
 					<Form.Item
 						label='Email'
 						name='email'
-						{...fieldProps}
 						rules={[
 							{ required: true },
 						]}>
@@ -65,7 +58,7 @@ const PeopleForm = ({ onSubmit }) => {
 					</Form.Item>
 				</Col>
 				<Col span={12}>
-					<Form.Item label='Phone number' name='phone' {...fieldProps}>
+					<Form.Item label='Phone number' name='phone'>
 						<Input type='number' placeholder='Enter phone number' />
 					</Form.Item>
 				</Col>
@@ -77,7 +70,7 @@ const PeopleForm = ({ onSubmit }) => {
 					16,
 				]}>
 				<Col>
-					<Form.Item label='Address' name='address' {...fieldProps}>
+					<Form.Item label='Address' name='address'>
 						<Input placeholder='Enter street address' />
 					</Form.Item>
 				</Col>
@@ -89,12 +82,12 @@ const PeopleForm = ({ onSubmit }) => {
 					16,
 				]}>
 				<Col span={12}>
-					<Form.Item label='Address line 2 (optional)' name='address2' {...fieldProps}>
+					<Form.Item label='Address line 2 (optional)' name='address2'>
 						<Input placeholder='Enter apartment, suite, etc' />
 					</Form.Item>
 				</Col>
 				<Col span={12}>
-					<Form.Item label='City' name='city' {...fieldProps}>
+					<Form.Item label='City' name='city'>
 						<Input placeholder='Enter city' />
 					</Form.Item>
 				</Col>
@@ -106,7 +99,7 @@ const PeopleForm = ({ onSubmit }) => {
 					16,
 				]}>
 				<Col span={6}>
-					<Form.Item label='State' name='state' {...fieldProps}>
+					<Form.Item label='State' name='state'>
 						<Input placeholder='Enter state' />
 					</Form.Item>
 				</Col>
@@ -114,7 +107,6 @@ const PeopleForm = ({ onSubmit }) => {
 					<Form.Item
 						label='Zip code'
 						name='zip'
-						{...fieldProps}
 						rules={[
 							{ required: true },
 						]}>

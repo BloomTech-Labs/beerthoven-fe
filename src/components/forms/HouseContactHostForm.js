@@ -1,8 +1,6 @@
 import React from 'react';
-import { useForm, Controller } from 'react-hook-form';
 import { Form, Input, Button, Select, DatePicker, Row, Radio } from 'antd';
 const { Option } = Select;
-const { Search } = Input;
 const { TextArea } = Input;
 
 const HouseContactHostForm = ({onSubmit}) => {
