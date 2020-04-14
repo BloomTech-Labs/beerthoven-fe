@@ -22,6 +22,7 @@ import BusinessInfo from './components/pages/BusinessInfo';
 import RecentBenefactor from './components/pages/RecentBenefactor';
 import Event from './components/pages/Event';
 import Venue from './components/pages/Venue';
+import Test from './components/pages/Test';
 const { Sider, Content } = Layout;
 
 function App () {
@@ -93,6 +94,9 @@ function App () {
 									</Route>
 									<Route path='/venue'>
 										<Venue />
+									</Route>
+									<Route path='/test'>
+										<Test />
 									</Route>
 									<Route>
 										<Dashboard />

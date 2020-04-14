@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import PeopleForm from '../forms/PeopleForm';
 import PeopleList from '../lists/PeopleList';
 import { Link, Route, Switch } from 'react-router-dom';
@@ -7,12 +8,9 @@ import { useMutation, useQuery } from '@apollo/react-hooks';
 import { CREATE_PERSON, DELETE_PERSON } from '../graphql/mutations';
 import { ALL_PERSONS } from '../graphql/queries';
 
-/**
- * This component should have internal routing to both a list of 
- * people and a form to add/edit people
- */
-
 const People = () => {
+	const history = useHistory();
+
 	const [
 		createPerson,
 	] = useMutation(CREATE_PERSON);
@@ -41,6 +39,10 @@ const People = () => {
 		});
 	};
 
+	const onEdit = personId => {
+		history.push(`/people/form/${personId}`);
+	};
+
 	const onDelete = personId => {
 		if (window.confirm('Are you sure you want to delete this record?')) {
 			deletePerson({
@@ -52,7 +54,7 @@ const People = () => {
 	return (
 		<div>
 			<Switch>
-				<Route path='/people/form'>
+				<Route path='/people/form/:id?'>
 					<PeopleForm onSubmit={onSubmit} />
 				</Route>
 				<Route>
@@ -61,7 +63,7 @@ const People = () => {
 					</Link>
 					{loading && <p>Loading...</p>}
 					{data &&
-					data.persons.length && <PeopleList list={data.persons} onEdit={() => {}} onDelete={onDelete} />}
+					data.persons.length && <PeopleList list={data.persons} onEdit={onEdit} onDelete={onDelete} />}
 				</Route>
 			</Switch>
 		</div>

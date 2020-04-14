@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Form, Input, Button, Row, Checkbox, Col, getFieldDecorator } from 'antd';
+import { Form, Input, Button, Row, Checkbox, Col } from 'antd';
 
 const VenueForm = ({ onSubmit }) => {
+	const { getFieldDecorator } = Checkbox;
 	const [
 		submitted,
 		setSubmitted,
@@ -31,12 +32,7 @@ const VenueForm = ({ onSubmit }) => {
 					16,
 				]}>
 				<Col span={12}>
-					<Form.Item
-						label='Name'
-						name='name'
-						rules={[
-							{ required: true },
-						]}>
+					<Form.Item label='Name' name='name'>
 						<Input placeholder='Enter venue name' />
 					</Form.Item>
 				</Col>
@@ -48,12 +44,7 @@ const VenueForm = ({ onSubmit }) => {
 					16,
 				]}>
 				<Col span={12}>
-					<Form.Item
-						label='Venue Type'
-						name='venue_type'
-						rules={[
-							{ required: true },
-						]}>
+					<Form.Item label='Venue Type' name='venue_type'>
 						<Input type='text' placeholder='Venue Type' />
 					</Form.Item>
 				</Col>
@@ -65,12 +56,7 @@ const VenueForm = ({ onSubmit }) => {
 					16,
 				]}>
 				<Col>
-					<Form.Item
-						label='Address'
-						name='address'
-						rules={[
-							{ required: true },
-						]}>
+					<Form.Item label='Address' name='address'>
 						<Input placeholder='Enter street address' />
 					</Form.Item>
 				</Col>
@@ -82,12 +68,7 @@ const VenueForm = ({ onSubmit }) => {
 					16,
 				]}>
 				<Col span={12}>
-					<Form.Item
-						label='City'
-						name='city'
-						rules={[
-							{ required: true },
-						]}>
+					<Form.Item label='City' name='city'>
 						<Input placeholder='Enter city' />
 					</Form.Item>
 				</Col>
@@ -99,22 +80,12 @@ const VenueForm = ({ onSubmit }) => {
 					16,
 				]}>
 				<Col span={6}>
-					<Form.Item
-						label='State'
-						name='state'
-						rules={[
-							{ required: true },
-						]}>
+					<Form.Item label='State' name='state'>
 						<Input placeholder='Enter state' />
 					</Form.Item>
 				</Col>
 				<Col span={6}>
-					<Form.Item
-						label='Zip code'
-						name='zip'
-						rules={[
-							{ required: true },
-						]}>
+					<Form.Item label='Zip code' name='zip'>
 						<Input placeholder='Enter zip code' />
 					</Form.Item>
 				</Col>
@@ -152,26 +123,30 @@ const VenueForm = ({ onSubmit }) => {
 					16,
 				]}>
 				{/* <Col span={6}> */}
-				<Form.Item name='smoking_allowed'>
+				{/* <Form.Item name='smoking_allowed'>
 					<Checkbox checked={checked} onClick={handleClick}>
 						Smoking Allowed
 					</Checkbox>
-				</Form.Item>
+				</Form.Item> */}
 				{/* </Col> */}
 
 				<Col span={6}>
-					<Form.Item name='under21_allowed'>
-						<Checkbox>Under 21 Allowed</Checkbox>
+					<Form.Item label='Name'>
+						{' '}
+						Hello there
+						{/* {getFieldDecorator('name', {
+							initialValue  : checked || '',
+							valuePropName : 'checked',
+						})(<Checkbox />)} */}
 					</Form.Item>
 				</Col>
+
 				<Col span={6}>
 					<Form.Item name='under18_allowed'>
 						{/* {getFieldDecorator()} */}
 						<Checkbox onChange={Changing}>Under 18 Allowed</Checkbox>
 					</Form.Item>
 				</Col>
-
-			
 
 				<Col span={6}>
 					<Form.Item name='wheelchair_accessible'>
