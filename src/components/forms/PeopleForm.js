@@ -83,7 +83,7 @@ const PeopleForm = ({ onSubmit }) => {
 				</Col>
 				<Col span={12}>
 					<Form.Item label='Phone number' name='phone'>
-						<Input type='number' placeholder='Enter phone number' />
+						<Input placeholder='Enter phone number' />
 					</Form.Item>
 				</Col>
 			</Row>
