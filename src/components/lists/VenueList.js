@@ -29,14 +29,7 @@ const VenueList = ({ list, onDelete, onEdit }) => {
             title: 'Zip',
             dataIndex: 'zip'
         },
-        {
-            title: 'Deposit Amount',
-            dataIndex: 'deposit_amount'
-        },
-        {
-            title: 'Tab C Certified',
-            dataIndex: 'tabc_certified'
-        },
+       
         // actions/buttons
         {
             title: 'Action',
