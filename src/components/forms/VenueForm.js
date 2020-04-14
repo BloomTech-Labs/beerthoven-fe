@@ -21,6 +21,13 @@ const VenueForm = ({ onSubmit }) => {
 	] = useState(false);
 
 	const submitForm = values => {
+		// convert strings that are expected to be numbers
+		values.max_capacity = Number(values.max_capacity);
+		values.min_income = Number(values.min_income);
+		values.deposit_amount = Number(values.deposit_amount);
+		values.max_decibel = Number(values.max_decibel);
+		values.parking_max_capacity = Number(values.parking_max_capacity);
+
 		setSubmitted(true);
 		onSubmit(values, params.id);
 	};
