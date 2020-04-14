@@ -1,17 +1,16 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 import { ApolloProvider } from 'react-apollo';
 import client from './components/graphql/client';
-import { Layout } from 'antd';
+import { Layout, Menu } from 'antd';
 import Dashboard from './components/pages/Dashboard';
 import Login from './components/pages/Login';
 import People from './components/pages/People';
 import Volunteer from './components/pages/Volunteer';
 import Benefactor from './components/pages/Benefactor';
 import BoardMember from './components/pages/BoardMember';
-import Example from './components/forms/Example';
 import ComposerForm from './components/forms/ComposerForm';
 import Performer from './components/pages/Performer';
 import HouseContactHostForm from './components/forms/HouseContactHostForm';
@@ -22,30 +21,41 @@ import BusinessInfo from './components/pages/BusinessInfo';
 import RecentBenefactor from './components/pages/RecentBenefactor';
 import Event from './components/pages/Event';
 import Venue from './components/pages/Venue';
-import Test from './components/pages/Test';
 const { Sider, Content } = Layout;
 
 function App () {
 	return (
 		<div className='App'>
 			<ApolloProvider client={client}>
-				<Layout>
-					<Sider
-						style={{
-							overflow : 'auto',
-							height   : '100vh',
-							position : 'fixed',
-							left     : 0,
-						}}>
-						Side menu
-					</Sider>
-					<Layout
-						style={{
-							marginLeft : 200,
-							height     : '100vh',
-						}}>
-						<Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
-							<Router>
+				<Router>
+					<Layout>
+						<Sider
+							style={{
+								overflow : 'auto',
+								height   : '100vh',
+								position : 'fixed',
+								left     : 0,
+							}}>
+							<Menu theme='dark'>
+								<Menu.ItemGroup key='h1' title='Manage'>
+									<Menu.Item key='1'>
+										<Link to='/people'>People</Link>
+									</Menu.Item>
+									<Menu.Item key='2'>
+										<Link to='/event'>Events</Link>
+									</Menu.Item>
+									<Menu.Item key='3'>
+										<Link to='/venue'>Venues</Link>
+									</Menu.Item>
+								</Menu.ItemGroup>
+							</Menu>
+						</Sider>
+						<Layout
+							style={{
+								marginLeft : 200,
+								height     : '100vh',
+							}}>
+							<Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
 								<Switch>
 									<Route path='/login'>
 										<Login />
@@ -80,9 +90,6 @@ function App () {
 									<Route path='/workcontact'>
 										<WorkContact />
 									</Route>
-									<Route path='/example'>
-										<Example />
-									</Route>
 									<Route path='/businessinfo'>
 										<BusinessInfo />
 									</Route>
@@ -95,17 +102,14 @@ function App () {
 									<Route path='/venue'>
 										<Venue />
 									</Route>
-									<Route path='/test'>
-										<Test />
-									</Route>
 									<Route>
 										<Dashboard />
 									</Route>
 								</Switch>
-							</Router>
-						</Content>
+							</Content>
+						</Layout>
 					</Layout>
-				</Layout>
+				</Router>
 			</ApolloProvider>
 		</div>
 	);
