@@ -31,8 +31,6 @@ const PeopleForm = ({ onSubmit }) => {
 	] = Form.useForm();
 
 	if (!loading && data) {
-		console.log('person being edited', data.person);
-
 		form.setFieldsValue(data.person);
 	}
 

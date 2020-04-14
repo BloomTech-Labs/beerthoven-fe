@@ -21,6 +21,7 @@ export const CREATE_PERSON = gql`
 export const UPDATE_PERSON = gql`
 	mutation updatePerson($id: ID!, $updates: PersonUpdateInput!) {
 		updatePerson(data: $updates, where: { id: $id }) {
+			id
 			date_created
 			first_name
 			last_name

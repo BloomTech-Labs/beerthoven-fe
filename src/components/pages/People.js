@@ -19,12 +19,31 @@ const People = () => {
 
 	const [ 
 		updatePerson,
-	] = useMutation(UPDATE_PERSON);
+	] = useMutation(UPDATE_PERSON, {
+		// when an update is performed, update the cache
+		update(cache, { data: { updatePerson } }) {
+			// read ALL_PERSONS
+			const allPersons = cache.readQuery({ query: ALL_PERSONS });
+			console.log('updatePerson', updatePerson);
+			// write update to the cache
+			cache.writeQuery({
+				query: ALL_PERSONS,
+				data: { persons: allPersons.persons.map(person => {
+					// find the person that was updated and
+					// update the cache,
+					if(person.id === updatePerson.id) {
+						return { ...person, ...updatePerson };
+					}
+					return person;
+				}) }
+			});
+		}
+	});
 
 	const [
 		deletePerson,
 	] = useMutation(DELETE_PERSON, {
-		// when a delete is performed, run this update
+		// when a delete is performed, update the cache
 		update (cache, { data: { deletePerson } }) {
 			// read ALL_PERSONS
 			const allPersons = cache.readQuery({ query: ALL_PERSONS });
