@@ -6,10 +6,6 @@ const VenueList = ({ list, onDelete, onEdit }) => {
     // define the columns of the table
     const columns = [
         {
-            title: 'Date Created',
-            dataIndex: 'date_created'
-        },
-        {
             title: 'Name',
             dataIndex: 'name'
         },
@@ -34,40 +30,8 @@ const VenueList = ({ list, onDelete, onEdit }) => {
             dataIndex: 'zip'
         },
         {
-            title: 'Max Capacity',
-            dataIndex: 'max_capacity'
-        },
-        {
-            title: 'Min Income',
-            dataIndex: 'min_income'
-        },
-        {
             title: 'Deposit Amount',
             dataIndex: 'deposit_amount'
-        },
-        {
-            title: 'Smoking Allowed',
-            dataIndex: 'smoking_allowed'
-        },
-        {
-            title: 'Under 21 Allowed',
-            dataIndex: 'under21_allowed'
-        },
-        {
-            title: 'Under 18 Allowed',
-            dataIndex: 'under18_allowed'
-        },
-        {
-            title: 'Wheelchair Accessible',
-            dataIndex: 'wheelchair_accessible'
-        },
-        {
-            title: 'Food Served',
-            dataIndex: 'food_served'
-        },
-        {
-            title: 'Indoor Venue',
-            dataIndex: 'indoor_venue'
         },
         {
             title: 'Tab C Certified',

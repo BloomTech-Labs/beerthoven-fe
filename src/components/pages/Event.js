@@ -36,30 +36,21 @@ const Event = () => {
 
 	const { loading, data } = useQuery(ALL_EVENTS);
 
-	useEffect(
-		() => {
-			if (!loading) {
-				console.log(data);
-			}
-		},
-		[
-			loading,
-			data,
-		],
-	);
-
-	const onSubmit = (data, formData, eventId) => {
+	const onSubmit = (formData, eventId) => {
 		console.log('data', data);
 
 		if (eventId) {
-			updateEvent({
+			const params = {
 				variables : {
 					id      : eventId,
 					updates : formData,
 				},
-			});
+			};
+			console.log('UPDATE_EVENT variables', JSON.stringify(params));
+			updateEvent(params);
 		}
 		else {
+			console.log('CREATE_EVENT variables', JSON.stringify({ newEvent: formData }));
 			createEvent({
 				variables : { newEvent: formData },
 			});

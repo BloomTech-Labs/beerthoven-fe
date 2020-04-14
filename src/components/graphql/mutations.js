@@ -174,7 +174,7 @@ export const CREATE_VENUE = gql`
 `;
 
 export const UPDATE_VENUE = gql`
-	mutation updateVenue($newVenue: VenueCreateInput!) {
+	mutation updateVenue($id: ID!, $updates: VenueUpdateInput!) {
 		updateVenue(data: $updates, where: { id: $id }) {
 			id
 			date_created

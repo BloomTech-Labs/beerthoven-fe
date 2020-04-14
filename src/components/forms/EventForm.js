@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
 import { GET_EVENT } from '../graphql/queries';
-import { Form, Input, Checkbox, Button, Row, Col } from 'antd';
+import { Link } from 'react-router-dom';
+
+import { Form, Input, Checkbox, Button, Row, Col, Radio } from 'antd';
 
 const EventForm = ({ onSubmit }) => {
 	const params = useParams();
@@ -21,13 +23,15 @@ const EventForm = ({ onSubmit }) => {
 
 	const submitForm = values => {
 		setSubmitted(true);
-		onSubmit(values);
+		onSubmit(values, params.id);
 	};
 
-	const [form,] = Form.useForm()
+	const [
+		form,
+	] = Form.useForm();
 
 	if (!loading && data) {
-		form.setFieldsValue(data.event)
+		form.setFieldsValue(data.event);
 	}
 
 	return !submitted ? (
@@ -43,7 +47,7 @@ const EventForm = ({ onSubmit }) => {
 						label='Event Name'
 						name='event_name'
 						rules={[
-							{ required: true },
+							{ required: true, message: "'event name' is required" },
 						]}>
 						<Input placeholder='Enter event name' />
 					</Form.Item>
@@ -60,7 +64,7 @@ const EventForm = ({ onSubmit }) => {
 						label='Event Type'
 						name='event_type'
 						rules={[
-							{ required: true },
+							{ required: true, message: "'event type' is required" },
 						]}>
 						<Input placeholder='Enter event type' />
 					</Form.Item>
@@ -136,7 +140,7 @@ const EventForm = ({ onSubmit }) => {
 						label='Event Description'
 						name='event_description'
 						rules={[
-							{ required: true },
+							{ required: true , message: "'event description' is required"},
 						]}>
 						<Input placeholder='Enter event description' />
 					</Form.Item>
@@ -160,18 +164,54 @@ const EventForm = ({ onSubmit }) => {
 				</Form.Item>
 			</Row>
 			<Row>
-				<Form.Item name='smoking_allowed'>
-					<Checkbox>Smoking Allowed</Checkbox>
-				</Form.Item>
-				<Form.Item name='under21_allowed'>
-					<Checkbox>Under 21 Allowed</Checkbox>
-				</Form.Item>
-				<Form.Item name='under18_allowed'>
-					<Checkbox>Under 18 Allowed</Checkbox>
-				</Form.Item>
-				<Form.Item name='wheelchair_accessible'>
-					<Checkbox>Wheelchair Accessible</Checkbox>
-				</Form.Item>
+				<Col span={5}>
+					<Form.Item label='Smoking Allowed' name='smoking_allowed'>
+						<Radio.Group aria-label='Smoking Allowed'>
+							<Radio value={false} name='smoking_allowed'>
+								No
+							</Radio>
+							<Radio value={true} name='smoking_allowed'>
+								Yes
+							</Radio>
+						</Radio.Group>
+					</Form.Item>
+				</Col>
+				<Col span={5}>
+					<Form.Item label='Under 21 Allowed' name='under21_allowed'>
+						<Radio.Group aria-label='Under 21 Allowed'>
+							<Radio value={false} name='under21_allowed'>
+								No
+							</Radio>
+							<Radio value={true} name='under21_allowed'>
+								Yes
+							</Radio>
+						</Radio.Group>
+					</Form.Item>
+				</Col>
+				<Col span={5}>
+					<Form.Item label='Under 18 Allowed' name='under18_allowed'>
+						<Radio.Group aria-label='Under 18 Allowed'>
+							<Radio value={false} name='under18_allowed'>
+								No
+							</Radio>
+							<Radio value={true} name='under18_allowed'>
+								Yes
+							</Radio>
+						</Radio.Group>
+					</Form.Item>
+				</Col>
+				<Col span={5}>
+					<Form.Item label='Wheelchair Accessible' name='wheelchair_accessible'>
+						<Radio.Group aria-label='Wheelchair Accessible'>
+							<Radio value={false} name='wheelchair_accessible'>
+								No
+							</Radio>
+							<Radio value={true} name='wheelchair_accessible'>
+								Yes
+							</Radio>
+						</Radio.Group>
+					</Form.Item>
+				</Col>
 			</Row>
 			<Row>
 				<Form.Item label='Tickets Sold' name='tickets_sold'>
@@ -179,18 +219,57 @@ const EventForm = ({ onSubmit }) => {
 				</Form.Item>
 			</Row>
 			<Row>
-				<Form.Item name='alcohol_beer_served'>
-					<Checkbox>Beer Served</Checkbox>
-				</Form.Item>
-				<Form.Item name='alcohol_wine_served'>
-					<Checkbox>Wine Served</Checkbox>
-				</Form.Item>
-				<Form.Item name='alcohol_spirits_served'>
-					<Checkbox>Spirits Served</Checkbox>
-				</Form.Item>
-				<Form.Item name='food_served'>
-					<Checkbox>Food Served</Checkbox>
-				</Form.Item>
+				<Col span={6}>
+					<Form.Item label='Alcohol Beer Served' name='alcohol_beer_served'>
+						<Radio.Group aria-label='Alcohol Beer Served'>
+							<Radio value={false} name='alcohol_beer_served'>
+								No
+							</Radio>
+							<Radio value={true} name='alcohol_beer_served'>
+								Yes
+							</Radio>
+						</Radio.Group>
+					</Form.Item>
+				</Col>
+
+				<Col span={6}>
+					<Form.Item label='Alcohol Wine Served' name='alcohol_wine_served'>
+						<Radio.Group aria-label='Alcohol Wine Served'>
+							<Radio value={false} name='alcohol_wine_served'>
+								No
+							</Radio>
+							<Radio value={true} name='alcohol_wine_served'>
+								Yes
+							</Radio>
+						</Radio.Group>
+					</Form.Item>
+				</Col>
+
+				<Col span={6}>
+					<Form.Item label='Alcohol Spirits Served' name='alcohol_spirits_served'>
+						<Radio.Group aria-label='Alcohol Spirits Served'>
+							<Radio value={false} name='alcohol_spirits_served'>
+								No
+							</Radio>
+							<Radio value={true} name='alcohol_spirits_served'>
+								Yes
+							</Radio>
+						</Radio.Group>
+					</Form.Item>
+				</Col>
+
+				<Col span={6}>
+					<Form.Item label='Food Served' name='food_served'>
+						<Radio.Group aria-label='Food Served'>
+							<Radio value={false} name='food_served'>
+								No
+							</Radio>
+							<Radio value={true} name='food_served'>
+								Yes
+							</Radio>
+						</Radio.Group>
+					</Form.Item>
+				</Col>
 			</Row>
 
 			<Row>
@@ -213,25 +292,66 @@ const EventForm = ({ onSubmit }) => {
 				<Form.Item label='Event Date' name='event_date'>
 					<Input placeholder='Event Date' type='number' />
 				</Form.Item>
-				<Form.Item name='tabc_certified'>
-					<Checkbox>Tabc Certified</Checkbox>
-				</Form.Item>
+
+				<Col span={6}>
+					<Form.Item label='TabC Certified' name='smoking_allowed'>
+						<Radio.Group aria-label='TabC Certified'>
+							<Radio value={false} name='smoking_allowed'>
+								No
+							</Radio>
+							<Radio value={true} name='smoking_allowed'>
+								Yes
+							</Radio>
+						</Radio.Group>
+					</Form.Item>
+				</Col>
 			</Row>
 			<Row>
-				<Form.Item name='indoor_event'>
-					<Checkbox>Indoor Event</Checkbox>
-				</Form.Item>
-				<Form.Item name='outdoor_event'>
-					<Checkbox>Outdoor Event</Checkbox>
-				</Form.Item>
+				<Col span={6}>
+					<Form.Item label='Indoor Event' name='indoor_event'>
+						<Radio.Group aria-label='Indoor Event'>
+							<Radio value={false} name='indoor_event'>
+								No
+							</Radio>
+							<Radio value={true} name='indoor_event'>
+								Yes
+							</Radio>
+						</Radio.Group>
+					</Form.Item>
+				</Col>
+
+				<Col span={6}>
+					<Form.Item label='Outdoor Event' name='outdoor_event'>
+						<Radio.Group aria-label='Outdoor Event'>
+							<Radio value={false} name='outdoor_event'>
+								No
+							</Radio>
+							<Radio value={true} name='outdoor_event'>
+								Yes
+							</Radio>
+						</Radio.Group>
+					</Form.Item>
+				</Col>
 			</Row>
 			<Row>
-				<Form.Item name='parking_lot_available'>
-					<Checkbox>Parking Lot Available</Checkbox>
-				</Form.Item>
-				<Form.Item label='Parking Max Capacity' name='parking_max_capacity'>
-					<Input placeholder='Parking Max Capacity' type='number' />
-				</Form.Item>
+				<Col span={6}>
+					<Form.Item label='Parking Lot Available' name='parking_lot_available'>
+						<Radio.Group aria-label='Parking Lot Available'>
+							<Radio value={false} name='parking_lot_available'>
+								No
+							</Radio>
+							<Radio value={true} name='parking_lot_available'>
+								Yes
+							</Radio>
+						</Radio.Group>
+					</Form.Item>
+				</Col>
+
+				<Col span={6}>
+					<Form.Item label='Parking Max Capacity' name='parking_max_capacity'>
+						<Input placeholder='Max Capacity' type='number' />
+					</Form.Item>
+				</Col>
 			</Row>
 			<Row>
 				<Form.Item label='Sales Gross' name='sales_gross'>
@@ -249,7 +369,12 @@ const EventForm = ({ onSubmit }) => {
 			</Form.Item>
 		</Form>
 	) : (
-		<p>Submitted successfully</p>
+		<div>
+			<p>Submitted successfully</p>
+			<Link to='/event'>
+				<Button>Continue</Button>
+			</Link>
+		</div>
 	);
 };
 export default EventForm;

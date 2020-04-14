@@ -24,7 +24,7 @@ const Venue = () => {
 		update: updateAfterVenueCreate
 	});
 
-	const [updateVenue,] = useMutation(CREATE_VENUE, {
+	const [updateVenue,] = useMutation(UPDATE_VENUE, {
 		//venue is updated
 		update: updateAfterVenueChange
 	})
@@ -48,7 +48,7 @@ const Venue = () => {
 		],
 	);
 
-	const onSubmit = (data, venueId) => {
+	const onSubmit = (formData, venueId) => {
 		console.log('data', data);
 
 		if(venueId){
@@ -56,14 +56,14 @@ const Venue = () => {
 			updateVenue({
 				variables: {
 					id: venueId,
-					updates: data
+					updates: formData
 				}
 			});
 		}
 		else{
 			//venue is created
 			createVenue({
-				variables : { newVenue: data },
+				variables : { newVenue: formData },
 			});
 		}
 		
@@ -74,7 +74,9 @@ const Venue = () => {
 	}
 
 	const onDelete = venueId =>{
-		if (window.confirm('Are you wnat to delete this from the record?')) {
+		console.log('delete this venue', venueId);
+		if (window.confirm('Are you sure you want to delete this from the record?')) {
+			console.log('delete venue variables', JSON.stringify({id: venueId}));
 			deleteVenue({
 				variables: {id: venueId},
 			})
@@ -92,7 +94,7 @@ const Venue = () => {
 						<Button type='primary'>Add</Button>
 					</Link>
 	{loading && <p>Loading...</p>}
-	 {data.venues.length &&  <VenueList list={data.venues} onEdit={onEdit} onDelete={onDelete} />}
+	 {data && data.venues.length &&  <VenueList list={data.venues} onEdit={onEdit} onDelete={onDelete} />}
 				</Route>
 			</Switch>
 		</div>
