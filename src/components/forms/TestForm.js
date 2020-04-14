@@ -122,13 +122,20 @@ const VenueForm = ({ onSubmit }) => {
 					16,
 					16,
 				]}>
-				{/* <Col span={6}> */}
+				<Col span={6}>
+					//Testing here 
+				<input type="radio" id="male" name="gender2" value="male"/>
+  <label for="male">Male</label>
+  <input type="radio" id="female" name="gender2" value="female" />
+  <label for="female">Female</label>
+  <input type="radio" id="other" name="gender2" value="other"/>
+  <label for="other">Other</label>
 				{/* <Form.Item name='smoking_allowed'>
 					<Checkbox checked={checked} onClick={handleClick}>
 						Smoking Allowed
 					</Checkbox>
 				</Form.Item> */}
-				{/* </Col> */}
+				</Col>
 
 				<Col span={6}>
 					<Form.Item label='Name'>

@@ -1,7 +1,19 @@
 import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { useQuery } from '@apollo/react-hooks';
+import { GET_VENUE } from '../graphql/queries';
 import { Form, Input, Button, Row, Checkbox, Col, getFieldDecorator } from 'antd';
 
 const VenueForm = ({ onSubmit }) => {
+	const params = useParams();
+
+	const editingVenue = params.id != null;
+
+	const { loading, data } = useQuery(GET_VENUE, {
+		skip      : !editingVenue,
+		variables : { id: PageTransitionEvent.id },
+	});
+
 	const [
 		submitted,
 		setSubmitted,
@@ -17,13 +29,22 @@ const VenueForm = ({ onSubmit }) => {
 		checked,
 		setChecked,
 	] = useState(false);
+
+	const [
+		form,
+	] = Form.useForm();
+
+	if (!loading && data) {
+		form.setFieldsValuue(data.venue);
+	}
+
 	const handleClick = () => setChecked(!checked);
 
 	const Changing = e => {
 		console.log('e.target.change', e.target.checked);
 	};
 	return !submitted ? (
-		<Form layout='vertical' onFinish={submitForm}>
+		<Form form={form} layout='vertical' onFinish={submitForm}>
 			<h1>Add New Venue</h1>
 			<Row
 				gutter={[
@@ -170,8 +191,6 @@ const VenueForm = ({ onSubmit }) => {
 						<Checkbox onChange={Changing}>Under 18 Allowed</Checkbox>
 					</Form.Item>
 				</Col>
-
-			
 
 				<Col span={6}>
 					<Form.Item name='wheelchair_accessible'>

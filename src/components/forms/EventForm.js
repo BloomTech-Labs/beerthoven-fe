@@ -24,19 +24,20 @@ const EventForm = ({ onSubmit }) => {
 		onSubmit(values);
 	};
 
+	const [form,] = Form.useForm()
+
+	if (!loading && data) {
+		form.setFieldsValue(data.event)
+	}
+
 	return !submitted ? (
-		<Form layout='vertical' onFinish={submitForm}>
+		<Form form={form} layout='vertical' onFinish={submitForm}>
 			<h1>Add New Event</h1>
 			<Row
 				gutter={[
 					16,
 					16,
 				]}>
-				<Col span={12}>
-					<Form.Item label='Eventbrite Event ID' name='eventbriteEventId'>
-						<Input placeholder='Enter Eventbrite Event ID' type='number' />
-					</Form.Item>
-				</Col>
 				<Col span={12}>
 					<Form.Item
 						label='Event Name'
