@@ -7,6 +7,7 @@ import { Button } from 'antd';
 import { useMutation, useQuery } from '@apollo/react-hooks';
 import { CREATE_PERSON, UPDATE_PERSON, DELETE_PERSON } from '../graphql/mutations';
 import { ALL_PERSONS } from '../graphql/queries';
+import { updateAfterPersonChange, updateAfterPersonDelete } from '../graphql/cache';
 
 const People = () => {
 
@@ -21,39 +22,14 @@ const People = () => {
 		updatePerson,
 	] = useMutation(UPDATE_PERSON, {
 		// when an update is performed, update the cache
-		update(cache, { data: { updatePerson } }) {
-			// read ALL_PERSONS
-			const allPersons = cache.readQuery({ query: ALL_PERSONS });
-			console.log('updatePerson', updatePerson);
-			// write update to the cache
-			cache.writeQuery({
-				query: ALL_PERSONS,
-				data: { persons: allPersons.persons.map(person => {
-					// find the person that was updated and
-					// update the cache,
-					if(person.id === updatePerson.id) {
-						return { ...person, ...updatePerson };
-					}
-					return person;
-				}) }
-			});
-		}
+		update: updateAfterPersonChange
 	});
 
 	const [
 		deletePerson,
 	] = useMutation(DELETE_PERSON, {
 		// when a delete is performed, update the cache
-		update (cache, { data: { deletePerson } }) {
-			// read ALL_PERSONS
-			const allPersons = cache.readQuery({ query: ALL_PERSONS });
-
-			// write delete to the cache
-			cache.writeQuery({
-				query : ALL_PERSONS,
-				data  : { persons: allPersons.persons.filter(person => person.id !== deletePerson.id) },
-			});
-		},
+		update: updateAfterPersonDelete,
 	});
 
 	// for displaying list of people,
