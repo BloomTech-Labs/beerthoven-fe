@@ -1,42 +1,60 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import PeopleForm from '../forms/PeopleForm';
 import PeopleList from '../lists/PeopleList';
 import { Link, Route, Switch } from 'react-router-dom';
 import { Button } from 'antd';
 import { useMutation, useQuery } from '@apollo/react-hooks';
-import { CREATE_PERSON, DELETE_PERSON } from '../graphql/mutations';
+import { CREATE_PERSON, UPDATE_PERSON, DELETE_PERSON } from '../graphql/mutations';
 import { ALL_PERSONS } from '../graphql/queries';
+import { updateAfterPersonCreate, updateAfterPersonChange, updateAfterPersonDelete } from '../graphql/cache';
 
 const People = () => {
+
+	// for pushing user to /form or /form/:id/ routes,
 	const history = useHistory();
 
 	const [
 		createPerson,
-	] = useMutation(CREATE_PERSON);
+	] = useMutation(CREATE_PERSON, {
+		// when a creation is performed, update the cache
+		update: updateAfterPersonCreate
+	});
+
+	const [ 
+		updatePerson,
+	] = useMutation(UPDATE_PERSON, {
+		// when an update is performed, update the cache
+		update: updateAfterPersonChange
+	});
 
 	const [
 		deletePerson,
 	] = useMutation(DELETE_PERSON, {
-		// when a delete is performed, run this update
-		update (cache, { data: { deletePerson } }) {
-			// read ALL_PERSONS
-			const allPersons = cache.readQuery({ query: ALL_PERSONS });
-
-			// write delete to the cache
-			cache.writeQuery({
-				query : ALL_PERSONS,
-				data  : { persons: allPersons.persons.filter(person => person.id !== deletePerson.id) },
-			});
-		},
+		// when a delete is performed, update the cache
+		update: updateAfterPersonDelete,
 	});
+
+	// for displaying list of people,
 	const { loading, data } = useQuery(ALL_PERSONS);
 
-	const onSubmit = formData => {
-		console.log('data', formData);
-		createPerson({
-			variables : { newPerson: formData },
-		});
+	const onSubmit = (formData, personId) => {
+		
+		if(personId) {
+			// this is a person being updated
+			updatePerson({
+				variables: { 
+					id: personId,
+					updates: formData
+				 }
+			});
+		}
+		else {
+			// this is a person being created
+			createPerson({
+				variables : { newPerson: formData },
+			});
+		}
 	};
 
 	const onEdit = personId => {

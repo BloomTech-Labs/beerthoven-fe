@@ -23,7 +23,7 @@ const PeopleForm = ({ onSubmit }) => {
 
 	const submitForm = values => {
 		setSubmitted(true);
-		onSubmit(values);
+		onSubmit(values, params.id);
 	};
 
 	const [
@@ -31,8 +31,6 @@ const PeopleForm = ({ onSubmit }) => {
 	] = Form.useForm();
 
 	if (!loading && data) {
-		console.log('person being edited', data.person);
-
 		form.setFieldsValue(data.person);
 	}
 
@@ -83,7 +81,7 @@ const PeopleForm = ({ onSubmit }) => {
 				</Col>
 				<Col span={12}>
 					<Form.Item label='Phone number' name='phone'>
-						<Input type='number' placeholder='Enter phone number' />
+						<Input placeholder='Enter phone number' />
 					</Form.Item>
 				</Col>
 			</Row>

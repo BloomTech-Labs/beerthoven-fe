@@ -18,6 +18,24 @@ export const CREATE_PERSON = gql`
 	}
 `;
 
+export const UPDATE_PERSON = gql`
+	mutation updatePerson($id: ID!, $updates: PersonUpdateInput!) {
+		updatePerson(data: $updates, where: { id: $id }) {
+			id
+			date_created
+			first_name
+			last_name
+			email
+			phone
+			address
+			address2
+			city
+			state
+			zip
+		}
+	}
+`;
+
 export const DELETE_PERSON = gql`
 	mutation deletePerson($id: ID!) {
 		deletePerson(where: { id: $id }) {
