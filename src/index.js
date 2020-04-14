@@ -3,6 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import * as Sentry from '@sentry/browser';
+
+Sentry.init({dsn: "https://16a6cb6944fe4a4ea10eaf843a974da5@o377878.ingest.sentry.io/5200570"});
+
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import PeopleForm from '../forms/PeopleForm';
 import PeopleList from '../lists/PeopleList';
 import { Link, Route, Switch } from 'react-router-dom';
@@ -10,7 +10,6 @@ import { ALL_PERSONS } from '../graphql/queries';
 import { updateAfterPersonCreate, updateAfterPersonChange, updateAfterPersonDelete } from '../graphql/cache';
 
 const People = () => {
-
 	// for pushing user to /form or /form/:id/ routes,
 	const history = useHistory();
 
@@ -18,35 +17,34 @@ const People = () => {
 		createPerson,
 	] = useMutation(CREATE_PERSON, {
 		// when a creation is performed, update the cache
-		update: updateAfterPersonCreate
+		update : updateAfterPersonCreate,
 	});
 
-	const [ 
+	const [
 		updatePerson,
 	] = useMutation(UPDATE_PERSON, {
 		// when an update is performed, update the cache
-		update: updateAfterPersonChange
+		update : updateAfterPersonChange,
 	});
 
 	const [
 		deletePerson,
 	] = useMutation(DELETE_PERSON, {
 		// when a delete is performed, update the cache
-		update: updateAfterPersonDelete,
+		update : updateAfterPersonDelete,
 	});
 
 	// for displaying list of people,
 	const { loading, data } = useQuery(ALL_PERSONS);
 
 	const onSubmit = (formData, personId) => {
-		
-		if(personId) {
+		if (personId) {
 			// this is a person being updated
 			updatePerson({
-				variables: { 
-					id: personId,
-					updates: formData
-				 }
+				variables : {
+					id      : personId,
+					updates : formData,
+				},
 			});
 		}
 		else {

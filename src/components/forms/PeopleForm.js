@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
 import { GET_PERSON } from '../graphql/queries';
 import { Form, Input, Button, Row, Col } from 'antd';
+import { Link } from 'react-router-dom';
+
 
 const PeopleForm = ({ onSubmit }) => {
 	const params = useParams();
@@ -145,7 +147,12 @@ const PeopleForm = ({ onSubmit }) => {
 			</Form.Item>
 		</Form>
 	) : (
-		<p>Submitted successfully</p>
+		<div>
+			<p>Submitted successfully</p>
+			<Link to='/people'>
+				<Button>Continue</Button>
+			</Link>
+		</div>
 	);
 };
 

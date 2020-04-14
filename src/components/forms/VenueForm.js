@@ -1,7 +1,20 @@
 import React, { useState } from 'react';
-import { Form, Input, Button, Row, Checkbox, Col, getFieldDecorator } from 'antd';
+import { useParams } from 'react-router-dom';
+import { useQuery } from '@apollo/react-hooks';
+import { GET_VENUE } from '../graphql/queries';
+import { Form, Input, Button, Row, Checkbox, Col, Radio } from 'antd';
+import { Link } from 'react-router-dom';
 
 const VenueForm = ({ onSubmit }) => {
+	const params = useParams();
+
+	const editingVenue = params.id != null;
+
+	const { loading, data } = useQuery(GET_VENUE, {
+		skip      : !editingVenue,
+		variables : { id: params.id },
+	});
+
 	const [
 		submitted,
 		setSubmitted,
@@ -10,20 +23,29 @@ const VenueForm = ({ onSubmit }) => {
 	const submitForm = values => {
 		console.log('IT SUBMITS', values);
 		setSubmitted(true);
-		onSubmit(values);
+		onSubmit(values, params.id);
 	};
 
 	const [
 		checked,
 		setChecked,
 	] = useState(false);
+
+	const [
+		form,
+	] = Form.useForm();
+
+	if (!loading && data) {
+		form.setFieldsValue(data.venue);
+	}
+
 	const handleClick = () => setChecked(!checked);
 
 	const Changing = e => {
 		console.log('e.target.change', e.target.checked);
 	};
 	return !submitted ? (
-		<Form layout='vertical' onFinish={submitForm}>
+		<Form form={form} layout='vertical' onFinish={submitForm}>
 			<h1>Add New Venue</h1>
 			<Row
 				gutter={[
@@ -52,7 +74,7 @@ const VenueForm = ({ onSubmit }) => {
 						label='Venue Type'
 						name='venue_type'
 						rules={[
-							{ required: true },
+							{ required: true, message: "'venue type' is required" }
 						]}>
 						<Input type='text' placeholder='Venue Type' />
 					</Form.Item>
@@ -146,60 +168,152 @@ const VenueForm = ({ onSubmit }) => {
 			</Row>
 
 			{/* Boolean Section */}
+
 			<Row
 				gutter={[
 					16,
 					16,
 				]}>
-				{/* <Col span={6}> */}
-				<Form.Item name='smoking_allowed'>
-					<Checkbox checked={checked} onClick={handleClick}>
-						Smoking Allowed
-					</Checkbox>
-				</Form.Item>
-				{/* </Col> */}
-
 				<Col span={6}>
-					<Form.Item name='under21_allowed'>
-						<Checkbox>Under 21 Allowed</Checkbox>
-					</Form.Item>
-				</Col>
-				<Col span={6}>
-					<Form.Item name='under18_allowed'>
-						{/* {getFieldDecorator()} */}
-						<Checkbox onChange={Changing}>Under 18 Allowed</Checkbox>
-					</Form.Item>
-				</Col>
-
-			
-
-				<Col span={6}>
-					<Form.Item name='wheelchair_accessible'>
-						<Checkbox>Wheelchair Accessible</Checkbox>
+					<Form.Item
+						label='Smoking Allowed'
+						name='smoking_allowed'
+						rules={[
+							{ required: true },
+						]}>
+						<Radio.Group aria-label='Smoking Allowed'>
+							<Radio value={false} name='smoking_allowed'>
+								No
+							</Radio>
+							<Radio value={true} name='smoking_allowed'>
+								Yes
+							</Radio>
+						</Radio.Group>
 					</Form.Item>
 				</Col>
 
 				<Col span={6}>
-					<Form.Item name='alcohol_beer_served'>
-						<Checkbox>Beer Served</Checkbox>
+					<Form.Item
+						label='Under 21 Allowed'
+						name='under21_allowed'
+						rules={[
+							{ required: true },
+						]}>
+						<Radio.Group aria-label='Under 21 Allowed'>
+							<Radio value={false} name='under21_allowed'>
+								No
+							</Radio>
+							<Radio value={true} name='under21_allowed'>
+								Yes
+							</Radio>
+						</Radio.Group>
+					</Form.Item>
+				</Col>
+				<Col span={6}>
+					<Form.Item
+						label='Under 18 Allowed'
+						name='under18_allowed'
+						rules={[
+							{ required: true },
+						]}>
+						<Radio.Group aria-label='Under 18 Allowed'>
+							<Radio value={false} name='under18_allowed'>
+								No
+							</Radio>
+							<Radio value={true} name='under18_allowed'>
+								Yes
+							</Radio>
+						</Radio.Group>
 					</Form.Item>
 				</Col>
 
 				<Col span={6}>
-					<Form.Item name='alcohol_wine_served'>
-						<Checkbox>Wine Served</Checkbox>
+					<Form.Item
+						label='Wheelchair Accessible'
+						name='wheelchair_accessible'
+						rules={[
+							{ required: true },
+						]}>
+						<Radio.Group aria-label='Wheelchair Accessible'>
+							<Radio value={false} name='wheelchair_accessible'>
+								No
+							</Radio>
+							<Radio value={true} name='wheelchair_accessible'>
+								Yes
+							</Radio>
+						</Radio.Group>
 					</Form.Item>
 				</Col>
 
 				<Col span={6}>
-					<Form.Item name='alcohol_spirits_served'>
-						<Checkbox>Spirits Served</Checkbox>
+					<Form.Item
+						label='Beer Served'
+						name='alcohol_beer_provided'
+						rules={[
+							{ required: true },
+						]}>
+						<Radio.Group aria-label='Beer Served'>
+							<Radio value={false} name='alcohol_beer_provided'>
+								No
+							</Radio>
+							<Radio value={true} name='alcohol_beer_provided'>
+								Yes
+							</Radio>
+						</Radio.Group>
 					</Form.Item>
 				</Col>
 
 				<Col span={6}>
-					<Form.Item name='food_served'>
-						<Checkbox>Food Served</Checkbox>
+					<Form.Item
+						label='Wine Served'
+						name='alcohol_wine_provided'
+						rules={[
+							{ required: true },
+						]}>
+						<Radio.Group aria-label='Wine Served'>
+							<Radio value={false} name='alcohol_wine_provided'>
+								No
+							</Radio>
+							<Radio value={true} name='alcohol_wine_provided'>
+								Yes
+							</Radio>
+						</Radio.Group>
+					</Form.Item>
+				</Col>
+
+				<Col span={6}>
+					<Form.Item
+						label='Alcohol Spirits Served'
+						name='alcohol_spirits_provided'
+						rules={[
+							{ required: true },
+						]}>
+						<Radio.Group aria-label='Alcohol Spirits Served'>
+							<Radio value={false} name='alcohol_spirits_provided'>
+								No
+							</Radio>
+							<Radio value={true} name='alcohol_spirits_provided'>
+								Yes
+							</Radio>
+						</Radio.Group>
+					</Form.Item>
+				</Col>
+
+				<Col span={6}>
+					<Form.Item
+						label='Food Served'
+						name='food_served'
+						rules={[
+							{ required: true },
+						]}>
+						<Radio.Group aria-label='Food Served'>
+							<Radio value={false} name='food_served'>
+								No
+							</Radio>
+							<Radio value={true} name='food_served'>
+								Yes
+							</Radio>
+						</Radio.Group>
 					</Form.Item>
 				</Col>
 
@@ -228,35 +342,90 @@ const VenueForm = ({ onSubmit }) => {
 				</Col>
 
 				<Col span={6}>
-					<Form.Item label='Indoor Venue' name='indoor_venue'>
-						<Input placeholder='Indoor Venue' />
+					<Form.Item
+						label='Indoor Venue'
+						name='indoor_venue'
+						rules={[
+							{ required: true },
+						]}>
+						<Radio.Group aria-label='Indoor Venue'>
+							<Radio value={false} name='indoor_venue'>
+								No
+							</Radio>
+							<Radio value={true} name='indoor_venue'>
+								Yes
+							</Radio>
+						</Radio.Group>
 					</Form.Item>
 				</Col>
 
 				<Col span={6}>
-					<Form.Item label='Outdoor Venue' name='outdoor_venue'>
-						<Input placeholder='Outdoor Venue' />
+					<Form.Item
+						label='Outdoor Venue'
+						name='outdoor_venue'
+						rules={[
+							{ required: true },
+						]}>
+						<Radio.Group aria-label='Outdoor Venue'>
+							<Radio value={false} name='outdoor_venue'>
+								No
+							</Radio>
+							<Radio value={true} name='outdoor_venue'>
+								Yes
+							</Radio>
+						</Radio.Group>
 					</Form.Item>
 				</Col>
 
 				<Col span={6}>
-					<Form.Item label='Parking Lot Available' name='parking_lot_available'>
-						<Input placeholder='Parking Lot Available' />
-					</Form.Item>
-				</Col>
-
-				<Col span={6}>
-					<Form.Item label='Paking Max Capacity' name='parking_max_capacity'>
-						<Input placeholder='Parking Max Capacity' type='number' />
-					</Form.Item>
-				</Col>
-
-				<Col span={6}>
-					<Form.Item name='tabc_certified'>
-						<Checkbox>Tabc Certified</Checkbox>
+					<Form.Item
+						label='Parking Lot Available'
+						name='parking_lot_available'
+						rules={[
+							{ required: true },
+						]}>
+						<Radio.Group aria-label='Parking Lot Available'>
+							<Radio value={false} name='parking_lot_available'>
+								No
+							</Radio>
+							<Radio value={true} name='parking_lot_available'>
+								Yes
+							</Radio>
+						</Radio.Group>
 					</Form.Item>
 				</Col>
 			</Row>
+			<Row>
+				<Col span={6}>
+					<Form.Item label='Parking Max Capacity' name='parking_max_capacity'>
+						<Input placeholder='Parking Max Capacity' type='number' />
+					</Form.Item>
+				</Col>
+			</Row>
+			<Row>
+				<Col span={6}>
+					<Form.Item
+						label='TabC Certified'
+						name='tabc_certified'
+						rules={[
+							{ required: true },
+						]}>
+						<Radio.Group aria-label='TabC Certified'>
+							<Radio value={false} name='tabc_certified'>
+								No
+							</Radio>
+							<Radio value={true} name='tabc_certified'>
+								Yes
+							</Radio>
+						</Radio.Group>
+					</Form.Item>
+				</Col>
+			</Row>
+
+			{/* <Row>
+				<input type="radio" name="radio"/>
+
+				</Row> */}
 
 			<Form.Item>
 				<Button type='primary' htmlType='submit'>
@@ -265,7 +434,12 @@ const VenueForm = ({ onSubmit }) => {
 			</Form.Item>
 		</Form>
 	) : (
-		<p>Submitted successfully</p>
+		<div>
+			<p>Submitted successfully</p>
+			<Link to='/venue'>
+				<Button>Continue</Button>
+			</Link>
+		</div>
 	);
 };
 

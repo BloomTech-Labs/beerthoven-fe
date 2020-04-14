@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 import EventForm from '../forms/EventForm';
-import { Link, Route, Switch } from 'react-router-dom';
+import { Link, Route, Switch, useHistory } from 'react-router-dom';
 import { Button } from 'antd';
 import { useMutation, useQuery } from '@apollo/react-hooks';
-import { CREATE_EVENT } from '../graphql/mutations';
+import { CREATE_EVENT, UPDATE_EVENT, DELETE_EVENT } from '../graphql/mutations';
 import { ALL_EVENTS } from '../graphql/queries';
+import { updateAfterEventCreate, updateAfterEventChange, updateAfterEventDelete } from '../graphql/cache';
+import EventList from '../lists/EventList'
 
 /**
  * This component should have internal routing to both a list of 
@@ -12,39 +14,73 @@ import { ALL_EVENTS } from '../graphql/queries';
  */
 
 const Event = () => {
-	const [ createEvent ] = useMutation(CREATE_EVENT);
+	const history = useHistory();
+
+	const [
+		createEvent,
+	] = useMutation(CREATE_EVENT, {
+		update : updateAfterEventCreate,
+	});
+
+	const [
+		updateEvent,
+	] = useMutation(UPDATE_EVENT, {
+		update : updateAfterEventChange,
+	});
+
+	const [
+		deleteEvent,
+	] = useMutation(DELETE_EVENT, {
+		update : updateAfterEventDelete,
+	});
+
 	const { loading, data } = useQuery(ALL_EVENTS);
-    
-	useEffect(() => {
-		if(!loading) {
-            console.log(data);
-        }
-    }, [loading, data]);
-    
-	const onSubmit = data => {
+
+	const onSubmit = (formData, eventId) => {
 		console.log('data', data);
 
-		const submitData = {
-            variables: {newEvent: data}
-		};
-		
-		console.log(JSON.stringify(submitData));
+		if (eventId) {
+			const params = {
+				variables : {
+					id      : eventId,
+					updates : formData,
+				},
+			};
+			console.log('UPDATE_EVENT variables', JSON.stringify(params));
+			updateEvent(params);
+		}
+		else {
+			console.log('CREATE_EVENT variables', JSON.stringify({ newEvent: formData }));
+			createEvent({
+				variables : { newEvent: formData },
+			});
+		}
+	};
 
-		createEvent(submitData);
+	const onEdit = eventId => {
+		history.push(`/event/form/${eventId}`);
+	};
+
+	const onDelete = eventId => {
+		if (window.confirm('Are you sure you want to delete this record?')) {
+			deleteEvent({
+				variables : { id: eventId },
+			});
+		}
 	};
 
 	return (
 		<div>
 			<Switch>
-				<Route path='/event/form'>
+				<Route path='/event/form/:id?'>
 					<EventForm onSubmit={onSubmit} />
 				</Route>
 				<Route>
 					<Link to='/event/form'>
 						<Button type='primary'>Add</Button>
-                        {data && JSON.stringify(data)}
 					</Link>
-					<p>Event list here</p>
+					{loading && <p>Loading...</p>}
+					{data && data.events.length && <EventList list={data.events} onEdit={onEdit} onDelete={onDelete} />}
 				</Route>
 			</Switch>
 		</div>

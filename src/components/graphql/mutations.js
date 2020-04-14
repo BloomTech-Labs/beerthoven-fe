@@ -87,6 +87,57 @@ export const CREATE_EVENT = gql`
 	}
 `;
 
+export const UPDATE_EVENT = gql`
+	mutation updateEvent($id: ID!, $updates: EventUpdateInput!) {
+		updateEvent(data: $updates, where: { id: $id }) {
+			id
+			date_created
+			eventbriteEventId
+			event_name
+			event_type
+			address
+			address2
+			city
+			state
+			zip
+			event_description
+			max_capacity
+			min_capacity
+			min_income
+			deposit_amount
+			smoking_allowed
+			under21_allowed
+			under18_allowed
+			tickets_sold
+			wheelchair_accessible
+			alcohol_beer_served
+			alcohol_wine_served
+			alcohol_spirits_served
+			food_served
+			setup_costs
+			talent_costs
+			opening_time
+			closing_time
+			event_date
+			tabc_certified
+			indoor_event
+			outdoor_vent
+			parking_lot_available
+			parking_max_capacity
+			sales_gross
+			sales_net
+		}
+	}
+`;
+
+export const DELETE_EVENT = gql`
+	mutation deleteEvent($id: ID!) {
+		deleteEvent(where: { id: $id }) {
+			id
+		}
+	}
+`;
+
 export const CREATE_VENUE = gql`
 	mutation createVenue($newVenue: VenueCreateInput!) {
 		createVenue(data: $newVenue) {
@@ -118,6 +169,49 @@ export const CREATE_VENUE = gql`
 			parking_lot_available
 			parking_max_capacity
 			tabc_certified
+		}
+	}
+`;
+
+export const UPDATE_VENUE = gql`
+	mutation updateVenue($id: ID!, $updates: VenueUpdateInput!) {
+		updateVenue(data: $updates, where: { id: $id }) {
+			id
+			date_created
+			name
+			venue_type
+			address
+			city
+			state
+			zip
+			max_capacity
+			min_income
+			deposit_amount
+			smoking_allowed
+			under21_allowed
+			under18_allowed
+			wheelchair_accessible
+			alcohol_beer_provided
+			alcohol_wine_provided
+			alcohol_spirits_provided
+			food_served
+			max_decibel
+			opening_time
+			closing_time
+			dance_floor_size
+			indoor_venue
+			outdoor_venue
+			parking_lot_available
+			parking_max_capacity
+			tabc_certified
+		}
+	}
+`;
+
+export const DELETE_VENUE = gql`
+	mutation deleteVenue($id: ID!) {
+		deleteVenue(where: { id: $id }) {
+			id
 		}
 	}
 `;
