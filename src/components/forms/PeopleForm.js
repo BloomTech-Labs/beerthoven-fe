@@ -23,7 +23,7 @@ const PeopleForm = ({ onSubmit }) => {
 
 	const submitForm = values => {
 		setSubmitted(true);
-		onSubmit(values);
+		onSubmit(values, params.id);
 	};
 
 	const [

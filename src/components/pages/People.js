@@ -1,19 +1,25 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import PeopleForm from '../forms/PeopleForm';
 import PeopleList from '../lists/PeopleList';
 import { Link, Route, Switch } from 'react-router-dom';
 import { Button } from 'antd';
 import { useMutation, useQuery } from '@apollo/react-hooks';
-import { CREATE_PERSON, DELETE_PERSON } from '../graphql/mutations';
+import { CREATE_PERSON, UPDATE_PERSON, DELETE_PERSON } from '../graphql/mutations';
 import { ALL_PERSONS } from '../graphql/queries';
 
 const People = () => {
+
+	// for pushing user to /form or /form/:id/ routes,
 	const history = useHistory();
 
 	const [
 		createPerson,
 	] = useMutation(CREATE_PERSON);
+
+	const [ 
+		updatePerson,
+	] = useMutation(UPDATE_PERSON);
 
 	const [
 		deletePerson,
@@ -30,13 +36,27 @@ const People = () => {
 			});
 		},
 	});
+
+	// for displaying list of people,
 	const { loading, data } = useQuery(ALL_PERSONS);
 
-	const onSubmit = formData => {
-		console.log('data', formData);
-		createPerson({
-			variables : { newPerson: formData },
-		});
+	const onSubmit = (formData, personId) => {
+		
+		if(personId) {
+			// this is a person being updated
+			updatePerson({
+				variables: { 
+					id: personId,
+					updates: formData
+				 }
+			});
+		}
+		else {
+			// this is a person being created
+			createPerson({
+				variables : { newPerson: formData },
+			});
+		}
 	};
 
 	const onEdit = personId => {
