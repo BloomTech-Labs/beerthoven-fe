@@ -7,7 +7,7 @@ import { Button } from 'antd';
 import { useMutation, useQuery } from '@apollo/react-hooks';
 import { CREATE_PERSON, UPDATE_PERSON, DELETE_PERSON } from '../graphql/mutations';
 import { ALL_PERSONS } from '../graphql/queries';
-import { updateAfterPersonChange, updateAfterPersonDelete } from '../graphql/cache';
+import { updateAfterPersonCreate, updateAfterPersonChange, updateAfterPersonDelete } from '../graphql/cache';
 
 const People = () => {
 
@@ -16,7 +16,10 @@ const People = () => {
 
 	const [
 		createPerson,
-	] = useMutation(CREATE_PERSON);
+	] = useMutation(CREATE_PERSON, {
+		// when a creation is performed, update the cache
+		update: updateAfterPersonCreate
+	});
 
 	const [ 
 		updatePerson,
