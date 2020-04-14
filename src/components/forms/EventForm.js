@@ -1,7 +1,19 @@
 import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { useQuery } from '@apollo/react-hooks';
+import { GET_EVENT } from '../graphql/queries';
 import { Form, Input, Checkbox, Button, Row, Col } from 'antd';
 
 const EventForm = ({ onSubmit }) => {
+	const params = useParams();
+
+	const editingEvent = params.id != null;
+
+	const { loading, data } = useQuery(GET_EVENT, {
+		skip      : !editingEvent,
+		variables : { id: params.id },
+	});
+
 	const [
 		submitted,
 		setSubmitted,
