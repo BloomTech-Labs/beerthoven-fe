@@ -21,15 +21,9 @@ const VenueForm = ({ onSubmit }) => {
 	] = useState(false);
 
 	const submitForm = values => {
-		console.log('IT SUBMITS', values);
 		setSubmitted(true);
 		onSubmit(values, params.id);
 	};
-
-	const [
-		checked,
-		setChecked,
-	] = useState(false);
 
 	const [
 		form,
@@ -39,11 +33,6 @@ const VenueForm = ({ onSubmit }) => {
 		form.setFieldsValue(data.venue);
 	}
 
-	const handleClick = () => setChecked(!checked);
-
-	const Changing = e => {
-		console.log('e.target.change', e.target.checked);
-	};
 	return !submitted ? (
 		<Form form={form} layout='vertical' onFinish={submitForm}>
 			<h1>Add New Venue</h1>
