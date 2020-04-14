@@ -1,7 +1,21 @@
 import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { useQuery } from '@apollo/react-hooks';
+import { GET_PERSON } from '../graphql/queries';
 import { Form, Input, Button, Row, Col } from 'antd';
 
 const PeopleForm = ({ onSubmit }) => {
+	const params = useParams();
+
+	// if there is no ID in the path, the user is creating a new person,
+	// and we can skip fetching a person
+	const editingPerson = params.id != null;
+
+	const { loading, data } = useQuery(GET_PERSON, {
+		skip      : !editingPerson, // skip grabbing a person if user is not editing, but rather adding new
+		variables : { id: params.id },
+	});
+
 	const [
 		submitted,
 		setSubmitted,
@@ -12,8 +26,18 @@ const PeopleForm = ({ onSubmit }) => {
 		onSubmit(values);
 	};
 
+	const [
+		form,
+	] = Form.useForm();
+
+	if (!loading && data) {
+		console.log('person being edited', data.person);
+
+		form.setFieldsValue(data.person);
+	}
+
 	return !submitted ? (
-		<Form layout='vertical' onFinish={submitForm}>
+		<Form form={form} layout='vertical' onFinish={submitForm}>
 			<h1>Add New Profile</h1>
 			<Row
 				gutter={[

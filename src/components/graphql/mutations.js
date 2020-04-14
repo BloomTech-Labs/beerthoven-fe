@@ -22,16 +22,6 @@ export const DELETE_PERSON = gql`
 	mutation deletePerson($id: ID!) {
 		deletePerson(where: { id: $id }) {
 			id
-			date_created
-			first_name
-			last_name
-			email
-			phone
-			address
-			address2
-			city
-			state
-			zip
 		}
 	}
 `;

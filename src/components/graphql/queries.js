@@ -18,6 +18,24 @@ export const ALL_PERSONS = gql`
 	}
 `;
 
+export const GET_PERSON = gql`
+	query getPerson($id: ID!) {
+		person(where:{ id: $id }) {
+			id
+			date_created
+			first_name
+			last_name
+			email
+			phone
+			address
+			address2
+			city
+			state
+			zip
+		}
+	}
+`;
+
 export const ALL_EVENTS = gql`
 	query allevents {
 		events {
