@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, Button } from 'antd';
+import { Table, Button, Empty } from 'antd';
 
 const PeopleList = ({ list, onDelete, onEdit }) => {
 
@@ -49,6 +49,7 @@ const PeopleList = ({ list, onDelete, onEdit }) => {
         <Table
             columns={columns}
             dataSource={data}
+            locale={{ emptyText: <Empty /> }}
         />
     );
 

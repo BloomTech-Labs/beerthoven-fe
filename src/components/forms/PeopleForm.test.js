@@ -2,6 +2,7 @@ import React from 'react';
 import { render, fireEvent, cleanup, wait } from '@testing-library/react';
 import PeopleForm from './PeopleForm';
 import mockPerson from '../../test-data/person';
+// import {useParams} from 'react-router-dom'
 
 beforeEach(cleanup);
 
@@ -43,4 +44,16 @@ test('all data is submitted', async () => {
         expect(onSubmit).toHaveBeenCalledWith(mockPerson);
     });
 
+    jest.mock('react-router-dom', ()=>({
+        ...jest.requireActual('react-router-dom'), //
+        useParams: ()=>({
+            id: 'id'
+        }), 
+        useRoutematch: ()=> ({ url: '/people/id'})
+    }))
+
 });
+
+it('Something new', async ()=>{
+
+})

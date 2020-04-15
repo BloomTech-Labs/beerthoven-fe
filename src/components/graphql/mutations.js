@@ -78,7 +78,7 @@ export const CREATE_EVENT = gql`
 			event_date
 			tabc_certified
 			indoor_event
-			outdoor_vent
+			outdoor_event
 			parking_lot_available
 			parking_max_capacity
 			sales_gross
@@ -121,7 +121,7 @@ export const UPDATE_EVENT = gql`
 			event_date
 			tabc_certified
 			indoor_event
-			outdoor_vent
+			outdoor_event
 			parking_lot_available
 			parking_max_capacity
 			sales_gross
