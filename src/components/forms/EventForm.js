@@ -22,6 +22,20 @@ const EventForm = ({ onSubmit }) => {
 	] = useState(false);
 
 	const submitForm = values => {
+		// convert strings that are expected to be numbers
+		values.max_capacity = Number(values.max_capacity);
+		values.min_capacity = Number(values.min_capacity);
+		values.min_income = Number(values.min_income);
+		values.deposit_amount = Number(values.deposit_amount);
+		values.tickets_sold = Number(values.tickets_sold);
+		values.setup_costs = Number(values.setup_costs);
+		values.talent_costs = Number(values.talent_costs);
+		values.opening_time = Number(values.opening_time);
+		values.closing_time = Number(values.closing_time);
+		values.event_date = Number(values.event_date);
+		values.parking_max_capacity = Number(values.parking_max_capacity);
+		values.sales_gross = Number(values.sales_gross);
+		values.sales_net = Number(values.sales_net);
 		setSubmitted(true);
 		onSubmit(values, params.id);
 	};
