@@ -21,15 +21,16 @@ const VenueForm = ({ onSubmit }) => {
 	] = useState(false);
 
 	const submitForm = values => {
-		console.log('IT SUBMITS', values);
+		// convert strings that are expected to be numbers
+		values.max_capacity = Number(values.max_capacity);
+		values.min_income = Number(values.min_income);
+		values.deposit_amount = Number(values.deposit_amount);
+		values.max_decibel = Number(values.max_decibel);
+		values.parking_max_capacity = Number(values.parking_max_capacity);
+
 		setSubmitted(true);
 		onSubmit(values, params.id);
 	};
-
-	const [
-		checked,
-		setChecked,
-	] = useState(false);
 
 	const [
 		form,
@@ -39,11 +40,6 @@ const VenueForm = ({ onSubmit }) => {
 		form.setFieldsValue(data.venue);
 	}
 
-	const handleClick = () => setChecked(!checked);
-
-	const Changing = e => {
-		console.log('e.target.change', e.target.checked);
-	};
 	return !submitted ? (
 		<Form form={form} layout='vertical' onFinish={submitForm}>
 			<h1>Add New Venue</h1>
