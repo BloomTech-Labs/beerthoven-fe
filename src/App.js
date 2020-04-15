@@ -8,17 +8,6 @@ import { Layout, Menu } from 'antd';
 import Dashboard from './components/pages/Dashboard';
 import Login from './components/pages/Login';
 import People from './components/pages/People';
-import Volunteer from './components/pages/Volunteer';
-import Benefactor from './components/pages/Benefactor';
-import BoardMember from './components/pages/BoardMember';
-import ComposerForm from './components/forms/ComposerForm';
-import Performer from './components/pages/Performer';
-import HouseContactHostForm from './components/forms/HouseContactHostForm';
-import BusinessPartnerForm from './components/forms/BusinessPartnerForm';
-import MediaContactForm from './components/forms/MediaContactForm';
-import WorkContact from './components/pages/WorkContact';
-import BusinessInfo from './components/pages/BusinessInfo';
-import RecentBenefactor from './components/pages/RecentBenefactor';
 import Event from './components/pages/Event';
 import Venue from './components/pages/Venue';
 const { Sider, Content } = Layout;
@@ -60,41 +49,8 @@ function App () {
 									<Route path='/login'>
 										<Login />
 									</Route>
-									<Route path='/benefactor'>
-										<Benefactor />
-									</Route>
-									<Route path='/boardmember'>
-										<BoardMember />
-									</Route>
 									<Route path='/people'>
 										<People />
-									</Route>
-									<Route path='/businesspartner'>
-										<BusinessPartnerForm />
-									</Route>
-									<Route path='/composer'>
-										<ComposerForm />
-									</Route>
-									<Route path='/performer'>
-										<Performer />
-									</Route>
-									<Route path='/media'>
-										<MediaContactForm />
-									</Route>
-									<Route path='/volunteer'>
-										<Volunteer />
-									</Route>
-									<Route path='/housecontact'>
-										<HouseContactHostForm />
-									</Route>
-									<Route path='/workcontact'>
-										<WorkContact />
-									</Route>
-									<Route path='/businessinfo'>
-										<BusinessInfo />
-									</Route>
-									<Route path='/recentbenefactor'>
-										<RecentBenefactor />
 									</Route>
 									<Route path='/event'>
 										<Event />

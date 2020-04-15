@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { GET_EVENT } from '../graphql/queries';
 import { Link } from 'react-router-dom';
 
-import { Form, Input, Checkbox, Button, Row, Col, Radio } from 'antd';
+import { Form, Input, Button, Row, Col, Radio } from 'antd';
 
 const EventForm = ({ onSubmit }) => {
 	const params = useParams();
