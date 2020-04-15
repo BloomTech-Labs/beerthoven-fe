@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, Button } from 'antd';
+import { Table, Button, Empty } from 'antd';
 
 const EventList = ({ list, onDelete, onEdit }) => {
 	// define the columns of the table
@@ -49,7 +49,12 @@ const EventList = ({ list, onDelete, onEdit }) => {
 		return { ...item, key: item.id };
 	});
 
-	return <Table columns={columns} dataSource={data} />;
+    return (
+        <Table
+            columns={columns}
+            dataSource={data}
+            locale={{ emptyText: <Empty /> }}
+        />);
 };
 
 export default EventList;

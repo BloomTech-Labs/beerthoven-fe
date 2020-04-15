@@ -3,8 +3,10 @@ import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
 import { GET_EVENT } from '../graphql/queries';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
 
-import { Form, Input, Button, Row, Col, Radio } from 'antd';
+
+import { Form, Input, Button, Row, Col, Radio, DatePicker } from 'antd';
 
 const EventForm = ({ onSubmit }) => {
 	const params = useParams();
@@ -30,9 +32,7 @@ const EventForm = ({ onSubmit }) => {
 		values.tickets_sold = Number(values.tickets_sold);
 		values.setup_costs = Number(values.setup_costs);
 		values.talent_costs = Number(values.talent_costs);
-		values.opening_time = Number(values.opening_time);
-		values.closing_time = Number(values.closing_time);
-		values.event_date = Number(values.event_date);
+		values.event_date = values.event_date || new Date().toString();
 		values.parking_max_capacity = Number(values.parking_max_capacity);
 		values.sales_gross = Number(values.sales_gross);
 		values.sales_net = Number(values.sales_net);
@@ -45,6 +45,7 @@ const EventForm = ({ onSubmit }) => {
 	] = Form.useForm();
 
 	if (!loading && data) {
+		data.event.event_date = moment(data.event.event_date);
 		form.setFieldsValue(data.event);
 	}
 
@@ -101,7 +102,7 @@ const EventForm = ({ onSubmit }) => {
 					16,
 				]}>
 				<Col>
-					<Form.Item label='Address line 2 (optional)' name='address2'>
+					<Form.Item label='Address line 2' name='address2'>
 						<Input placeholder='Enter apartment, suite, etc' />
 					</Form.Item>
 				</Col>
@@ -154,7 +155,7 @@ const EventForm = ({ onSubmit }) => {
 						label='Event Description'
 						name='event_description'
 						rules={[
-							{ required: true , message: "'event description' is required"},
+							{ required: true, message: "'event description' is required" },
 						]}>
 						<Input placeholder='Enter event description' />
 					</Form.Item>
@@ -296,15 +297,21 @@ const EventForm = ({ onSubmit }) => {
 			</Row>
 			<Row>
 				<Form.Item label='Opening Time' name='opening_time'>
-					<Input placeholder='Opening Time' type='number' />
+					<Input placeholder='Opening Time' />
 				</Form.Item>
 				<Form.Item label='Closing Time' name='closing_time'>
-					<Input placeholder='Closing Time' type='number' />
+					<Input placeholder='Closing Time' />
 				</Form.Item>
 			</Row>
 			<Row>
-				<Form.Item label='Event Date' name='event_date'>
-					<Input placeholder='Event Date' type='number' />
+				<Form.Item
+					label='Event Date'
+					name='event_date'
+					rules={[
+						{ required: true },
+					]}
+				>
+					<DatePicker />
 				</Form.Item>
 
 				<Col span={6}>
