@@ -10,7 +10,7 @@
 
 # 1️⃣ Title of project goes here
 
-1️⃣ You can find the deployed project at [https://www.beerthoven.dev/].
+1️⃣ You can find the deployed project at https://www.beerthoven.dev/.
 
 ## 4️⃣ Contributors
 
