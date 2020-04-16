@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/react-hooks';
-import {GET_USER} from '../graphql/queries'
+import { GET_USER } from '../graphql/queries';
 import { Form, Input, Button, Row, Col, Select } from 'antd';
 import { Link } from 'react-router-dom';
 
 const { Option } = Select;
 
-const UserForm = ({onSubmit}) => {
+const UserForm = ({ onSubmit }) => {
 	const params = useParams();
 
 	const editingUser = params.id != null;
@@ -52,25 +52,25 @@ const UserForm = ({onSubmit}) => {
 						]}>
 						<Input placeholder='Enter email address' />
 					</Form.Item>
-					<Form.Item
+					{/* <Form.Item
 						label='Password'
 						name='password'
 						rules={[
 							{ required: true },
 						]}>
 						<Input placeholder='Enter password' type='password' />
-					</Form.Item>
+					</Form.Item> */}
 				</Col>
 			</Row>
-			<Row
+			{/* <Row
 				gutter={[
 					16,
 					16,
 				]}>
 				<Col span={12}>
-					{/* <Form.Item label='Person' name='person'>
+					<Form.Item label='Person' name='person'>
 						<Input placeholder='Enter Person' />
-					</Form.Item> */}
+					</Form.Item>
 					<Form.Item
 						label='Role'
 						name='role'
@@ -78,14 +78,14 @@ const UserForm = ({onSubmit}) => {
 							{ required: true },
 						]}>
 						<Select style={{ width: 120 }}>
-							<Option value='admin'>Admin</Option>
-							<Option value='performer'>Performer</Option>
-							<Option value='volunteer'>Volunteer</Option>
-							<Option value='guest'>Guest</Option>
+							<Option value='ADMIN'>Admin</Option>
+							<Option value='PERFORMER'>Performer</Option>
+							<Option value='VOLUNTEER'>Volunteer</Option>
+							<Option value='GUEST'>Guest</Option>
 						</Select>
 					</Form.Item>
 				</Col>
-			</Row>
+			</Row> */}
 			<Form.Item>
 				<Button type='primary' htmlType='submit'>
 					Submit
