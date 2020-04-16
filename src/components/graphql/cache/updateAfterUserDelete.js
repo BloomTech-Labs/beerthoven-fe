@@ -5,6 +5,6 @@ export default function (cache, { data: { deleteUser } }) {
 
 	cache.writeQuery({
 		query : ALL_USERS,
-		data  : { events: allUsers.users.filter(user => user.id !== deleteUser.id) },
+		data  : { users: allUsers.users.filter(user => user.id !== deleteUser.id) },
 	});
 }

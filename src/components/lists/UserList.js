@@ -10,6 +10,10 @@ const UserList = ({ list, onDelete, onEdit }) => {
             dataIndex: 'id'
         },
         {
+            title: 'Date created',
+            dataIndex: 'date_created'
+        },
+        {
             title: 'Email',
             dataIndex: 'email'
         },
