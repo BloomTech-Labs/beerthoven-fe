@@ -10,6 +10,10 @@ import updateAfterVenueCreate from './updateAfterVenueCreate';
 import updateAfterVenueChange from './updateAfterVenueChange'
 import updateAfterVenueDelete from './updateAfterVenueDelete'
 
+import updateAfterUserCreate from './updateAfterUserCreate'
+import updateAfterUserChange from './updateAfterUserChange'
+import updateAfterUserDelete from './updateAfterUserDelete'
+
 export {
     updateAfterPersonCreate,
     updateAfterPersonChange,
@@ -19,7 +23,10 @@ export {
     updateAfterEventDelete,
     updateAfterVenueCreate,
     updateAfterVenueChange,
-    updateAfterVenueDelete
+    updateAfterVenueDelete,
+    updateAfterUserCreate,
+    updateAfterUserChange,
+    updateAfterUserDelete
 };
 
 

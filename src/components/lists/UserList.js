@@ -13,10 +13,10 @@ const UserList = ({ list, onDelete, onEdit }) => {
             title: 'Email',
             dataIndex: 'email'
         },
-        {
-            title: 'Person',
-            dataIndex: 'person'
-        },
+        // {
+        //     title: 'Person',
+        //     dataIndex: 'person'
+        // },
         {
             title: 'Role',
             dataIndex: 'role'

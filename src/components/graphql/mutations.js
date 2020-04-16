@@ -215,3 +215,34 @@ export const DELETE_VENUE = gql`
 		}
 	}
 `;
+export const CREATE_USER = gql`
+	mutation createUser($newUser: UserCreateInput!) {
+		createUser(data: $newUser) {
+			id
+			date_created
+			email
+			person
+			role
+		}
+	}
+`;
+
+export const UPDATE_USER = gql`
+	mutation updateUser($id: ID!, $updates: UserUpdateInput!) {
+		updateUser(data: $updates, where: { id: $id }) {
+			id
+			date_created
+			email
+			person
+			role
+		}
+	}
+`;
+
+export const DELETE_USER = gql`
+	mutation deleteUser($id: ID!) {
+		deleteUser(where: { id: $id }) {
+			id
+		}
+	}
+`;

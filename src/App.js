@@ -10,6 +10,7 @@ import Login from './components/pages/Login';
 import People from './components/pages/People';
 import Event from './components/pages/Event';
 import Venue from './components/pages/Venue';
+import User from './components/pages/User';
 const { Sider, Content } = Layout;
 
 function App () {
@@ -36,6 +37,9 @@ function App () {
 									<Menu.Item key='3'>
 										<Link to='/venue'>Venues</Link>
 									</Menu.Item>
+									<Menu.Item key='4'>
+										<Link to='/user'>Users</Link>
+									</Menu.Item>
 								</Menu.ItemGroup>
 							</Menu>
 						</Sider>
@@ -58,6 +62,9 @@ function App () {
 									<Route path='/venue'>
 										<Venue />
 									</Route>
+									<Route path='/user'>
+										<User />
+									</Route>
 									<Route>
 										<Dashboard />
 									</Route>
@@ -72,4 +79,3 @@ function App () {
 }
 
 export default App;
-  

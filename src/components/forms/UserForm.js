@@ -1,40 +1,104 @@
-import React, {useState} from 'react'
-import {useParams} from 'react-router-dom'
-import {useQuery} from '@apollo/react-hooks'
-// import {GET_USER} from '../graphql/queries'
-import {Form, Input, Button, Row, Col} from 'antd'
-import {Link} from 'react-router-dom'
+import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { useQuery } from '@apollo/react-hooks';
+import {GET_USER} from '../graphql/queries'
+import { Form, Input, Button, Row, Col, Select } from 'antd';
+import { Link } from 'react-router-dom';
 
-const UserForm = (onSubmit) => {
-    const params = useParams();
+const { Option } = Select;
 
-    const editingUser = params.id != null;
+const UserForm = ({onSubmit}) => {
+	const params = useParams();
 
-    const {loading, data} = useQuery(GET_USER, {
-        skip: !editingUser,
-        variables: {id: params.id},
-    })
+	const editingUser = params.id != null;
 
-    const [
-        submitted, setSubmitted,
-    ] = useState(false)
+	const { loading, data } = useQuery(GET_USER, {
+		skip      : !editingUser,
+		variables : { id: params.id },
+	});
 
-    const submitForm = values => {
-        setSubmitted(true)
-        onSubmit(values, params.id)
-    }
+	const [
+		submitted,
+		setSubmitted,
+	] = useState(false);
 
-    const [form,] = Form.useForm()
+	const submitForm = values => {
+		setSubmitted(true);
+		onSubmit(values, params.id);
+	};
 
-    if (!loading && data) {
-        form.setFieldsValue(data.user)
-    }
+	const [
+		form,
+	] = Form.useForm();
 
-    return !submitted ? (
-        <Form form={form} layout='vertical' onFinish={submitForm}>
-            <h1>Add New User</h1>
+	if (!loading && data) {
+		form.setFieldsValue(data.user);
+	}
 
-        </Form>
-    )
-}
-export default UserForm
+	return !submitted ? (
+		<Form form={form} layout='vertical' onFinish={submitForm}>
+			<h1>Add New User</h1>
+			<Row
+				gutter={[
+					16,
+					16,
+				]}>
+				<Col span={12}>
+					<Form.Item
+						label='Email'
+						name='email'
+						rules={[
+							{ required: true },
+						]}>
+						<Input placeholder='Enter email address' />
+					</Form.Item>
+					<Form.Item
+						label='Password'
+						name='password'
+						rules={[
+							{ required: true },
+						]}>
+						<Input placeholder='Enter password' type='password' />
+					</Form.Item>
+				</Col>
+			</Row>
+			<Row
+				gutter={[
+					16,
+					16,
+				]}>
+				<Col span={12}>
+					{/* <Form.Item label='Person' name='person'>
+						<Input placeholder='Enter Person' />
+					</Form.Item> */}
+					<Form.Item
+						label='Role'
+						name='role'
+						rules={[
+							{ required: true },
+						]}>
+						<Select style={{ width: 120 }}>
+							<Option value='admin'>Admin</Option>
+							<Option value='performer'>Performer</Option>
+							<Option value='volunteer'>Volunteer</Option>
+							<Option value='guest'>Guest</Option>
+						</Select>
+					</Form.Item>
+				</Col>
+			</Row>
+			<Form.Item>
+				<Button type='primary' htmlType='submit'>
+					Submit
+				</Button>
+			</Form.Item>
+		</Form>
+	) : (
+		<div>
+			<p>Submitted successfully</p>
+			<Link to='/user'>
+				<Button>Continue</Button>
+			</Link>
+		</div>
+	);
+};
+export default UserForm;
