@@ -29,11 +29,11 @@ You can find the deployed project at https://www.beerthoven.dev/
 
 ## Project Overview
 
-https://trello.com/b/uyrYNcIv/labs22-beerthoven
+[Trello Board](https://trello.com/b/uyrYNcIv/labs22-beerthoven)
 
-https://www.notion.so/Beerthoven-2ac2dcac96d741fc8c5ff645cf0ccaea
+[Product Canvas](https://www.notion.so/Beerthoven-2ac2dcac96d741fc8c5ff645cf0ccaea)
 
-https://www.figma.com/file/CEPeeLCgftmibKev07r1k8/Beerthoven%2C-Emily?node-id=179%3A0
+[UX Design Files](https://www.figma.com/file/CEPeeLCgftmibKev07r1k8/Beerthoven%2C-Emily?node-id=179%3A0)
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
@@ -65,7 +65,7 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
 
 #### Front end deployed to https://www.beerthoven.dev/
 
-#### https://github.com/Lambda-School-Labs/beerthoven-be built using:
+#### [Backend Repo](https://github.com/Lambda-School-Labs/beerthoven-be) built using:
 
 #### 🚫 back end framework goes here
 
