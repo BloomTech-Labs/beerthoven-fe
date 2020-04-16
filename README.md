@@ -4,15 +4,15 @@
 
 # Beerthoven
 
-You can find the deployed project at https://www.beerthoven.dev/.
+You can find the deployed project at https://www.beerthoven.dev/
 
 ## Contributors
 
 |                                       [Justin Trombley](https://https://github.com/JustinTrombley96/)                                        |                                       [Nolan Picini](https://github.com/NolanPic/)                                        |                                       [Eunice Baiden](https://github.com/ebisLab/)                                        |                                       [Eralp Kor](https://github.com/eralpkor)                                        |                                       [Wesley Moody](https://github.com/)                                        |
 | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: |
-|                      [<img src="https://avatars0.githubusercontent.com/u/35484507?s=460&u=c41b853350474dbec42e1669a6b56af90f2d07ce&v=4" width = "200" />](https://https://github.com/JustinTrombley96/)                       |                      [<img src="https://avatars0.githubusercontent.com/u/15525038?s=460&u=0cd992b54ca07a643c8784ebf6504df13d06af54&v=4" width = "200" />](https://github.com/NolanPic/)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com//ebisLab/)                       |                      [<img src="https://avatars3.githubusercontent.com/u/13582770?s=460&u=dd4314c27bcaed64ed61d66931a9d1be6a217142&v=4" width = "200" />](https://github.com/eralpkor)                       |                      [<img src="https://avatars1.githubusercontent.com/u/56652299?s=460&u=5b05ff6cc825b8fdd8c24350c2d446f293e86ca7&v=4" width = "200" />](https://github.com/wesley-moody)                       |
-|                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)                 |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/honda0306)             |           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Mister-Corn)            |          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/NandoTheessen)           |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/wvandolah)             |
-| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) |
+|                      [<img src="https://avatars0.githubusercontent.com/u/35484507?s=460&u=c41b853350474dbec42e1669a6b56af90f2d07ce&v=4" width = "200" />](https://https://github.com/JustinTrombley96/)                       |                      [<img src="https://avatars0.githubusercontent.com/u/15525038?s=460&u=0cd992b54ca07a643c8784ebf6504df13d06af54&v=4" width = "200" />](https://github.com/NolanPic/)                       |                      [<img src="https://media-exp1.licdn.com/dms/image/C4D03AQGfE5tm7SypJg/profile-displayphoto-shrink_800_800/0?e=1592438400&v=beta&t=yMQn8XCk4Vr1-SCpHJbZnfMA0jSlPg_H4Wml_nb1LgY" width = "200" />](https://github.com//ebisLab/)                       |                      [<img src="https://avatars3.githubusercontent.com/u/13582770?s=460&u=dd4314c27bcaed64ed61d66931a9d1be6a217142&v=4" width = "200" />](https://github.com/eralpkor)                       |                      [<img src="https://avatars1.githubusercontent.com/u/56652299?s=460&u=5b05ff6cc825b8fdd8c24350c2d446f293e86ca7&v=4" width = "200" />](https://github.com/wesley-moody)                       |
+|                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/JustinTrombley96)                 |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/NolanPic)             |           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/ebisLab)            |          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/eralpkor)           |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/wesley-moody)             |
+| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/justin-trombley1996/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/nolan-picini-30393799/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/eunice-baiden/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/eralpkor/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/wesley-moody/) |
 
 <br>
 <br>
@@ -29,13 +29,11 @@ You can find the deployed project at https://www.beerthoven.dev/.
 
 ## Project Overview
 
-1️⃣ [Trello Board](🚫add link to trello board here)
+https://trello.com/b/uyrYNcIv/labs22-beerthoven
 
-1️⃣ [Product Canvas](🚫add link to product canvas here)
+https://www.notion.so/Beerthoven-2ac2dcac96d741fc8c5ff645cf0ccaea
 
-1️⃣ [UX Design files](🚫add link to design files here) - 🚫 delete if not applicable
-
-🚫 Replace lorem ipsum with a description of your project
+https://www.figma.com/file/CEPeeLCgftmibKev07r1k8/Beerthoven%2C-Emily?node-id=179%3A0
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
@@ -65,9 +63,9 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
 
 🚫List the rest of the front end features and libraries in the same format as the framework above.
 
-#### Front end deployed to `🚫insert service here`
+#### Front end deployed to https://www.beerthoven.dev/
 
-#### [Back end](🚫link to back end repo here) built using:
+#### https://github.com/Lambda-School-Labs/beerthoven-be built using:
 
 #### 🚫 back end framework goes here
 
@@ -190,4 +188,4 @@ These contribution guidelines have been adapted from [this good-Contributing.md-
 
 ## Documentation
 
-See [Backend Documentation](🚫_link to your backend readme here_) for details on the backend of our project.
+See [Backend Documentation](https://github.com/Lambda-School-Labs/beerthoven-be/blob/master/README.md) for details on the backend of our project.
