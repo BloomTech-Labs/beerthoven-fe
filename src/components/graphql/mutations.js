@@ -221,7 +221,9 @@ export const CREATE_USER = gql`
 			id
 			date_created
 			email
-			person
+			person {
+				id
+			}
 			role
 		}
 	}
@@ -233,7 +235,9 @@ export const UPDATE_USER = gql`
 			id
 			date_created
 			email
-			person
+			person {
+				id
+			}
 			role
 		}
 	}

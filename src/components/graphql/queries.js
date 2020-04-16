@@ -198,7 +198,9 @@ export const ALL_USERS = gql`
 			id
 			date_created
 			email
-			person
+			person {
+				id
+			}
 			role
 		}
 	}
@@ -210,7 +212,9 @@ export const GET_USER = gql`
 			id
 			date_created
 			email
-			person
+			person {
+				id
+			}
 			role
 		}
 	}
