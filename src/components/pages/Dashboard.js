@@ -15,7 +15,10 @@ const Dashboard = () => (
 					<Link to='/event'>Events</Link>
 				</Menu.Item>
 				<Menu.Item key='3'>
-					<Link to='venue'>Venues</Link>
+					<Link to='/venue'>Venues</Link>
+				</Menu.Item>
+				<Menu.Item key='4'>
+					<Link to='/user'>Users</Link>
 				</Menu.Item>
 			</Menu.ItemGroup>
 		</Menu>

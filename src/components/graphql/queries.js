@@ -191,3 +191,31 @@ export const GET_VENUE = gql`
 		}
 	}
 `;
+
+export const ALL_USERS = gql`
+	query allUsers {
+		users {
+			id
+			date_created
+			email
+			person {
+				id
+			}
+			role
+		}
+	}
+`;
+
+export const GET_USER = gql`
+	query getUser($id: ID!) {
+		user(where: { id: $id }) {
+			id
+			date_created
+			email
+			person {
+				id
+			}
+			role
+		}
+	}
+`;
