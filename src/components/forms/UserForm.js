@@ -52,25 +52,25 @@ const UserForm = ({ onSubmit }) => {
 						]}>
 						<Input placeholder='Enter email address' />
 					</Form.Item>
-					{/* <Form.Item
+					<Form.Item
 						label='Password'
 						name='password'
 						rules={[
 							{ required: true },
 						]}>
 						<Input placeholder='Enter password' type='password' />
-					</Form.Item> */}
+					</Form.Item>
 				</Col>
 			</Row>
-			{/* <Row
+			<Row
 				gutter={[
 					16,
 					16,
 				]}>
 				<Col span={12}>
-					<Form.Item label='Person' name='person'>
+					{/* <Form.Item label='Person' name='person'>
 						<Input placeholder='Enter Person' />
-					</Form.Item>
+					</Form.Item> */}
 					<Form.Item
 						label='Role'
 						name='role'
@@ -85,7 +85,7 @@ const UserForm = ({ onSubmit }) => {
 						</Select>
 					</Form.Item>
 				</Col>
-			</Row> */}
+			</Row>
 			<Form.Item>
 				<Button type='primary' htmlType='submit'>
 					Submit
