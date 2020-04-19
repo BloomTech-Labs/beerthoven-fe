@@ -8,7 +8,6 @@ const person = {
 	city       : 'Lake Stevens',
 	state      : 'Washington',
 	zip        : '98258',
-	submit     : undefined,
 };
 
 export default person;
