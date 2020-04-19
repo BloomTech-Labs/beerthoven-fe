@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent, cleanup, wait } from '@testing-library/react';
+import { render, fireEvent, cleanup, wait, findByText } from '@testing-library/react';
 import PeopleForm from './PeopleForm';
 // import mockPerson from '../../test-data/person';
 
@@ -7,18 +7,18 @@ import PeopleForm from './PeopleForm';
 
 import person from '../../test-data/person';
 import '@testing-library/jest-dom/extend-expect'
-import {Router, Route} from 'react-router'
+import {Router} from 'react-router'
 import { createMemoryHistory } from "history";
 import { ApolloProvider } from 'react-apollo';
 import client from '../graphql/client';
 
-beforeEach(cleanup);
+
 
 
  //*** */
 
  //this submit is to validate inputs
-const onSubmit = data =>{  
+const onSubmit2 = data =>{  
         const isValid= checkIfErrors(data)
         jest.fn()
 
@@ -42,85 +42,181 @@ const checkIfErrors =(data)=>{
     }
 }
 
-//helper function --should be its own file so other test files can use
- function renderWithRouterMatch(
-    ui,
-    {
-      path = "/",
-      route = "/",
-      history = createMemoryHistory({ initialEntries: [route] })
-    } = {}
-  ) {
-    return {
-      ...render(
-        <ApolloProvider client={client}>
-        <Router history={history}>
-          <Route  path={path} component={ui} />
-        </Router>
-        </ApolloProvider>
-      )
-    };
-  }
 
-describe('all data is submitted', ()=>{
+  describe(`People Form Component`, ()=>{
+    beforeEach(cleanup);
+
+ it(`renders a component that uses withRouter`, async()=>{
+const history = createMemoryHistory()
+const route = '/some-route'
+history.push(route)
+const onSubmit = jest.fn();
+const {container} = render(
+  <ApolloProvider client={client}>
+<Router history={history}><PeopleForm onSubmit={onSubmit}/></Router>
+</ApolloProvider>
+// , {wrapper: MemoryRouter}
+)
+
+expect(container.firstChild).toMatchSnapshot();
+ })
+
+ it(`should  fetch the data`, async()=>{
+const history = createMemoryHistory()
+const onSubmit = jest.fn();
+const {getByLabelText, getByText} = render(
+<ApolloProvider client={client}>
+<Router history={history}><PeopleForm onSubmit={onSubmit} person={person}/></Router>
+</ApolloProvider>
+)
+  const firstNameNode = await getByLabelText('First Name');
+  const submitBtn = await getByText('Submit');
+  
+
+  // expect(firstNameNode.value).toBe("Bob")
+
+
+    await wait(() => {
+      fireEvent.change(firstNameNode, { target: { value: person.first_name } });
+      fireEvent.keyDown(firstNameNode, {key: "Random naming"})
+    
+      fireEvent.submit(submitBtn);
+
+    });
+
+  
+  await mockSubmit(person)
+  expect(mockSubmit).toHaveBeenCalledTimes(1);
+  expect(mockSubmit).toHaveBeenCalled();
+  // expect(mockSubmit).toHaveBeenCalledWith(person);
+  
+  console.log(person)
+
+//   for(let i of Object.keys(person)){
+// // const jian= expect(findByText(person)).toBeInTheDocument()
+// // await expect(findByText(i)).toBeInTheDocument()
+// // console.log(findByText(person))
+// console.log(i)
+// }
+})
+  
+
+it('Data is being called as expected', async()=>{
+
+  expect(mockSubmit).toHaveBeenCalledWith({
+  first_name: 'Bob',
+  email: 'bob.smith@bobsmith.net',
+  last_name: 'Smith',
+  phone: '9999999999',
+  address: '12355 4th PL NW',
+  address2: '#512',
+  city: 'Lake Stevens',
+  state: 'Washington',
+  zip: '98258' });
+})
+
+it('similuates a button click', ()=>{
+
+})
+
+it('lands on a bad page', ()=>{
+
+})
+
+})
+
+
+
+
+
+
+
+// describe('all data is submitted', ()=>{
 
 //TEST 1
-it ("mocks match.params", async ()=>{
-    const { getByText,getByLabelText } = await renderWithRouterMatch(PeopleForm,
-        {
-        route: "/people/ABC123",
-        path: "/people/:id"
-      }
-      );
+// it ("mocks match.params", async ()=>{
+//   expect.assertions(2)
+
+//   const fetchData = () =>{
+//     Promise.resolve({
+//       args: {person}
+//     })
+//   }
+
+// // console.log(
+// //   //  wait(()=>{
+// //     person.map((item)=>
+// //       console.log('inside for Each', item)
+// //       // expect(getByText(item).toBeInTheDocument())
+// //     )
+// //   // })
+// //   )
+
+//   const mockSubmit2 = jest.fn()
+//     const { getByText,getByLabelText, getByRole } = await renderWithRouterMatch(PeopleForm,
+//         {
+//         route: "/people/ABC123",
+//         path: "/people/:id"
+//       }
+//       );
 
 
-// get nodes
-const firstNameNode = await getByLabelText('First Name');
-const submitBtn = await getByText('Submit');
+// // get nodes
+// const firstNameNode = await getByLabelText('First Name');
+// const submitBtn = await getByText('Submit');
 
-        // fireEvent.change(firstNameNode, { target: { value: mockPerson.first_name } });
+//         // fireEvent.change(firstNameNode, { target: { value: mockPerson.first_name } });
 
-// set field values
-await fireEvent.change(firstNameNode)
+// // set field values
+// await fireEvent.change(firstNameNode, {target: {value: person.first_name}})
 
-// submit form
-await fireEvent.submit(submitBtn);
+// // submit form
+// // await fireEvent.submit(submitBtn);
 
- // because the antd form onFinish is async, wait for our
-//     // submit to be called
-        const personData = await mockSubmit(person)
-         expect(mockSubmit).toHaveBeenCalledTimes(1);
+// await fireEvent.click(getByRole('button', {name: /submit/i}))
+
+// for(let persons of Object.keys(person)){
+// const jian= expect(findByText(person)).toBeInTheDocument()
+
+// }
+
+//  // because the antd form onFinish is async, wait for our
+// //     // submit to be called
+//         const personData = await mockSubmit(person)
+//         await mockSubmit2(person)
+//          expect(mockSubmit).toHaveBeenCalledTimes(1);
+//          expect(mockSubmit).toHaveBeenCalled();
+//         //  expect(mockSubmit2).toHaveBeenCalledWith(true);
 
     
-         //Check if validation is working 
-        const checkVal = await onSubmit({
-            email      : 'bob.smith@bobsmith.net222',
-            last_name  : 'Smith',
-            phone      : '9999999999',
-            address    : '12355 4th PL NW',
-            address2   : '#512',
-            city       : 'Lake Stevens',
-            state      : 'Washington',
-            zip        : '98258',
-        })
-        expect(checkVal).toBeFalsy();
-      })
+//          //Check if validation is working 
+//         const checkVal = await onSubmit({
+//             email      : 'bob.smith@bobsmith.net222',
+//             last_name  : 'Smith',
+//             phone      : '9999999999',
+//             address    : '12355 4th PL NW',
+//             address2   : '#512',
+//             city       : 'Lake Stevens',
+//             state      : 'Washington',
+//             zip        : '98258',
+//         })
+//         expect(checkVal).toBeFalsy();
 
 
 
-//TEST 2
+//       })
 
-it ('Add New Profile', ()=>{
-    const { getByText } = renderWithRouterMatch(PeopleForm,
-        {
-        route: "/people/ABC123",
-        path: "/people/:id"
-      }
-      );
-    expect(getByText("Add New Profile")).toBeInTheDocument();
-})
 
-})
+
+// //TEST 2
+
+// it ('Add New Profile', ()=>{
+//   expect.assertions(1)
+//     const { getByText } = renderWithRouterMatch(PeopleForm);
+//     expect(getByText("Add New Profile")).toBeInTheDocument();
+// })
+
+// // })
 
 //***** */
 

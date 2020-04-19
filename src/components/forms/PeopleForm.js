@@ -37,7 +37,7 @@ const PeopleForm = ({ onSubmit }) => {
 	}
 
 	return !submitted ? (
-		<Form form={form} layout='vertical' onFinish={submitForm}>
+		<Form form={form} layout='vertical' onFinish={submitForm}  data-testid="form">
 			<h1>Add New Profile</h1>
 			<Row
 				gutter={[
