@@ -50,10 +50,9 @@ const checkIfErrors =(data)=>{
 const history = createMemoryHistory()
 const route = '/some-route'
 history.push(route)
-const onSubmit = jest.fn();
 const {container} = render(
   <ApolloProvider client={client}>
-<Router history={history}><PeopleForm onSubmit={onSubmit}/></Router>
+<Router history={history}><PeopleForm/></Router>
 </ApolloProvider>
 // , {wrapper: MemoryRouter}
 )
@@ -63,10 +62,9 @@ expect(container.firstChild).toMatchSnapshot();
 
  it(`should  fetch the data`, async()=>{
 const history = createMemoryHistory()
-const onSubmit = jest.fn();
 const {getByLabelText, getByText} = render(
 <ApolloProvider client={client}>
-<Router history={history}><PeopleForm onSubmit={onSubmit} person={person}/></Router>
+<Router history={history}><PeopleForm mockSubmit={mockSubmit} person={person}/></Router>
 </ApolloProvider>
 )
   const firstNameNode = await getByLabelText('First Name');
@@ -116,11 +114,11 @@ it('Data is being called as expected', async()=>{
 })
 
 it('similuates a button click', ()=>{
-
+//not yet written
 })
 
 it('lands on a bad page', ()=>{
-
+//not yet written
 })
 
 })
