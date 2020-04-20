@@ -311,7 +311,7 @@ const EventForm = ({ onSubmit }) => {
 						{ required: true },
 					]}
 				>
-					<DatePicker />
+					<DatePicker aria-label="Event Date"/>
 				</Form.Item>
 
 				<Col span={6}>
