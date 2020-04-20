@@ -2,11 +2,10 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import "./App.css";
 import { BrowserRouter as Router, Link } from "react-router-dom";
-import { ApolloProvider } from "react-apollo";
-import client from "./components/graphql/client";
 import { Layout, Menu } from "antd";
 import { Security, SecureRoute, LoginCallback } from "@okta/okta-react";
 import oktaConfig from "./okta-config";
+import OktaApolloProvider from "./components/utils/OktaApolloProvider";
 import Dashboard from "./components/pages/Dashboard";
 import Login from "./components/pages/Login";
 import People from "./components/pages/People";
@@ -16,12 +15,11 @@ import User from "./components/pages/User";
 const { Sider, Content } = Layout;
 
 function App() {
-  console.log("okta-config", oktaConfig);
   return (
     <div className="App">
-      <ApolloProvider client={client}>
-        <Router>
-          <Security {...oktaConfig}>
+      <Router>
+        <Security {...oktaConfig}>
+          <OktaApolloProvider>
             <Layout>
               <Sider
                 style={{
@@ -70,9 +68,9 @@ function App() {
                 </Content>
               </Layout>
             </Layout>
-          </Security>
-        </Router>
-      </ApolloProvider>
+          </OktaApolloProvider>
+        </Security>
+      </Router>
     </div>
   );
 }
