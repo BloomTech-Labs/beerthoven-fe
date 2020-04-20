@@ -19,7 +19,6 @@ const OktaApolloProvider = ({ children }) => {
 
   // once there is a token in state, set it in localstorage
   useEffect(() => {
-    console.log("got here", oktaToken);
     localStorage.setItem("okta-token", oktaToken);
   }, [oktaToken]);
 
