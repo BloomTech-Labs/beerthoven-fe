@@ -61,15 +61,15 @@ describe(`Event Form Component`, () => {
 			fireEvent.change(zipCodeNode, { target: { value: event.zip } });
 			fireEvent.change(eventDescriptionNode, { target: { value: event.event_description } });
 			fireEvent.change(eventDateNode, { target: { value: moment(event.event_date) } });
-			fireEvent.submit(submitBtn); //test is red when fireEvent.submit()
+			fireEvent.click(submitBtn); //test is red when fireEvent.submit()
 
 		});
 
 		await onSubmit(event)
 		expect(onSubmit).toHaveBeenCalledTimes(1);
-		expect(onSubmit).toHaveBeenCalled();
-		expect(onSubmit).toHaveBeenCalled()
+		expect(onSubmit).toHaveBeenCalledWith(event)
 
+	
 	})
 
 	// it('Data matches required mock data as expected', async()=>{
