@@ -7,10 +7,12 @@ frontend:
     build:
       commands:
         - yarn run build
+        - REACT_APP_OKTA_CLIENTID=$REACT_APP_OKTA_CLIENTID
+        - REACT_APP_OKTA_DOMAIN=$REACT_APP_OKTA_DOMAIN
   artifacts:
     baseDirectory: build
     files:
-      - '**/*'
+      - "**/*"
   cache:
     paths:
       - node_modules/**/*
