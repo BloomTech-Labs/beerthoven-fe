@@ -34,6 +34,7 @@ const OktaApolloProvider = ({ children }) => {
   const { authState, authService } = useOktaAuth();
   const [oktaToken, setOktaToken] = useState(null);
 
+  // once the user is authenticated, set the token in state
   useEffect(() => {
     if (authState.isAuthenticated) {
       setOktaToken(authState.accessToken);
@@ -42,6 +43,7 @@ const OktaApolloProvider = ({ children }) => {
     }
   }, [authState, authService]);
 
+  // once there is a token in state, set it in localstorage
   useEffect(() => {
     localStorage.setItem("okta-token", oktaToken);
   }, [oktaToken]);
