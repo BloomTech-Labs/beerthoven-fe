@@ -6,11 +6,13 @@ frontend:
         - yarn install
     build:
       commands:
+        - REACT_APP_OKTA_CLIENTID = $REACT_APP_OKTA_CLIENTID
+        - REACT_APP_OKTA_DOMAIN = $REACT_APP_OKTA_DOMAIN
         - yarn run build
   artifacts:
     baseDirectory: build
     files:
-      - '**/*'
+      - "**/*"
   cache:
     paths:
       - node_modules/**/*
