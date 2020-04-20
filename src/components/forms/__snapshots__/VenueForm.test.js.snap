@@ -1,0 +1,1526 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Event Form Component renders a component that uses withRouter 1`] = `
+<form
+  class="ant-form ant-form-vertical"
+>
+  <h1>
+    Add New Venue
+  </h1>
+  <div
+    class="ant-row"
+    style="margin: -8px -8px 8px -8px;"
+  >
+    <div
+      class="ant-col ant-col-12"
+      style="padding: 8px 8px 8px 8px;"
+    >
+      <div
+        class="ant-row ant-form-item"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class="ant-form-item-required"
+            for="name"
+            title="Name"
+          >
+            Name
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <input
+                class="ant-input"
+                id="name"
+                placeholder="Enter venue name"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row"
+    style="margin: -8px -8px 8px -8px;"
+  >
+    <div
+      class="ant-col ant-col-12"
+      style="padding: 8px 8px 8px 8px;"
+    >
+      <div
+        class="ant-row ant-form-item"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class="ant-form-item-required"
+            for="venue_type"
+            title="Venue Type"
+          >
+            Venue Type
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <input
+                class="ant-input"
+                id="venue_type"
+                placeholder="Venue Type"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row"
+    style="margin: -8px -8px 8px -8px;"
+  >
+    <div
+      class="ant-col"
+      style="padding: 8px 8px 8px 8px;"
+    >
+      <div
+        class="ant-row ant-form-item"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class="ant-form-item-required"
+            for="address"
+            title="Address"
+          >
+            Address
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <input
+                class="ant-input"
+                id="address"
+                placeholder="Enter street address"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row"
+    style="margin: -8px -8px 8px -8px;"
+  >
+    <div
+      class="ant-col ant-col-12"
+      style="padding: 8px 8px 8px 8px;"
+    >
+      <div
+        class="ant-row ant-form-item"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class="ant-form-item-required"
+            for="city"
+            title="City"
+          >
+            City
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <input
+                class="ant-input"
+                id="city"
+                placeholder="Enter city"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row"
+    style="margin: -8px -8px 8px -8px;"
+  >
+    <div
+      class="ant-col ant-col-6"
+      style="padding: 8px 8px 8px 8px;"
+    >
+      <div
+        class="ant-row ant-form-item"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class="ant-form-item-required"
+            for="state"
+            title="State"
+          >
+            State
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <input
+                class="ant-input"
+                id="state"
+                placeholder="Enter state"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6"
+      style="padding: 8px 8px 8px 8px;"
+    >
+      <div
+        class="ant-row ant-form-item"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class="ant-form-item-required"
+            for="zip"
+            title="Zip code"
+          >
+            Zip code
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <input
+                class="ant-input"
+                id="zip"
+                placeholder="Enter zip code"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-12"
+      style="padding: 8px 8px 8px 8px;"
+    />
+  </div>
+  <div
+    class="ant-row"
+    style="margin: -8px -8px 8px -8px;"
+  >
+    <div
+      class="ant-col ant-col-6"
+      style="padding: 8px 8px 8px 8px;"
+    >
+      <div
+        class="ant-row ant-form-item"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class=""
+            for="max_capacity"
+            title="Max Capacity"
+          >
+            Max Capacity
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <input
+                class="ant-input"
+                id="max_capacity"
+                placeholder="Max Capacity"
+                type="number"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6"
+      style="padding: 8px 8px 8px 8px;"
+    >
+      <div
+        class="ant-row ant-form-item"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class=""
+            for="min_income"
+            title="Min Income"
+          >
+            Min Income
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <input
+                class="ant-input"
+                id="min_income"
+                placeholder="Minimum Income"
+                type="number"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6"
+      style="padding: 8px 8px 8px 8px;"
+    >
+      <div
+        class="ant-row ant-form-item"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class=""
+            for="deposit_amount"
+            title="Deposit Amount"
+          >
+            Deposit Amount
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <input
+                class="ant-input"
+                id="deposit_amount"
+                placeholder="Deposit Amount"
+                type="number"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row"
+    style="margin: -8px -8px 8px -8px;"
+  >
+    <div
+      class="ant-col ant-col-6"
+      style="padding: 8px 8px 8px 8px;"
+    >
+      <div
+        class="ant-row ant-form-item"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class="ant-form-item-required"
+            for="smoking_allowed"
+            title="Smoking Allowed"
+          >
+            Smoking Allowed
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <div
+                class="ant-radio-group ant-radio-group-outline"
+                id="smoking_allowed"
+              >
+                <label
+                  class="ant-radio-wrapper"
+                >
+                  <span
+                    class="ant-radio"
+                  >
+                    <input
+                      class="ant-radio-input"
+                      type="radio"
+                      value="false"
+                    />
+                    <span
+                      class="ant-radio-inner"
+                    />
+                  </span>
+                  <span>
+                    No
+                  </span>
+                </label>
+                <label
+                  class="ant-radio-wrapper"
+                >
+                  <span
+                    class="ant-radio"
+                  >
+                    <input
+                      class="ant-radio-input"
+                      type="radio"
+                      value="true"
+                    />
+                    <span
+                      class="ant-radio-inner"
+                    />
+                  </span>
+                  <span>
+                    Yes
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6"
+      style="padding: 8px 8px 8px 8px;"
+    >
+      <div
+        class="ant-row ant-form-item"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class="ant-form-item-required"
+            for="under21_allowed"
+            title="Under 21 Allowed"
+          >
+            Under 21 Allowed
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <div
+                class="ant-radio-group ant-radio-group-outline"
+                id="under21_allowed"
+              >
+                <label
+                  class="ant-radio-wrapper"
+                >
+                  <span
+                    class="ant-radio"
+                  >
+                    <input
+                      class="ant-radio-input"
+                      type="radio"
+                      value="false"
+                    />
+                    <span
+                      class="ant-radio-inner"
+                    />
+                  </span>
+                  <span>
+                    No
+                  </span>
+                </label>
+                <label
+                  class="ant-radio-wrapper"
+                >
+                  <span
+                    class="ant-radio"
+                  >
+                    <input
+                      class="ant-radio-input"
+                      type="radio"
+                      value="true"
+                    />
+                    <span
+                      class="ant-radio-inner"
+                    />
+                  </span>
+                  <span>
+                    Yes
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6"
+      style="padding: 8px 8px 8px 8px;"
+    >
+      <div
+        class="ant-row ant-form-item"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class="ant-form-item-required"
+            for="under18_allowed"
+            title="Under 18 Allowed"
+          >
+            Under 18 Allowed
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <div
+                class="ant-radio-group ant-radio-group-outline"
+                id="under18_allowed"
+              >
+                <label
+                  class="ant-radio-wrapper"
+                >
+                  <span
+                    class="ant-radio"
+                  >
+                    <input
+                      class="ant-radio-input"
+                      type="radio"
+                      value="false"
+                    />
+                    <span
+                      class="ant-radio-inner"
+                    />
+                  </span>
+                  <span>
+                    No
+                  </span>
+                </label>
+                <label
+                  class="ant-radio-wrapper"
+                >
+                  <span
+                    class="ant-radio"
+                  >
+                    <input
+                      class="ant-radio-input"
+                      type="radio"
+                      value="true"
+                    />
+                    <span
+                      class="ant-radio-inner"
+                    />
+                  </span>
+                  <span>
+                    Yes
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6"
+      style="padding: 8px 8px 8px 8px;"
+    >
+      <div
+        class="ant-row ant-form-item"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class="ant-form-item-required"
+            for="wheelchair_accessible"
+            title="Wheelchair Accessible"
+          >
+            Wheelchair Accessible
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <div
+                class="ant-radio-group ant-radio-group-outline"
+                id="wheelchair_accessible"
+              >
+                <label
+                  class="ant-radio-wrapper"
+                >
+                  <span
+                    class="ant-radio"
+                  >
+                    <input
+                      class="ant-radio-input"
+                      type="radio"
+                      value="false"
+                    />
+                    <span
+                      class="ant-radio-inner"
+                    />
+                  </span>
+                  <span>
+                    No
+                  </span>
+                </label>
+                <label
+                  class="ant-radio-wrapper"
+                >
+                  <span
+                    class="ant-radio"
+                  >
+                    <input
+                      class="ant-radio-input"
+                      type="radio"
+                      value="true"
+                    />
+                    <span
+                      class="ant-radio-inner"
+                    />
+                  </span>
+                  <span>
+                    Yes
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6"
+      style="padding: 8px 8px 8px 8px;"
+    >
+      <div
+        class="ant-row ant-form-item"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class="ant-form-item-required"
+            for="alcohol_beer_provided"
+            title="Beer Served"
+          >
+            Beer Served
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <div
+                class="ant-radio-group ant-radio-group-outline"
+                id="alcohol_beer_provided"
+              >
+                <label
+                  class="ant-radio-wrapper"
+                >
+                  <span
+                    class="ant-radio"
+                  >
+                    <input
+                      class="ant-radio-input"
+                      type="radio"
+                      value="false"
+                    />
+                    <span
+                      class="ant-radio-inner"
+                    />
+                  </span>
+                  <span>
+                    No
+                  </span>
+                </label>
+                <label
+                  class="ant-radio-wrapper"
+                >
+                  <span
+                    class="ant-radio"
+                  >
+                    <input
+                      class="ant-radio-input"
+                      type="radio"
+                      value="true"
+                    />
+                    <span
+                      class="ant-radio-inner"
+                    />
+                  </span>
+                  <span>
+                    Yes
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6"
+      style="padding: 8px 8px 8px 8px;"
+    >
+      <div
+        class="ant-row ant-form-item"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class="ant-form-item-required"
+            for="alcohol_wine_provided"
+            title="Wine Served"
+          >
+            Wine Served
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <div
+                class="ant-radio-group ant-radio-group-outline"
+                id="alcohol_wine_provided"
+              >
+                <label
+                  class="ant-radio-wrapper"
+                >
+                  <span
+                    class="ant-radio"
+                  >
+                    <input
+                      class="ant-radio-input"
+                      type="radio"
+                      value="false"
+                    />
+                    <span
+                      class="ant-radio-inner"
+                    />
+                  </span>
+                  <span>
+                    No
+                  </span>
+                </label>
+                <label
+                  class="ant-radio-wrapper"
+                >
+                  <span
+                    class="ant-radio"
+                  >
+                    <input
+                      class="ant-radio-input"
+                      type="radio"
+                      value="true"
+                    />
+                    <span
+                      class="ant-radio-inner"
+                    />
+                  </span>
+                  <span>
+                    Yes
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6"
+      style="padding: 8px 8px 8px 8px;"
+    >
+      <div
+        class="ant-row ant-form-item"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class="ant-form-item-required"
+            for="alcohol_spirits_provided"
+            title="Alcohol Spirits Served"
+          >
+            Alcohol Spirits Served
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <div
+                class="ant-radio-group ant-radio-group-outline"
+                id="alcohol_spirits_provided"
+              >
+                <label
+                  class="ant-radio-wrapper"
+                >
+                  <span
+                    class="ant-radio"
+                  >
+                    <input
+                      class="ant-radio-input"
+                      type="radio"
+                      value="false"
+                    />
+                    <span
+                      class="ant-radio-inner"
+                    />
+                  </span>
+                  <span>
+                    No
+                  </span>
+                </label>
+                <label
+                  class="ant-radio-wrapper"
+                >
+                  <span
+                    class="ant-radio"
+                  >
+                    <input
+                      class="ant-radio-input"
+                      type="radio"
+                      value="true"
+                    />
+                    <span
+                      class="ant-radio-inner"
+                    />
+                  </span>
+                  <span>
+                    Yes
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6"
+      style="padding: 8px 8px 8px 8px;"
+    >
+      <div
+        class="ant-row ant-form-item"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class="ant-form-item-required"
+            for="food_served"
+            title="Food Served"
+          >
+            Food Served
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <div
+                class="ant-radio-group ant-radio-group-outline"
+                id="food_served"
+              >
+                <label
+                  class="ant-radio-wrapper"
+                >
+                  <span
+                    class="ant-radio"
+                  >
+                    <input
+                      class="ant-radio-input"
+                      type="radio"
+                      value="false"
+                    />
+                    <span
+                      class="ant-radio-inner"
+                    />
+                  </span>
+                  <span>
+                    No
+                  </span>
+                </label>
+                <label
+                  class="ant-radio-wrapper"
+                >
+                  <span
+                    class="ant-radio"
+                  >
+                    <input
+                      class="ant-radio-input"
+                      type="radio"
+                      value="true"
+                    />
+                    <span
+                      class="ant-radio-inner"
+                    />
+                  </span>
+                  <span>
+                    Yes
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6"
+      style="padding: 8px 8px 8px 8px;"
+    >
+      <div
+        class="ant-row ant-form-item"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class=""
+            for="max_decibel"
+            title="Max Decibel"
+          >
+            Max Decibel
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <input
+                class="ant-input"
+                id="max_decibel"
+                placeholder="Max Decibel"
+                type="number"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6"
+      style="padding: 8px 8px 8px 8px;"
+    >
+      <div
+        class="ant-row ant-form-item"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class=""
+            for="opening_time"
+            title="Opening Time"
+          >
+            Opening Time
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <input
+                class="ant-input"
+                id="opening_time"
+                placeholder="Opening Time"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6"
+      style="padding: 8px 8px 8px 8px;"
+    >
+      <div
+        class="ant-row ant-form-item"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class=""
+            for="closing_time"
+            title="Closing Time"
+          >
+            Closing Time
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <input
+                class="ant-input"
+                id="closing_time"
+                placeholder="Closing Time"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6"
+      style="padding: 8px 8px 8px 8px;"
+    >
+      <div
+        class="ant-row ant-form-item"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class=""
+            for="dance_floor_size"
+            title="Dance Floor Size"
+          >
+            Dance Floor Size
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <input
+                class="ant-input"
+                id="dance_floor_size"
+                placeholder="Dance Floor Size"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6"
+      style="padding: 8px 8px 8px 8px;"
+    >
+      <div
+        class="ant-row ant-form-item"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class="ant-form-item-required"
+            for="indoor_venue"
+            title="Indoor Venue"
+          >
+            Indoor Venue
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <div
+                class="ant-radio-group ant-radio-group-outline"
+                id="indoor_venue"
+              >
+                <label
+                  class="ant-radio-wrapper"
+                >
+                  <span
+                    class="ant-radio"
+                  >
+                    <input
+                      class="ant-radio-input"
+                      type="radio"
+                      value="false"
+                    />
+                    <span
+                      class="ant-radio-inner"
+                    />
+                  </span>
+                  <span>
+                    No
+                  </span>
+                </label>
+                <label
+                  class="ant-radio-wrapper"
+                >
+                  <span
+                    class="ant-radio"
+                  >
+                    <input
+                      class="ant-radio-input"
+                      type="radio"
+                      value="true"
+                    />
+                    <span
+                      class="ant-radio-inner"
+                    />
+                  </span>
+                  <span>
+                    Yes
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6"
+      style="padding: 8px 8px 8px 8px;"
+    >
+      <div
+        class="ant-row ant-form-item"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class="ant-form-item-required"
+            for="outdoor_venue"
+            title="Outdoor Venue"
+          >
+            Outdoor Venue
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <div
+                class="ant-radio-group ant-radio-group-outline"
+                id="outdoor_venue"
+              >
+                <label
+                  class="ant-radio-wrapper"
+                >
+                  <span
+                    class="ant-radio"
+                  >
+                    <input
+                      class="ant-radio-input"
+                      type="radio"
+                      value="false"
+                    />
+                    <span
+                      class="ant-radio-inner"
+                    />
+                  </span>
+                  <span>
+                    No
+                  </span>
+                </label>
+                <label
+                  class="ant-radio-wrapper"
+                >
+                  <span
+                    class="ant-radio"
+                  >
+                    <input
+                      class="ant-radio-input"
+                      type="radio"
+                      value="true"
+                    />
+                    <span
+                      class="ant-radio-inner"
+                    />
+                  </span>
+                  <span>
+                    Yes
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6"
+      style="padding: 8px 8px 8px 8px;"
+    >
+      <div
+        class="ant-row ant-form-item"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class="ant-form-item-required"
+            for="parking_lot_available"
+            title="Parking Lot Available"
+          >
+            Parking Lot Available
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <div
+                class="ant-radio-group ant-radio-group-outline"
+                id="parking_lot_available"
+              >
+                <label
+                  class="ant-radio-wrapper"
+                >
+                  <span
+                    class="ant-radio"
+                  >
+                    <input
+                      class="ant-radio-input"
+                      type="radio"
+                      value="false"
+                    />
+                    <span
+                      class="ant-radio-inner"
+                    />
+                  </span>
+                  <span>
+                    No
+                  </span>
+                </label>
+                <label
+                  class="ant-radio-wrapper"
+                >
+                  <span
+                    class="ant-radio"
+                  >
+                    <input
+                      class="ant-radio-input"
+                      type="radio"
+                      value="true"
+                    />
+                    <span
+                      class="ant-radio-inner"
+                    />
+                  </span>
+                  <span>
+                    Yes
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row"
+  >
+    <div
+      class="ant-col ant-col-6"
+    >
+      <div
+        class="ant-row ant-form-item"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class=""
+            for="parking_max_capacity"
+            title="Parking Max Capacity"
+          >
+            Parking Max Capacity
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <input
+                class="ant-input"
+                id="parking_max_capacity"
+                placeholder="Parking Max Capacity"
+                type="number"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row"
+  >
+    <div
+      class="ant-col ant-col-6"
+    >
+      <div
+        class="ant-row ant-form-item"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class="ant-form-item-required"
+            for="tabc_certified"
+            title="TabC Certified"
+          >
+            TabC Certified
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <div
+                class="ant-radio-group ant-radio-group-outline"
+                id="tabc_certified"
+              >
+                <label
+                  class="ant-radio-wrapper"
+                >
+                  <span
+                    class="ant-radio"
+                  >
+                    <input
+                      class="ant-radio-input"
+                      type="radio"
+                      value="false"
+                    />
+                    <span
+                      class="ant-radio-inner"
+                    />
+                  </span>
+                  <span>
+                    No
+                  </span>
+                </label>
+                <label
+                  class="ant-radio-wrapper"
+                >
+                  <span
+                    class="ant-radio"
+                  >
+                    <input
+                      class="ant-radio-input"
+                      type="radio"
+                      value="true"
+                    />
+                    <span
+                      class="ant-radio-inner"
+                    />
+                  </span>
+                  <span>
+                    Yes
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <button
+            class="ant-btn ant-btn-primary"
+            type="submit"
+          >
+            <span>
+              Submit
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;

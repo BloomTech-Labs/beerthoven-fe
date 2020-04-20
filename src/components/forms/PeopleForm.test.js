@@ -112,4 +112,8 @@ const {getByText} = render(
   })
 })
 
+it('tests users role', ()=>{
+  
+})
+
 })
