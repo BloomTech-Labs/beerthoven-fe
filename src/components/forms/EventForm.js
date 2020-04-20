@@ -37,6 +37,7 @@ const EventForm = ({ onSubmit }) => {
 		values.sales_gross = Number(values.sales_gross);
 		values.sales_net = Number(values.sales_net);
 		setSubmitted(true);
+		console.log('On Submit values', values)
 		onSubmit(values, params.id);
 	};
 
@@ -308,7 +309,7 @@ const EventForm = ({ onSubmit }) => {
 					label='Event Date'
 					name='event_date'
 					rules={[
-						{ required: true },
+						{ required: true,  message: "'event date' is required" },
 					]}
 				>
 					<DatePicker aria-label="Event Date"/>

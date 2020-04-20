@@ -31,45 +31,40 @@ describe(`Event Form Component`, () => {
 
 
 	it(`should fetch the required data`, async () => {
-		const history = createMemoryHistory()
-		const { getByLabelText, getByText } = render(
+		const history = await createMemoryHistory()
+		const { getByLabelText, getByText } = await render(
 			<ApolloProvider client={client}>
 				<Router history={history}><VenueForm venue={venue} /></Router>
 			</ApolloProvider>
 		)
 
-		const nameNode = getByLabelText('Name');
-		const venueTypeNode = getByLabelText('Venue Type');
-		const addressNode = getByLabelText('Address');
-		const cityNode = getByLabelText('City');
-		const stateNode = getByLabelText('State');
-		const zipCodeNode = getByLabelText('Zip code');
-		const maxCapacityNode = getByLabelText('Max Capacity');
-		const minimumIncomeNode = getByLabelText('Min Income');
-		const depositAmountNode = getByLabelText('Deposit Amount');
-		const alcoholBeerServedNode = getByLabelText('Beer Served');
-		const alcoholWineServedNode = getByLabelText('Wine Served');
-		const smokingAllowedNode = getByLabelText('Smoking Allowed');
-		const under21Node = getByLabelText('Under 21 Allowed');
-		const under18Node = getByLabelText('Under 18 Allowed');
-		const wheelchairNode = getByLabelText('Wheelchair Accessible');
-		// const alcoholSpiritsServedNode = getByLabelText('Alcohol Spririts Served');
-		const foodServedNode = getByLabelText('Food Served');
-		const maxDecibelNode = getByLabelText('Max Decibel');
-		const openingTimeNode = getByLabelText('Opening Time');
-		const closingTimeNode = getByLabelText('Closing Time');
-		const danceFloorSizeNode = getByLabelText('Dance Floor Size');
-		const tabCCertifiedNode = getByLabelText('TabC Certified');
-		const indoorVenueNode = getByLabelText('Indoor Venue');
-		const outdoorVenueNode = getByLabelText('Outdoor Venue');
-		const parkingLotAvailableNode = getByLabelText('Parking Lot Available').children[0];
-		const parkingMaxCapacityNode = getByLabelText('Parking Max Capacity');
+		const nameNode = await getByLabelText('Name');
+		const venueTypeNode = await getByLabelText('Venue Type');
+		const addressNode = await getByLabelText('Address');
+		const cityNode = await getByLabelText('City');
+		const stateNode = await getByLabelText('State');
+		const zipCodeNode = await getByLabelText('Zip code');
+		const maxCapacityNode = await getByLabelText('Max Capacity');
+		const minimumIncomeNode = await getByLabelText('Min Income');
+		const depositAmountNode = await getByLabelText('Deposit Amount');
+		const alcoholBeerServedNode = await getByLabelText('Beer Served');
+		const alcoholWineServedNode = await getByLabelText('Wine Served');
+		const smokingAllowedNode = await getByLabelText('Smoking Allowed');
+		const under21Node = await getByLabelText('Under 21 Allowed');
+		const under18Node = await getByLabelText('Under 18 Allowed');
+		const wheelchairNode = await getByLabelText('Wheelchair Accessible');
+		const alcoholSpiritsServedNode = await getByLabelText('Alcohol Spirits Served');
+		const foodServedNode = await getByLabelText('Food Served');
+		const tabCCertifiedNode = await getByLabelText('TabC Certified');
+		const indoorVenueNode = await getByLabelText('Indoor Venue');
+		const outdoorVenueNode = await getByLabelText('Outdoor Venue');
+		const parkingLotAvailableNode = await getByLabelText('Parking Lot Available').children[0];
 
 
-		const submitBtn = getByText('Submit');
+		const submitBtn = await getByText('Submit');
 
 
-		await wait(() => {
+		wait(() => {
 			fireEvent.change(nameNode, { target: { value: venue.name } });
 			fireEvent.change(venueTypeNode, { target: { value: venue.venue_type } });
 			fireEvent.change(addressNode, { target: { value: venue.address } });
@@ -79,21 +74,21 @@ describe(`Event Form Component`, () => {
 			fireEvent.change(maxCapacityNode, { target: { value: venue.max_capacity } });
 			fireEvent.change(minimumIncomeNode, { target: { value: venue.min_income } });
 			fireEvent.change(depositAmountNode, { target: { value: venue.deposit_amount } });
-			fireEvent.change(alcoholBeerServedNode, { target: { value: venue.alcohol_beer_served } });
-			fireEvent.change(alcoholWineServedNode, { target: { value: venue.alcohol_wine_served } });
+			fireEvent.change(alcoholBeerServedNode, { target: { value: venue.alcohol_beer_provided } });
+			fireEvent.change(alcoholWineServedNode, { target: { value: venue.alcohol_wine_provided } });
 
 			fireEvent.submit(submitBtn); //test is red when fireEvent.submit()
 
-			// fireEvent.change(parkingLotAvailableNode, { target: { value: "venue.parking_lot_available" } });
-			// fireEvent.change(smokingAllowedNode, { target: { value: venue.smoking_allowed } });
-			// fireEvent.change(under21Node, { target: { value: venue.under21_allowed } });
-			// fireEvent.change(under18Node, { target: { value: venue.under18_allowed } });
-			// fireEvent.change(wheelchairNode, { target: { value: venue.wheelchair_accessible } });
-			// // fireEvent.change(alcoholSpiritsServedNode, { target: { value: venue.alcohol_spirits_served } });
-			// fireEvent.change(foodServedNode, { target: { value: venue.food_served } });
-			// fireEvent.change(tabCCertifiedNode, { target: { value: venue.smoking_allowed } });
-			// fireEvent.change(indoorVenueNode, { target: { value: venue.indoor_venue } });
-			// fireEvent.change(outdoorVenueNode, { target: { value: venue.outdoor_venue } });
+			fireEvent.change(parkingLotAvailableNode, { target: { value: venue.parking_lot_available } });
+			fireEvent.change(smokingAllowedNode, { target: { value: venue.smoking_allowed } });
+			fireEvent.change(under21Node, { target: { value: venue.under21_allowed } });
+			fireEvent.change(under18Node, { target: { value: venue.under18_allowed } });
+			fireEvent.change(wheelchairNode, { target: { value: venue.wheelchair_accessible } });
+			fireEvent.change(alcoholSpiritsServedNode, { target: { value: venue.alcohol_spirits_served } });
+			fireEvent.change(foodServedNode, { target: { value: venue.food_served } });
+			fireEvent.change(tabCCertifiedNode, { target: { value: venue.smoking_allowed } });
+			fireEvent.change(indoorVenueNode, { target: { value: venue.indoor_venue } });
+			fireEvent.change(outdoorVenueNode, { target: { value: venue.outdoor_venue } });
 		});
 
 
@@ -150,35 +145,35 @@ describe(`Event Form Component`, () => {
 // test('all data is submitted', async () => {
 // 	const onSubmit = jest.fn();
 
-// 	const { getByLabelText, getByText } = render(<VenueForm onSubmit={onSubmit} />);
+// 	const { await getByLabelText, getByText } = render(<VenueForm onSubmit={onSubmit} />);
 
 // 	// get nodes
-// 	const nameNode = getByLabelText('Name');
-// 	const venueTypeNode = getByLabelText('Venue Type');
-// 	const addressNode = getByLabelText('Address');
-// 	const cityNode = getByLabelText('City');
-// 	const stateNode = getByLabelText('State');
-// 	const zipCodeNode = getByLabelText('Zip code');
-// 	const maxCapacityNode = getByLabelText('Max Capacity');
-// 	const minimumIncomeNode = getByLabelText('Min Income');
-// 	const depositAmountNode = getByLabelText('Deposit Amount');
-// 	const smokingAllowedNode = getByLabelText('Smoking Allowed');
-// 	const under21Node = getByLabelText('Under 21 Allowed');
-// 	const under18Node = getByLabelText('Under 18 Allowed');
-// 	const wheelchairNode = getByLabelText('Wheelchair Accessible');
-// 	const alcoholBeerServedNode = getByLabelText('Beer Served');
-// 	const alcoholWineServedNode = getByLabelText('Wine Served');
-// 	const alcoholSpiritsServedNode = getByLabelText('Alcohol Spririts Served');
-// 	const foodServedNode = getByLabelText('Food Served');
-// 	const maxDecibelNode = getByLabelText('Max Decibel');
-// 	const openingTimeNode = getByLabelText('Opening Time');
-// 	const closingTimeNode = getByLabelText('Closing Time');
-// 	const danceFloorSizeNode = getByLabelText('Dance Floor Size');
-// 	const tabCCertifiedNode = getByLabelText('TabC Certified');
-// 	const indoorVenueNode = getByLabelText('Indoor Venue');
-// 	const outdoorVenueNode = getByLabelText('Outdoor Venue');
-// 	const parkingLotAvailableNode = getByLabelText('Parking Lot Available');
-// 	const parkingMaxCapacityNode = getByLabelText('Parking Max Capacity');
+// 	const nameNode = await getByLabelText('Name');
+// 	const venueTypeNode = await getByLabelText('Venue Type');
+// 	const addressNode = await getByLabelText('Address');
+// 	const cityNode = await getByLabelText('City');
+// 	const stateNode = await getByLabelText('State');
+// 	const zipCodeNode = await getByLabelText('Zip code');
+// 	const maxCapacityNode = await getByLabelText('Max Capacity');
+// 	const minimumIncomeNode = await getByLabelText('Min Income');
+// 	const depositAmountNode = await getByLabelText('Deposit Amount');
+// 	const smokingAllowedNode = await getByLabelText('Smoking Allowed');
+// 	const under21Node = await getByLabelText('Under 21 Allowed');
+// 	const under18Node = await getByLabelText('Under 18 Allowed');
+// 	const wheelchairNode = await getByLabelText('Wheelchair Accessible');
+// 	const alcoholBeerServedNode = await getByLabelText('Beer Served');
+// 	const alcoholWineServedNode = await getByLabelText('Wine Served');
+// 	const alcoholSpiritsServedNode = await getByLabelText('Alcohol Spririts Served');
+// 	const foodServedNode = await getByLabelText('Food Served');
+// 	const maxDecibelNode = await getByLabelText('Max Decibel');
+// 	const openingTimeNode = await getByLabelText('Opening Time');
+// 	const closingTimeNode = await getByLabelText('Closing Time');
+// 	const danceFloorSizeNode = await getByLabelText('Dance Floor Size');
+// 	const tabCCertifiedNode = await getByLabelText('TabC Certified');
+// 	const indoorVenueNode = await getByLabelText('Indoor Venue');
+// 	const outdoorVenueNode = await getByLabelText('Outdoor Venue');
+// 	const parkingLotAvailableNode = await getByLabelText('Parking Lot Available');
+// 	const parkingMaxCapacityNode = await getByLabelText('Parking Max Capacity');
 // 	const submitBtn = getByText('Submit');
 
 // 	// set field values
