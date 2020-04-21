@@ -1,3 +1,5 @@
+import moment from 'moment'
+
 const event = {
 	event_name             : "Shinra's Plate Drop",
 	event_type             : 'Party',
@@ -23,7 +25,7 @@ const event = {
 	talent_costs           : 500,
 	opening_time           : '6am',
 	closing_time           : '8pm',
-	event_date             : 'April 20th',
+	event_date             : moment('2020-04-20T19:14:15-04:00').format(),
 	tabc_certified         : true,
 	indoor_event           : true,
 	outdoor_event          : true,

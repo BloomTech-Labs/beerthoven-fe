@@ -25,7 +25,6 @@ const venue = {
 	parking_lot_available    : true,
 	parking_max_capacity     : 1200,
 	tabc_certified           : true,
-	submit                   : undefined,
 };
 
 export default venue;
