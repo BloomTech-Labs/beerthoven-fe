@@ -10,7 +10,7 @@ const LogoutButton = () => {
   };
 
   return (
-    <Button type="primary" danger onClick={logout}>
+    <Button ghost onClick={logout}>
       Log Out
     </Button>
   );

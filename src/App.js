@@ -46,7 +46,15 @@ function App() {
                     </Menu.Item>
                   </Menu.ItemGroup>
                 </Menu>
-                <LogoutButton />
+                <div
+                  style={{
+                    paddingTop: "30px",
+                    display: "grid",
+                    placeItems: "center",
+                  }}
+                >
+                  <LogoutButton />
+                </div>
               </Sider>
               <Layout
                 style={{
