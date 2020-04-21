@@ -6,6 +6,7 @@ import { Layout, Menu } from "antd";
 import { Security, SecureRoute, LoginCallback } from "@okta/okta-react";
 import oktaConfig from "./okta-config";
 import OktaApolloProvider from "./components/utils/OktaApolloProvider";
+import LogoutButton from "./components/LogoutButton";
 import Dashboard from "./components/pages/Dashboard";
 import Login from "./components/pages/Login";
 import People from "./components/pages/People";
@@ -45,6 +46,15 @@ function App() {
                     </Menu.Item>
                   </Menu.ItemGroup>
                 </Menu>
+                <div
+                  style={{
+                    paddingTop: "30px",
+                    display: "grid",
+                    placeItems: "center",
+                  }}
+                >
+                  <LogoutButton />
+                </div>
               </Sider>
               <Layout
                 style={{
