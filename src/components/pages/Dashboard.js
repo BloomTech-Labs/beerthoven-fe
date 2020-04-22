@@ -1,11 +1,13 @@
 import React from 'react';
 import { Menu } from 'antd';
 import { Link } from 'react-router-dom';
+import Chart from './Chart';
 
 const Dashboard = () => (
 	<div>
 		<h1>Dashboard</h1>
 		<p style={{ fontSize: '90px' }}>Welcome!</p>
+		<Chart/>
 		<Menu>
 			<Menu.ItemGroup key='h1' title='Manage'>
 				<Menu.Item key='1'>
