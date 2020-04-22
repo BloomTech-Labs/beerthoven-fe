@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { Pie, Doughnut, Line, Bar } from 'react-chartjs-2';
-import axios from 'axios'
 import { ALL_EVENTS } from '../graphql/queries';
-
-
+import '../../index.css'
 const Chart = () => {
 
   const [chartData, setChartData] = useState([])
@@ -101,9 +99,6 @@ const { data } = useQuery(ALL_EVENTS);
 
   }, [data])
 
-  console.log('data~~~>', data)
-// const list = data && data.events.length && data.events.map(item=>item.state)
-
   return (<div>
     
 {data && data.events.length &&  
@@ -113,7 +108,7 @@ const { data } = useQuery(ALL_EVENTS);
     <p>Line Graph</p>
 <ChartSection chartData={chartData} list={data.events}/>
 </>
-)// console.log(data.events.map(item=>item.state))
+)
   }
   </div>)
 
@@ -124,14 +119,17 @@ const { data } = useQuery(ALL_EVENTS);
 
 const ChartSection = ({list, chartData})=>{
     
-    // data.events.map(item=>item.state)
     const data = list.map(item => item.state);
     console.log(data, '<**data')
 
 
     return(
-        <>
+        <div className="container">
+        
+        <div class="chart-container">
+        Pie Graph
         <Pie
+        // width={700}
            data={chartData}
            options={{
              title: {
@@ -141,13 +139,71 @@ const ChartSection = ({list, chartData})=>{
              },
              legend: {
                display: true,
-               position: 'right'
-             }
+               position: 'left'
+             },
+             maintainAspectRatio: false
            }}
+           
          />
-         {/* Bar char
-         <Bar data={chartData}/> */}
-         </>
+         </div>
+
+<div class="chart-container">
+Doughnut Graph
+             <Doughnut
+      data={chartData}
+      options={{
+        title: {
+          display: true,
+          text: 'Event Locaion',
+          fontSize: 20
+        },
+        legend: {
+          display: true,
+          position: 'right'
+        }
+      }}
+    />
+    </div>
+
+    <div class="chart-container">
+Bar char 
+         <Bar data={chartData} /> 
+         </div>
+
+         <div class="chart-container">
+
+    Line
+        <Line
+      data={chartData}
+      options={{
+        responsive: true,
+        title: { text: "Event location", display: true },
+        scales: {
+          yAxes: [
+            {
+              ticks: {
+                autoSkip: true,
+                maxTicksLimit: 10,
+                beginAtZero: true
+              },
+              gridLines: {
+                display: false
+              }
+            }
+          ],
+          xAxes: [
+            {
+              gridLines: {
+                display: false
+              }
+            }
+          ]
+        }
+      }}
+    />
+    </div>
+
+         </div>
          )
 }
 
