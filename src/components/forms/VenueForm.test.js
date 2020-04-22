@@ -31,7 +31,7 @@ describe(`Event Form Component`, () => {
 
   it(`should fetch the required data`, async () => {
     const history = await createMemoryHistory();
-    const { getByLabelText, getByText } = await render(
+    const { getByTestId, getByLabelText, getByText } = await render(
       <ApolloProvider client={client}>
         <Router history={history}>
           <VenueForm venue={venue} />
@@ -48,22 +48,21 @@ describe(`Event Form Component`, () => {
     const maxCapacityNode = await getByLabelText("Max Capacity");
     const minimumIncomeNode = await getByLabelText("Min Income");
     const depositAmountNode = await getByLabelText("Deposit Amount");
-    const alcoholBeerServedNode = await getByLabelText("Beer Served");
-    const alcoholWineServedNode = await getByLabelText("Wine Served");
-    const smokingAllowedNode = await getByLabelText("Smoking Allowed");
-    const under21Node = await getByLabelText("Under 21 Allowed");
-    const under18Node = await getByLabelText("Under 18 Allowed");
-    const wheelchairNode = await getByLabelText("Wheelchair Accessible");
-    const alcoholSpiritsServedNode = await getByLabelText(
-      "Alcohol Spirits Served"
+    const alcoholBeerServedNode = await getByTestId("smoking_allowed");
+    const alcoholWineServedNode = await getByTestId("alcohol_wine_provided");
+    const smokingAllowedNode = await getByTestId("smoking_allowed");
+    const under21Node = await getByTestId("under21_allowed");
+    const under18Node = await getByTestId("under18_allowed");
+    const wheelchairNode = await getByTestId("wheelchair_accessible");
+    const alcoholSpiritsServedNode = await getByTestId(
+      "alcohol_spirits_provided"
     );
-    const foodServedNode = await getByLabelText("Food Served");
-    const tabCCertifiedNode = await getByLabelText("TabC Certified");
-    const indoorVenueNode = await getByLabelText("Indoor Venue");
-    const outdoorVenueNode = await getByLabelText("Outdoor Venue");
-    const parkingLotAvailableNode = await getByLabelText(
-      "Parking Lot Available"
-    ).children[0];
+    const foodServedNode = await getByTestId("food_served");
+    const tabCCertifiedNode = await getByTestId("tabc_certified");
+    const indoorVenueNode = await getByTestId("indoor_venue");
+    const outdoorVenueNode = await getByTestId("outdoor_venue");
+    const parkingLotAvailableNode = await getByTestId("parking_lot_available")
+      .children[0];
 
     const submitBtn = await getByText("Submit");
 
