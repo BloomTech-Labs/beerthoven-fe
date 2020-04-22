@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
 import { GET_VENUE } from "../graphql/queries";
 import { Form, Input, Button, Row, Col, Radio } from "antd";
-import { Link } from "react-router-dom";
 import YesNoRadioGroup from "../YesNoRadioGroup";
 
 const VenueForm = ({ onSubmit }) => {
@@ -19,7 +18,6 @@ const VenueForm = ({ onSubmit }) => {
   const [submitted, setSubmitted] = useState(false);
 
   const submitForm = (values) => {
-    // convert strings that are expected to be numbers
     values.max_capacity = Number(values.max_capacity);
     values.min_income = Number(values.min_income);
     values.deposit_amount = Number(values.deposit_amount);
@@ -118,8 +116,6 @@ const VenueForm = ({ onSubmit }) => {
         </Col>
       </Row>
 
-      {/* Boolean Section */}
-
       <Row gutter={[16, 16]}>
         <Col span={6}>
           <Form.Item
@@ -166,7 +162,7 @@ const VenueForm = ({ onSubmit }) => {
             name="alcohol_beer_provided"
             rules={[{ required: true }]}
           >
-            <YesNoRadioGroup label="Beer Served" />
+            <YesNoRadioGroup />
           </Form.Item>
         </Col>
 
@@ -280,12 +276,7 @@ const VenueForm = ({ onSubmit }) => {
       </Form.Item>
     </Form>
   ) : (
-    <div>
-      <p>Submitted successfully</p>
-      <Link to="/venue">
-        <Button>Continue</Button>
-      </Link>
-    </div>
+    <p>Submitted successfully</p>
   );
 };
 
