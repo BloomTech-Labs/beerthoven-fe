@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/react-hooks';
-import { Pie, Doughnut, Line, Bar } from 'react-chartjs-2';
+import { Pie, Doughnut, Line, Bar} from 'react-chartjs-2';
 import { ALL_EVENTS } from '../graphql/queries';
+import ChartLine from './ChartLine'
 import '../../index.css'
 const Chart = () => {
 
@@ -101,15 +102,19 @@ const { data } = useQuery(ALL_EVENTS);
 
   return (<div>
     
-{data && data.events.length &&  <ChartSection chartData={chartData} list={data.events}/>}
+{data && data.events.length &&  (
+    <>
+<ChartSection chartData={chartData} list={data.events}/>
+    Line graph
+    <ChartLine />
+    </>
+    )}
   </div>)
 }
 
 const ChartSection = ({chartData})=>{
-console.log(chartData.datasets, 'chartdata*****')
     return(
-        <div className="container">
-        
+    <div className="container">
         <div className="chart-container">
         Pie Graph
         <Pie
