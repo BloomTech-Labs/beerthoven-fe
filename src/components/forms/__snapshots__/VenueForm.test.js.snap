@@ -280,6 +280,8 @@ exports[`Event Form Component renders a component that uses withRouter 1`] = `
     >
       <div
         class="ant-row ant-form-item"
+        placeholder="Max Capacity"
+        type="number"
       >
         <div
           class="ant-col ant-form-item-label"
@@ -304,8 +306,7 @@ exports[`Event Form Component renders a component that uses withRouter 1`] = `
               <input
                 class="ant-input"
                 id="max_capacity"
-                placeholder="Max Capacity"
-                type="number"
+                type="text"
                 value=""
               />
             </div>
@@ -425,7 +426,6 @@ exports[`Event Form Component renders a component that uses withRouter 1`] = `
             >
               <div
                 class="ant-radio-group ant-radio-group-outline"
-                id="smoking_allowed"
               >
                 <label
                   class="ant-radio-wrapper"
@@ -435,6 +435,7 @@ exports[`Event Form Component renders a component that uses withRouter 1`] = `
                   >
                     <input
                       class="ant-radio-input"
+                      name="smoking_allowed"
                       type="radio"
                       value="false"
                     />
@@ -454,6 +455,7 @@ exports[`Event Form Component renders a component that uses withRouter 1`] = `
                   >
                     <input
                       class="ant-radio-input"
+                      name="smoking_allowed"
                       type="radio"
                       value="true"
                     />
@@ -500,7 +502,6 @@ exports[`Event Form Component renders a component that uses withRouter 1`] = `
             >
               <div
                 class="ant-radio-group ant-radio-group-outline"
-                id="under21_allowed"
               >
                 <label
                   class="ant-radio-wrapper"
@@ -510,6 +511,7 @@ exports[`Event Form Component renders a component that uses withRouter 1`] = `
                   >
                     <input
                       class="ant-radio-input"
+                      name="under21_allowed"
                       type="radio"
                       value="false"
                     />
@@ -529,6 +531,7 @@ exports[`Event Form Component renders a component that uses withRouter 1`] = `
                   >
                     <input
                       class="ant-radio-input"
+                      name="under21_allowed"
                       type="radio"
                       value="true"
                     />
@@ -575,7 +578,6 @@ exports[`Event Form Component renders a component that uses withRouter 1`] = `
             >
               <div
                 class="ant-radio-group ant-radio-group-outline"
-                id="under18_allowed"
               >
                 <label
                   class="ant-radio-wrapper"
@@ -585,6 +587,7 @@ exports[`Event Form Component renders a component that uses withRouter 1`] = `
                   >
                     <input
                       class="ant-radio-input"
+                      name="under18_allowed"
                       type="radio"
                       value="false"
                     />
@@ -604,6 +607,7 @@ exports[`Event Form Component renders a component that uses withRouter 1`] = `
                   >
                     <input
                       class="ant-radio-input"
+                      name="under18_allowed"
                       type="radio"
                       value="true"
                     />
@@ -650,7 +654,6 @@ exports[`Event Form Component renders a component that uses withRouter 1`] = `
             >
               <div
                 class="ant-radio-group ant-radio-group-outline"
-                id="wheelchair_accessible"
               >
                 <label
                   class="ant-radio-wrapper"
@@ -660,6 +663,7 @@ exports[`Event Form Component renders a component that uses withRouter 1`] = `
                   >
                     <input
                       class="ant-radio-input"
+                      name="wheelchair_accessible"
                       type="radio"
                       value="false"
                     />
@@ -679,6 +683,7 @@ exports[`Event Form Component renders a component that uses withRouter 1`] = `
                   >
                     <input
                       class="ant-radio-input"
+                      name="wheelchair_accessible"
                       type="radio"
                       value="true"
                     />
@@ -725,7 +730,6 @@ exports[`Event Form Component renders a component that uses withRouter 1`] = `
             >
               <div
                 class="ant-radio-group ant-radio-group-outline"
-                id="alcohol_beer_provided"
               >
                 <label
                   class="ant-radio-wrapper"
@@ -735,6 +739,7 @@ exports[`Event Form Component renders a component that uses withRouter 1`] = `
                   >
                     <input
                       class="ant-radio-input"
+                      name="alcohol_beer_provided"
                       type="radio"
                       value="false"
                     />
@@ -754,6 +759,7 @@ exports[`Event Form Component renders a component that uses withRouter 1`] = `
                   >
                     <input
                       class="ant-radio-input"
+                      name="alcohol_beer_provided"
                       type="radio"
                       value="true"
                     />
@@ -800,7 +806,6 @@ exports[`Event Form Component renders a component that uses withRouter 1`] = `
             >
               <div
                 class="ant-radio-group ant-radio-group-outline"
-                id="alcohol_wine_provided"
               >
                 <label
                   class="ant-radio-wrapper"
@@ -810,6 +815,7 @@ exports[`Event Form Component renders a component that uses withRouter 1`] = `
                   >
                     <input
                       class="ant-radio-input"
+                      name="alcohol_wine_provided"
                       type="radio"
                       value="false"
                     />
@@ -829,6 +835,7 @@ exports[`Event Form Component renders a component that uses withRouter 1`] = `
                   >
                     <input
                       class="ant-radio-input"
+                      name="alcohol_wine_provided"
                       type="radio"
                       value="true"
                     />
@@ -875,7 +882,6 @@ exports[`Event Form Component renders a component that uses withRouter 1`] = `
             >
               <div
                 class="ant-radio-group ant-radio-group-outline"
-                id="alcohol_spirits_provided"
               >
                 <label
                   class="ant-radio-wrapper"
@@ -885,6 +891,7 @@ exports[`Event Form Component renders a component that uses withRouter 1`] = `
                   >
                     <input
                       class="ant-radio-input"
+                      name="alcohol_spirits_provided"
                       type="radio"
                       value="false"
                     />
@@ -904,6 +911,7 @@ exports[`Event Form Component renders a component that uses withRouter 1`] = `
                   >
                     <input
                       class="ant-radio-input"
+                      name="alcohol_spirits_provided"
                       type="radio"
                       value="true"
                     />
@@ -950,7 +958,6 @@ exports[`Event Form Component renders a component that uses withRouter 1`] = `
             >
               <div
                 class="ant-radio-group ant-radio-group-outline"
-                id="food_served"
               >
                 <label
                   class="ant-radio-wrapper"
@@ -960,6 +967,7 @@ exports[`Event Form Component renders a component that uses withRouter 1`] = `
                   >
                     <input
                       class="ant-radio-input"
+                      name="food_served"
                       type="radio"
                       value="false"
                     />
@@ -979,6 +987,7 @@ exports[`Event Form Component renders a component that uses withRouter 1`] = `
                   >
                     <input
                       class="ant-radio-input"
+                      name="food_served"
                       type="radio"
                       value="true"
                     />
@@ -1181,7 +1190,6 @@ exports[`Event Form Component renders a component that uses withRouter 1`] = `
             >
               <div
                 class="ant-radio-group ant-radio-group-outline"
-                id="indoor_venue"
               >
                 <label
                   class="ant-radio-wrapper"
@@ -1191,6 +1199,7 @@ exports[`Event Form Component renders a component that uses withRouter 1`] = `
                   >
                     <input
                       class="ant-radio-input"
+                      name="indoor_venue"
                       type="radio"
                       value="false"
                     />
@@ -1210,6 +1219,7 @@ exports[`Event Form Component renders a component that uses withRouter 1`] = `
                   >
                     <input
                       class="ant-radio-input"
+                      name="indoor_venue"
                       type="radio"
                       value="true"
                     />
@@ -1256,7 +1266,6 @@ exports[`Event Form Component renders a component that uses withRouter 1`] = `
             >
               <div
                 class="ant-radio-group ant-radio-group-outline"
-                id="outdoor_venue"
               >
                 <label
                   class="ant-radio-wrapper"
@@ -1266,6 +1275,7 @@ exports[`Event Form Component renders a component that uses withRouter 1`] = `
                   >
                     <input
                       class="ant-radio-input"
+                      name="outdoor_venue"
                       type="radio"
                       value="false"
                     />
@@ -1285,6 +1295,7 @@ exports[`Event Form Component renders a component that uses withRouter 1`] = `
                   >
                     <input
                       class="ant-radio-input"
+                      name="outdoor_venue"
                       type="radio"
                       value="true"
                     />
@@ -1331,7 +1342,6 @@ exports[`Event Form Component renders a component that uses withRouter 1`] = `
             >
               <div
                 class="ant-radio-group ant-radio-group-outline"
-                id="parking_lot_available"
               >
                 <label
                   class="ant-radio-wrapper"
@@ -1341,6 +1351,7 @@ exports[`Event Form Component renders a component that uses withRouter 1`] = `
                   >
                     <input
                       class="ant-radio-input"
+                      name="parking_lot_available"
                       type="radio"
                       value="false"
                     />
@@ -1360,6 +1371,7 @@ exports[`Event Form Component renders a component that uses withRouter 1`] = `
                   >
                     <input
                       class="ant-radio-input"
+                      name="parking_lot_available"
                       type="radio"
                       value="true"
                     />
@@ -1451,7 +1463,6 @@ exports[`Event Form Component renders a component that uses withRouter 1`] = `
             >
               <div
                 class="ant-radio-group ant-radio-group-outline"
-                id="tabc_certified"
               >
                 <label
                   class="ant-radio-wrapper"
@@ -1461,6 +1472,7 @@ exports[`Event Form Component renders a component that uses withRouter 1`] = `
                   >
                     <input
                       class="ant-radio-input"
+                      name="tabc_certified"
                       type="radio"
                       value="false"
                     />
@@ -1480,6 +1492,7 @@ exports[`Event Form Component renders a component that uses withRouter 1`] = `
                   >
                     <input
                       class="ant-radio-input"
+                      name="tabc_certified"
                       type="radio"
                       value="true"
                     />
