@@ -37,7 +37,6 @@ const { data } = useQuery(ALL_EVENTS);
 {data && data.events.length &&  (
     <>
 <ChartSection chartData={chartData} list={data.events}/>
-    Line graph
     <ChartLine />
     </>
     )}
@@ -48,13 +47,12 @@ const ChartSection = ({chartData})=>{
     return(
     <div className="container">
         <div className="chart-container">
-        Pie Graph
         <Pie
            data={chartData}
            options={{
              title: {
                display: true,
-               text: 'Event Location',
+               text: 'Event Location - Pie Graph',
                fontSize: 20
              },
              legend: {
@@ -67,13 +65,12 @@ const ChartSection = ({chartData})=>{
          </div>
 
 <div className="chart-container">
-Doughnut Graph
              <Doughnut
       data={chartData}
       options={{
         title: {
           display: true,
-          text: 'Event Locaion',
+          text: 'Event Location- Doughnut Graph',
           fontSize: 20
         },
         legend: {
