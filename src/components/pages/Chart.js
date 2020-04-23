@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/react-hooks';
-import { Pie, Doughnut, Line, Bar } from 'react-chartjs-2';
+import { Pie, Doughnut, Line, Bar} from 'react-chartjs-2';
 import { ALL_EVENTS } from '../graphql/queries';
+import ChartLine from './ChartLine'
 import '../../index.css'
 const Chart = () => {
 
-  const [chartData, setChartData] = useState([])
+  const [chartData, setChartData] = useState({})
 
 const { data } = useQuery(ALL_EVENTS);
 
@@ -19,7 +20,7 @@ const { data } = useQuery(ALL_EVENTS);
         setChartData({
             labels: stateNames,
             datasets: [{
-              label: '# of Votes',
+              label: '# of events in state',
               data: statesNum,
               backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
@@ -101,35 +102,22 @@ const { data } = useQuery(ALL_EVENTS);
 
   return (<div>
     
-{data && data.events.length &&  
-
-(
+{data && data.events.length &&  (
     <>
-    <p>Line Graph</p>
 <ChartSection chartData={chartData} list={data.events}/>
-</>
-)
-  }
+    Line graph
+    <ChartLine />
+    </>
+    )}
   </div>)
-
-
-
-
 }
 
-const ChartSection = ({list, chartData})=>{
-    
-    const data = list.map(item => item.state);
-    console.log(data, '<**data')
-
-
+const ChartSection = ({chartData})=>{
     return(
-        <div className="container">
-        
-        <div class="chart-container">
+    <div className="container">
+        <div className="chart-container">
         Pie Graph
         <Pie
-        // width={700}
            data={chartData}
            options={{
              title: {
@@ -141,13 +129,12 @@ const ChartSection = ({list, chartData})=>{
                display: true,
                position: 'left'
              },
-             maintainAspectRatio: false
            }}
            
          />
          </div>
 
-<div class="chart-container">
+<div className="chart-container">
 Doughnut Graph
              <Doughnut
       data={chartData}
@@ -165,12 +152,12 @@ Doughnut Graph
     />
     </div>
 
-    <div class="chart-container">
+    <div className="chart-container">
 Bar char 
          <Bar data={chartData} /> 
          </div>
 
-         <div class="chart-container">
+         <div className="chart-container">
 
     Line
         <Line
