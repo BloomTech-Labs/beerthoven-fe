@@ -12,50 +12,36 @@ const { data } = useQuery(ALL_EVENTS);
 
   useEffect(() => {
     if(data && data.events){
-        // console.log(data.sort(), 'data')
-        const Moment = require('moment')
-        console.log('data', (data.events.map(i=>i)).sort((a,b)=>a.valueOf()-b.valueOf()))
-        console.log('data74', (data.events.map(i=>i)).sort((a,b)=>new Moment(a.event_date).format('YYYYMMDD')-new Moment(b.date).format('YYYYMMDD')))
 
-        console.log('data34',(data.events.map(i=>i)) )
-        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-        const dates2 = data.events.map(item=>new Date(item.event_date))
-        const dates3 = data.events.map(item=>new Date(item.event_date))
-// console.log('date3', moment(dates3))
-console.log('dates3', dates3)
+      //sort data by date
+const sortData=data.events.sort((a,b)=>{
+let dateA = new Date(a.event_date), dateB = new Date(b.event_date);
+return dateA - dateB;
+})
+        //Extract and reformat Date string
         const dates = data.events.map(item=>new Date(item.event_date).toDateString().split(' ').slice(1).join(' '))
-        function sortByMonthYear(a, b) {
-            var as = a.split(' '),
-              bs = b.split(' '),
-              ad = new Date(as[0] + ' 1,' + as[1]),
-              bd = new Date(bs[0] + ' 1,' + bs[1]);
-            //   console.log(ad.getTime() - bd.getTime())
-            return ad.getTime() - bd.getTime();
-       
-        }
-        console.log('sort by year month',dates.sort(sortByMonthYear))
-       
-       
-        const dateObj = dates.map(i=>i)
-        console.log(dateObj, 'dateobd')
-  
-        console.log('dates2', dates2.map(i=>i).sort())
-        // const dates = data.events.map(item=>new Date(item.event_date))
-        const dateLabel = dates.filter((item,index,self)=>self.indexOf(item)===index)
-        console.log('should be sorted',dates.sort())
-        console.log('datelabel',moment(dateLabel))
+        const dates_pt2 = sortData.map(item=>new Date(item.event_date).toDateString().split(' ').slice(1).join(' '))
+        const dates_pt3 = sortData.map(item=>item)
+        console.log('dates_pt3',sortData)
 
-        var getDaysArray = function(s,e) {for(var a=[],d=new Date(s);d<=e;d.setDate(d.getDate()+1)){ a.push(new Date(d));}return a;};
 
-        console.log('last 30 days',getDaysArray)
+       
+
+        //REMOVE DUPLICATES
+        const dateLabel_pt2 = dates_pt2.filter((item,index,self)=>self.indexOf(item)===index)
+        const dateInfos = sortData.filter((item,index,self)=>self.indexOf(item)===index) //this isnt working
+        
 
         const states= data.events.map(item=>item.state)
+        
+        console.log('datelable2', dateLabel_pt2 )
+
         const stateNames = states.filter((item,index,self)=>self.indexOf(item)===index)
         const counts = {}
         states.forEach((x)=>{counts[x]=(counts[x] || 0)+1})
          const statesNum = Object.values(counts)
         setChartData({
-            labels: dateLabel,  
+            labels: dateLabel_pt2,  
             datasets: [{
               label: '# of events in state',
               fill: 'none',
