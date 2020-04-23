@@ -5,7 +5,7 @@ import { GET_EVENT } from "../graphql/queries";
 import moment from "moment";
 import YesNoRadioGroup from "../YesNoRadioGroup";
 
-import { Form, Input, Button, Row, Col, Radio, DatePicker } from "antd";
+import { Form, Input, Button, Row, Col, DatePicker } from "antd";
 
 const EventForm = ({ onSubmit }) => {
   const params = useParams();
