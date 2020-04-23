@@ -82,18 +82,17 @@ const ChartSection = ({chartData})=>{
     </div>
 
     <div className="chart-container">
-Bar char 
-         <Bar data={chartData} /> 
+         <Bar data={chartData} options={{title: { text: "Event location - Bar Chart", display: true }}}/> 
          </div>
 
          <div className="chart-container">
 
-    Line
+    
         <Line
       data={chartData}
       options={{
         responsive: true,
-        title: { text: "Event location", display: true },
+        title: { text: "Event location - Line Chart", display: true },
         scales: {
           yAxes: [
             {
@@ -102,18 +101,10 @@ Bar char
                 maxTicksLimit: 10,
                 beginAtZero: true
               },
-              gridLines: {
-                display: false
-              }
+              gridLines: { display: false }
             }
           ],
-          xAxes: [
-            {
-              gridLines: {
-                display: false
-              }
-            }
-          ]
+          xAxes: [{gridLines: {display: false}}]
         }
       }}
     />
