@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { Line} from 'react-chartjs-2';
 import { ALL_EVENTS } from '../graphql/queries';
-import moment from 'moment';
 import '../../index.css'
 const ChartLine = () => {
 
@@ -19,33 +18,36 @@ let dateA = new Date(a.event_date), dateB = new Date(b.event_date);
 return dateA - dateB;
 })
         //Extract and reformat Date string
-        const dates = data.events.map(item=>new Date(item.event_date).toDateString().split(' ').slice(1).join(' '))
-        const dates_pt2 = sortData.map(item=>new Date(item.event_date).toDateString().split(' ').slice(1).join(' '))
-        const dates_pt3 = sortData.map(item=>item)
-        console.log('dates_pt3',sortData)
+        const dates = sortData.map(item=>new Date(item.event_date).toDateString().split(' ').slice(1).join(' '))
 
 
        
 
         //REMOVE DUPLICATES
-        const dateLabel_pt2 = dates_pt2.filter((item,index,self)=>self.indexOf(item)===index)
-        const dateInfos = sortData.filter((item,index,self)=>self.indexOf(item)===index) //this isnt working
-        
+        const dateLabel = dates.filter((item,index,self)=>self.indexOf(item)===index)        
 
-        const states= data.events.map(item=>item.state)
-        
-        console.log('datelable2', dateLabel_pt2 )
 
-        const stateNames = states.filter((item,index,self)=>self.indexOf(item)===index)
-        const counts = {}
-        states.forEach((x)=>{counts[x]=(counts[x] || 0)+1})
-         const statesNum = Object.values(counts)
+         const totals = data.events.reduce(
+          (totals, { event_date, sales_net }) =>
+            totals[event_date]
+              ? { ...totals, [event_date]: totals[event_date] + sales_net }
+              : { ...totals, [event_date]: sales_net },
+          {}
+        );
+
+        const dailyTotals = Object.values(totals)
+        
+        // console.log(dailyTotals);
+        // console.log(totals)
+        console.log('data', data.events)
+
+
         setChartData({
-            labels: dateLabel_pt2,  
+            labels: dateLabel,  
             datasets: [{
-              label: '# of events in state',
+              label: 'sales',
               fill: 'none',
-              data: statesNum,
+              data: dailyTotals,
               backgroundColor: 'rgba(255, 99, 132, 1)',
               borderColor: 'rgba(255, 99, 132, 1)',
               borderWidth: 1,
@@ -59,11 +61,13 @@ return dateA - dateB;
 
   return (<div>
     
-{data && data.events.length &&  <ChartLineSection chartData={chartData} list={data.events}/>}
+{data && data.events.length &&  <ChartLineSection chartData={chartData}/>}
   </div>)
 }
 
 const ChartLineSection = ({chartData})=>{
+
+  const dateRange = `${chartData.labels? chartData.labels[0]:'na'} to ${chartData.labels?chartData.labels[chartData.labels.length-1]:'na'}`
     return(
 
                   <Line
@@ -76,7 +80,7 @@ const ChartLineSection = ({chartData})=>{
             }
         },
         responsive: true,
-        title: { text: "Event location", display: true },
+        title: { text: `Sales from ${dateRange}` , display: true },
         scales: {
           yAxes: [{
               ticks: {
