@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { Line } from 'react-chartjs-2';
-import { ALL_EVENTS } from '../graphql/queries';
-import '../../index.css'
+import { ALL_EVENTS } from '../../graphql/queries';
+import '../../../index.css'
 const ChartLine = () => {
 
   const [chartData, setChartData] = useState({})
@@ -87,3 +87,4 @@ const ChartLineSection = ({ chartData }) => {
 
 
 export default ChartLine
+
