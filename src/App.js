@@ -33,15 +33,18 @@ function App() {
                 <Menu theme="dark">
                   <Menu.ItemGroup key="h1" title="Manage">
                     <Menu.Item key="1">
-                      <Link to="/people">People</Link>
+                      <Link to="/">Dashboard</Link>
                     </Menu.Item>
                     <Menu.Item key="2">
-                      <Link to="/event">Events</Link>
+                      <Link to="/people">People</Link>
                     </Menu.Item>
                     <Menu.Item key="3">
-                      <Link to="/venue">Venues</Link>
+                      <Link to="/event">Events</Link>
                     </Menu.Item>
                     <Menu.Item key="4">
+                      <Link to="/venue">Venues</Link>
+                    </Menu.Item>
+                    <Menu.Item key="5">
                       <Link to="/user">Users</Link>
                     </Menu.Item>
                   </Menu.ItemGroup>
