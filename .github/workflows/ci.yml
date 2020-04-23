@@ -1,37 +1,43 @@
-# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+# The name of the workflow
+name: build
 
-name: Node.js CI
+# What conditions trigger the workflow
+#  In this case, all pushes and pull requests
+on: [push, pull_request]
 
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
-
+# The jobs that will be run, usually in parallel
 jobs:
-  build:
+  # A job to generate and publish code coverage
+  coverage:
+		# A more descriptive name of the job
+    name: Test and publish test coverage
 
+    # The OS on which the job will run
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [10.x, 12.x]
-
+    # The steps for the job, executed in sequence
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
-    - name: Code Climate Coverage
-      uses: marsam/codeclimate-action@master
-      with:
-        command: npx jest --coverage --coverageReporters=lcov
-        reporter-id: ${{ secrets.CC_TEST_REPORTER_ID }} 
-      env:
-        CI: true
+			
+      # A GitHub action for checking out the current branch
+      - uses: actions/checkout@master
 
+      # A GitHub action to setup Node.js
+      - uses: actions/setup-node@master
+        with:
+          node-version: "12"
+
+      # Run the NPM install command before proceeding
+      - run: npm install
+
+      # A GitHub action for running tests and publishing coverage
+      - uses: paambaati/codeclimate-action@v2.4.0
+        env:
+          # An environment variable, the value is a GitHub repo secret
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        with:
+          # Run our `coverage` script in our `package.json`
+          coverageCommand: npm run coverage
+          # By default, this looks for a `coverage` folder in the root of your project, but you may need to change this
+          coverageLocations: "./coverage/clover.xml:clover"
+          # Great for troubleshooting
+          debug: true
