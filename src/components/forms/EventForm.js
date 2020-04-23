@@ -4,8 +4,9 @@ import { useQuery } from "@apollo/react-hooks";
 import { GET_EVENT } from "../graphql/queries";
 import moment from "moment";
 import YesNoRadioGroup from "../YesNoRadioGroup";
+import { normalizeEventForGraphQL } from "../utils/normalize-data";
 
-import { Form, Input, Button, Row, Col, Radio, DatePicker } from "antd";
+import { Form, Input, Button, Row, Col, DatePicker } from "antd";
 
 const EventForm = ({ onSubmit }) => {
   const params = useParams();
@@ -20,17 +21,7 @@ const EventForm = ({ onSubmit }) => {
   const [submitted, setSubmitted] = useState(false);
 
   const submitForm = (values) => {
-    values.max_capacity = Number(values.max_capacity);
-    values.min_capacity = Number(values.min_capacity);
-    values.min_income = Number(values.min_income);
-    values.deposit_amount = Number(values.deposit_amount);
-    values.tickets_sold = Number(values.tickets_sold);
-    values.setup_costs = Number(values.setup_costs);
-    values.talent_costs = Number(values.talent_costs);
-    values.event_date = values.event_date || new Date().toString();
-    values.parking_max_capacity = Number(values.parking_max_capacity);
-    values.sales_gross = Number(values.sales_gross);
-    values.sales_net = Number(values.sales_net);
+    values = normalizeEventForGraphQL(values);
     setSubmitted(true);
     onSubmit(values, params.id);
   };
