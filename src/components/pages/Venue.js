@@ -4,6 +4,7 @@ import VenueForm from "../forms/VenueForm";
 import VenueList from "../lists/VenueList";
 import { Link, Route, Switch } from "react-router-dom";
 import { Button } from "antd";
+import CRUD from "./CRUD";
 import { useMutation, useQuery } from "@apollo/react-hooks";
 import { CREATE_VENUE, UPDATE_VENUE, DELETE_VENUE } from "../graphql/mutations";
 import { ALL_VENUES } from "../graphql/queries";
@@ -76,20 +77,15 @@ const Venue = () => {
 
   return (
     <div>
-      <Switch>
-        <Route path="/venue/form/:id?">
-          <VenueForm onSubmit={onSubmit} />
-        </Route>
-        <Route>
-          <Link to="/venue/form">
-            <Button type="primary">Add</Button>
-          </Link>
-          {loading && <p>Loading...</p>}
-          {data && data.venues.length && (
-            <VenueList list={data.venues} onEdit={onEdit} onDelete={onDelete} />
-          )}
-        </Route>
-      </Switch>
+      <CRUD
+        route="venue"
+        data={data ? data.venues : null}
+        onSubmit={onSubmit}
+        onEdit={onEdit}
+        onDelete={onDelete}
+        listComponent={VenueList}
+        formComponent={VenueForm}
+      />
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React from "react";
 import EventForm from "../forms/EventForm";
-import { Link, Route, Switch, useHistory } from "react-router-dom";
-import { Button } from "antd";
+import { useHistory } from "react-router-dom";
+import CRUD from "./CRUD";
 import { useMutation, useQuery } from "@apollo/react-hooks";
 import { CREATE_EVENT, UPDATE_EVENT, DELETE_EVENT } from "../graphql/mutations";
 import { ALL_EVENTS } from "../graphql/queries";
@@ -32,7 +32,7 @@ const Event = () => {
     update: updateAfterEventDelete,
   });
 
-  const { loading, data } = useQuery(ALL_EVENTS);
+  const { data } = useQuery(ALL_EVENTS);
 
   const onSubmit = (formData, eventId) => {
     console.log("data", data);
@@ -65,22 +65,15 @@ const Event = () => {
   };
 
   return (
-    <div>
-      <Switch>
-        <Route path="/event/form/:id?">
-          <EventForm onSubmit={onSubmit} />
-        </Route>
-        <Route>
-          <Link to="/event/form">
-            <Button type="primary">Add</Button>
-          </Link>
-          {loading && <p>Loading...</p>}
-          {data && data.events.length && (
-            <EventList list={data.events} onEdit={onEdit} onDelete={onDelete} />
-          )}
-        </Route>
-      </Switch>
-    </div>
+    <CRUD
+      route="event"
+      data={data ? data.events : null}
+      onSubmit={onSubmit}
+      onEdit={onEdit}
+      onDelete={onDelete}
+      listComponent={EventList}
+      formComponent={EventForm}
+    />
   );
 };
 
