@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
 import { GET_VENUE } from "../graphql/queries";
-import { Form, Input, Button, Row, Col, Radio } from "antd";
+import { Form, Input, Button, Row, Col } from "antd";
 import YesNoRadioGroup from "../YesNoRadioGroup";
 import { normalizeVenueForGraphQL } from "../utils/normalize-data";
 
