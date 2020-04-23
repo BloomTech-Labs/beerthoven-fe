@@ -4,6 +4,7 @@ import { useQuery } from "@apollo/react-hooks";
 import { GET_VENUE } from "../graphql/queries";
 import { Form, Input, Button, Row, Col, Radio } from "antd";
 import YesNoRadioGroup from "../YesNoRadioGroup";
+import { normalizeVenueForGraphQL } from "../utils/normalize-data";
 
 const VenueForm = ({ onSubmit }) => {
   const params = useParams();
@@ -18,12 +19,7 @@ const VenueForm = ({ onSubmit }) => {
   const [submitted, setSubmitted] = useState(false);
 
   const submitForm = (values) => {
-    values.max_capacity = Number(values.max_capacity);
-    values.min_income = Number(values.min_income);
-    values.deposit_amount = Number(values.deposit_amount);
-    values.max_decibel = Number(values.max_decibel);
-    values.parking_max_capacity = Number(values.parking_max_capacity);
-
+    values = normalizeVenueForGraphQL(values);
     setSubmitted(true);
     onSubmit(values, params.id);
   };
