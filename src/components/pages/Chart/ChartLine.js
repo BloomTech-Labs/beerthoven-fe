@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { Line } from 'react-chartjs-2';
-import { ALL_EVENTS } from '../graphql/queries';
-import '../../index.css'
+import { ALL_EVENTS } from '../../graphql/queries';
+import '../../../index.css'
 const ChartLine = () => {
 
   const [chartData, setChartData] = useState({})
@@ -45,45 +45,37 @@ const ChartLine = () => {
           pointRadius: 2,
         }]
       })
-
     }
 
   }, [data])
+  const dateRange = `${chartData.labels ? chartData.labels[0] : 'na'} to ${chartData.labels ? chartData.labels[chartData.labels.length - 1] : 'na'}`
 
   return (<div>
 
-    {data && data.events.length && <ChartLineSection chartData={chartData} />}
+    {data && data.events.length && (
+     <Line
+     width={600}
+     data={chartData}
+     options={{
+       elements: {
+         line: {
+           tension: 0.000001
+         }
+       },
+       responsive: true,
+       title: { text: `Net Sales from ${dateRange} - Line Graph`, display: true },
+       scales: {
+         yAxes: [{
+           ticks: {
+             beginAtZero: true
+           }
+         }]
+       }
+     }}
+   />  
+    )}
   </div>)
 }
 
-const ChartLineSection = ({ chartData }) => {
-
-  const dateRange = `${chartData.labels ? chartData.labels[0] : 'na'} to ${chartData.labels ? chartData.labels[chartData.labels.length - 1] : 'na'}`
-  return (
-
-    <Line
-      width={600}
-      data={chartData}
-      options={{
-        elements: {
-          line: {
-            tension: 0.000001
-          }
-        },
-        responsive: true,
-        title: { text: `Net Sales from ${dateRange}`, display: true },
-        scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: true
-            }
-          }]
-        }
-      }}
-    />
-
-  )
-}
-
-
 export default ChartLine
+
