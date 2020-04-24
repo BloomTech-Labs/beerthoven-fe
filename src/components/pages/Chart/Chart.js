@@ -3,6 +3,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { Pie, Doughnut, Line, Bar } from 'react-chartjs-2';
 import { ALL_EVENTS } from '../../graphql/queries';
 import ChartLine from './ChartLine'
+import ChartPie from './ChartPie'
 import '../../../index.css'
 import { bgColor, bgColorBorder } from './colors';
 
@@ -38,6 +39,7 @@ const Chart = () => {
     {data && data.events.length && (
       <>
         <ChartSection chartData={chartData} list={data.events} />
+        <ChartPie/>
         <ChartLine />
       </>
     )}
