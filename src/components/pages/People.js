@@ -50,9 +50,7 @@ const People = () => {
     } else {
       // this is a person being created
       createPerson({
-        variables: {
-          variables: { newPerson: formData },
-        },
+        variables: { newPerson: formData },
       });
     }
   };
