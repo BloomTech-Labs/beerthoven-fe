@@ -44,7 +44,7 @@ const User = () => {
 		else {
 			createUser({
 				variables : {
-					variables : { newUser: formData },
+					newUser: formData,
 				},
 			});
 		}
