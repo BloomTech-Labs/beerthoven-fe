@@ -22,20 +22,22 @@ const ChartLine = () => {
     if (data && data.events) {
 
       const sortData = sortByDate(data.events)
+
       //Extract and reformat Date string
       const dates = sortData.map(item => new Date(item.event_date).toDateString().split(' ').slice(1).join(' '))
 
       //REMOVE DUPLICATES
       const dateLabel = dates.filter((item, index, self) => self.indexOf(item) === index)
+
       const totals = data.events.reduce(
-        (totals, { event_date, sales_net }) =>
-          totals[event_date]
-            ? { ...totals, [event_date]: totals[event_date] + sales_net }
-            : { ...totals, [event_date]: sales_net },
+        (totals,{ event_date, sales_net }) =>
+          totals[new Date(event_date).toDateString()]
+            ? { ...totals, [new Date(event_date).toDateString()]: totals[new Date(event_date).toDateString()] + sales_net }
+            : { ...totals, [new Date(event_date).toDateString()]: sales_net },
         {}
       );
-
       const dailyTotals = Object.values(totals)
+      console.log(totals)
 
       setChartData({
         labels: dateLabel,
