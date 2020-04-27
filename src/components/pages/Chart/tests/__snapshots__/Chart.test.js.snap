@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`People Form Component renders a component that uses withRouter 1`] = `<div />`;
