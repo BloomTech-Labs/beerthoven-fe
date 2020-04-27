@@ -85,7 +85,17 @@ const ChartSection = ({ chartData }) => {
       </div>
 
       <div className="chart-container">
-        <Bar data={chartData} options={{ title: { text: "Event location - Bar Chart", display: true } }} />
+        <Bar data={chartData} 
+        options={{ 
+          title: { text: "Event location - Bar Chart", 
+                    display: true }, 
+          scales: {
+                      yAxes: [
+                        { ticks: { beginAtZero: true }}
+                      ]
+                  }
+        }}
+           />
       </div>
 
       <div className="chart-container">
