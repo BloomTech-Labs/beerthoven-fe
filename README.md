@@ -41,28 +41,41 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 
-### 4️⃣ Key Features
+### Key Features
 
--    feature one
--    feature two
--    feature three
--    feature four
--    feature five
+-    Creating an account and authenticating with Okta
+-    Create, Read, Update, and Delete Events
+-    Create, Read, Update, and Delete People
+-    Create, Read, Update, and Delete Events
+-    Render charts that display data
 
 ## 1️⃣ Tech Stack
 
 ### Front end built using:
 
-#### _Front end framework goes here_
+#### React
 
-🚫 Why did you choose this framework?
+-    Allows developers to create large web applications that can change data without reloading the page.
+-    Is fast, scalable, and simple.
+-    Works on user interfaces in the application.
 
--    point one
--    point two
--    point three
--    point four
+### GraphQL
 
-🚫List the rest of the front end features and libraries in the same format as the framework above.
+-    More productive for front and back end developers
+-    Instead of having to create an endpoint for every request, you simply ask for the data you want
+-    Using GraphQL gives us the opportunity to learn this upcoming technology, and would fit well in our stack
+
+### Apollo
+
+-    Just by setting up Apollo Client, you get cache right at the start without additional configuration.
+-    Simple and easy to use by having all data fetching inside of a useQuery Hook
+-    Using Apollo Client allows you to utilize GraphQL as a unified interface for all of your data
+
+### Ant Design of React
+
+-    Components are easily customizable
+-    Pairs very well specifically with React
+-    Ant's Design team builds their design based on the design values of Natural, Certain, Meaningful, and Growing.
 
 #### Front end deployed to https://www.beerthoven.dev/
 
@@ -96,18 +109,6 @@ This is the way you take out your flustrations. Get away from those little Chris
 
 You can do anything your heart can imagine. In life you need colors. This is where you take out all your hostilities and frustrations. It's better than kicking the puppy dog around and all that so. I'm sort of a softy, I couldn't shoot Bambi except with a camera. Trees get lonely too, so we'll give him a little friend. We'll lay all these little funky little things in there.
 
-## 3️⃣ Misc API here
-
-🚫Replace text below with a description of the API
-
-When you do it your way you can go anywhere you choose. Let your heart take you to wherever you want to be. If I paint something, I don't want to have to explain what it is. A tree needs to be your friend if you're going to paint him. That's a son of a gun of a cloud. Even the worst thing we can do here is good.
-
-## 3️⃣ Misc API here
-
-🚫Replace text below with a description of the API
-
-Volunteering your time; it pays you and your whole community fantastic dividends. Maybe there's a happy little waterfall happening over here. You can spend all day playing with mountains. We don't have to be committed. We are just playing here. You have freedom here. The only guide is your heart. It's cold, but it's beautiful.
-
 # 3️⃣ Environment Variables
 
 In order for the app to function correctly, the user must set up their own environment variables. There should be a .env file containing the following:
@@ -136,15 +137,13 @@ In order for the app to function correctly, the user must set up their own envir
 
 # 4️⃣ Testing
 
-🚫Document what you used for testing and why
-
-* React Testing Library + Jest:
+* React Testing Library + Jest: These come with mocking, parallelizing test runs, and snapshots. 
 
 * Apollo React Test  : To bypass Router and Routes issues with ApolloProvider 
 
 # 4️⃣ Installation Instructions
 
-🚫explain how to install the required dependencies to get this project up and running with yarn and NPM
+   npm install
 
 ## Other Scripts
 
