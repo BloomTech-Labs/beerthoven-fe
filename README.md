@@ -47,112 +47,112 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
 -    Create, Read, Update, and Delete Events
 -    Create, Read, Update, and Delete People
 -    Create, Read, Update, and Delete Events
+-    Read, Update, and Delete Users
 -    Render charts that display data
 
-## 1️⃣ Tech Stack
+## Tech Stack
 
 ### Front end built using:
 
 #### React
 
--    Allows developers to create large web applications that can change data without reloading the page.
--    Is fast, scalable, and simple.
--    Works on user interfaces in the application.
+-    Allows developers to create large web applications that can change data without reloading the page
+-    Is fast, scalable, and simple
+-    Works on user interfaces in the application
 
-### GraphQL
+#### GraphQL
 
 -    More productive for front and back end developers
 -    Instead of having to create an endpoint for every request, you simply ask for the data you want
 -    Using GraphQL gives us the opportunity to learn this upcoming technology, and would fit well in our stack
 
-### Apollo
+#### Apollo
 
--    Just by setting up Apollo Client, you get cache right at the start without additional configuration.
+-    Apollo has built-in local state handling that lets you store your local data inside of the cache alongside your remote data
 -    Simple and easy to use by having all data fetching inside of a useQuery Hook
 -    Using Apollo Client allows you to utilize GraphQL as a unified interface for all of your data
 
-### Ant Design of React
+### Ant Design (React Component Library)
 
 -    Components are easily customizable
 -    Pairs very well specifically with React
--    Ant's Design team builds their design based on the design values of Natural, Certain, Meaningful, and Growing.
+-    Ant's Design team builds their design based on the design values of Natural, Certain, Meaningful, and Growing
+
+### Chart.js
+
+-    Intuitive and easy to learn
+-    Simple documentation
+-    Several different chart options
 
 #### Front end deployed to https://www.beerthoven.dev/
 
 #### [Backend Repo](https://github.com/Lambda-School-Labs/beerthoven-be) built using:
 
-#### 🚫 back end framework goes here
+#### Prismatopia
 
 -    point one
 -    point two
 -    point three
 
-🚫 List the rest of the back end end features and libraries in the same format as the framework above
+#### Prisma
+
+-    Great flexibility when creating APIs
+-    Very easy and user friendly setup
+-    Offers great developer tools
+
+#### Apollo  Server
+
+-    Apollo has a huge platform that's constantly growing with new updates
+-    Apollo offers a massive amount of libraries    
+-    Apollo is great at connecting with other frameworks
+
+#### GraphQL
+
+-    GraphQL fetches the exact amount of data that you want and does not overfetch or underfetch
+-    Allows web and mobile clients to request the exact event details they want to render
+-    Increases performance by preventing overfetching
+
+#### Docker
+
+- It can deploy within seconds
+- High security with ensuring that containers are completely separate from each other
+- Docker gives a reliability and consistency across your team
 
 # APIs
 
-## 2️⃣ Authentication API here
-
-🚫Replace text below with a description of the API
+## https://${OKTA_DOMAIN}/oauth2/default
 
 Water's like me. It's laaazy ... Boy, it always looks for the easiest way to do things A little happy sunlight shining through there. Let all these little things happen. Don't fight them. Learn to use them. Even the worst thing we can do here is good.
 
-## 2️⃣ Payment API here
-
-🚫Replace text below with a description of the API
-
-This is the way you take out your flustrations. Get away from those little Christmas tree things we used to make in school. Isn't it fantastic that you can change your mind and create all these happy things? Everything's not great in life, but we can still find beauty in it.
-
-## 3️⃣ Misc API here
-
-🚫Replace text below with a description of the API
+## https://apollo.beerthoven.dev
 
 You can do anything your heart can imagine. In life you need colors. This is where you take out all your hostilities and frustrations. It's better than kicking the puppy dog around and all that so. I'm sort of a softy, I couldn't shoot Bambi except with a camera. Trees get lonely too, so we'll give him a little friend. We'll lay all these little funky little things in there.
 
-# 3️⃣ Environment Variables
+# Environment Variables
 
 In order for the app to function correctly, the user must set up their own environment variables. There should be a .env file containing the following:
 
-🚫These are just examples, replace them with the specifics for your app
+    *  REACT_APP_OKTA_CLIENTID - the client ID for our Okta application
+    *  REACT_APP_OKTA_DOMAIN - okta.beerthoven.dev
 
-    *  REACT_APP_apiKey - this is your Google API key, which can be generated in the Google Cloud Console
-    *  REACT_APP_authDomain - when you set up your Firebase project, this information will be in the dashboard
-    *  REACT_APP_databaseURL - in the Firebase dashboard
-    *  REACT_APP_projectID - in the Firebase dashboard
-    *  REACT_APP_storageBucket - in the Firebase dashboard
-    *  REACT_APP_messagingSenderId - in the Firebase dashboard
-    *  REACT_APP_stripe_API - this is your public Stripe API key, generated in the Stripe dashboard
-    *  REACT_APP_backendURL - optional for your local development server
-    *  REACT_APP_clientid - this is the Stripe_connect clientID, generated in Stripe_connect settings
-    *  REACT_APP_stripe_plan - this is the ID for a second Stripe subscription plan, generated under Stripe products
-
-# 5️⃣ Content Licenses
-
-🚫For all content - images, icons, etc, use this table to document permission of use. Remove the two placeholders and add you content to this table
-
-| Image Filename | Source / Creator | License                                                                      |
-| -------------- | ---------------- | ---------------------------------------------------------------------------- |
-| doodles.png    | Nicole Bennett   | [Creative Commons](https://www.toptal.com/designers/subtlepatterns/doodles/) |
-| rings.svg      | Sam Herbert      | [MIT](https://github.com/SamHerbert/SVG-Loaders)                             |
-
-# 4️⃣ Testing
+# Testing
 
 * React Testing Library + Jest: These come with mocking, parallelizing test runs, and snapshots. 
 
-* Apollo React Test  : To bypass Router and Routes issues with ApolloProvider 
+# Installation Instructions
 
-# 4️⃣ Installation Instructions
-
-   npm install
+-    npm install
+-    Setup .ENV
+-    Has to be running on localhost:3000 for Okta to work
 
 ## Other Scripts
 
-🚫replace these examples with your own
-
-    * typecheck - runs the TypeScript compiler
-    * build - creates a build of the application
-    * start - starts the production server after a build is created
-    * test - runs tests in **tests** directory \* eject - copy the configuration files and dependencies into the project so you have full control over them
+    * start - start the development server
+    * build - create a build
+    * test - runs test scripts
+    * eject - opt out of create-react-app encapsulation
+    * coverage - generate test coverage report
+    * coverage-win - generate test coverage report (Windows)
 
 # Contributing
 
