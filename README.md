@@ -72,13 +72,13 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
 -    Simple and easy to use by having all data fetching inside of a useQuery Hook
 -    Using Apollo Client allows you to utilize GraphQL as a unified interface for all of your data
 
-### Ant Design (React Component Library)
+#### Ant Design (React Component Library)
 
 -    Components are easily customizable
 -    Pairs very well specifically with React
 -    Ant's Design team builds their design based on the design values of Natural, Certain, Meaningful, and Growing
 
-### Chart.js
+#### Chart.js
 
 -    Intuitive and easy to learn
 -    Simple documentation
