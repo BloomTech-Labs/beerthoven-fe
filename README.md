@@ -90,9 +90,9 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
 
 #### Prismatopia
 
--    point one
--    point two
--    point three
+-    Almost all of your node modules are ready to go after initilazing from Make file
+-    Apollo server is generated for you
+-    No setup needed for Docker and AWS as long as you have your environmental variables in place
 
 #### Prisma
 
