@@ -36,10 +36,11 @@ more info on using badges [here](https://github.com/badges/shields)
 
 [UX Design Files](https://www.figma.com/file/CEPeeLCgftmibKev07r1k8/Beerthoven%2C-Emily?node-id=179%3A0)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+The Beerthoven Concert Series is a nonprofit classical music concert series with a mission of lowering the barrier to classical music both culturally and financially. Dress how you want, clap when you want, be yourself, and have fun. And have a drink! On us. For $10 if you're a student and $20 if you're not, you get (often) Grammy award winning performances, unlimited local craft beer on tap, unlimited coffee from local and remote locations, and unlimited free food and snacks from local bakeries. 
 
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Beerthoven also has an educational arm called Craft Music Lessons, wherein we teach adults 21+ to play an instrument in a relaxed setting; usually a brewery, with complimentary beer.  
 
+As we are soon approaching our 6th year in operation, we have a growing need for our data (currently collected in Google Sheets) to be easier to navigate, store, review, visualize, export, etc. 
 
 ### Key Features
 
@@ -122,11 +123,11 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
 
 ## https://${OKTA_DOMAIN}/oauth2/default
 
-Water's like me. It's laaazy ... Boy, it always looks for the easiest way to do things A little happy sunlight shining through there. Let all these little things happen. Don't fight them. Learn to use them. Even the worst thing we can do here is good.
+This is the authentication domain that is used to redirect someone to OKTA, verify them, and then redirect them back to our site.
 
 ## https://apollo.beerthoven.dev
 
-You can do anything your heart can imagine. In life you need colors. This is where you take out all your hostilities and frustrations. It's better than kicking the puppy dog around and all that so. I'm sort of a softy, I couldn't shoot Bambi except with a camera. Trees get lonely too, so we'll give him a little friend. We'll lay all these little funky little things in there.
+This is the backend API to work with all of our data.
 
 # Environment Variables
 
