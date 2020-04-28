@@ -18,13 +18,42 @@ canvas {
   -ms-user-select: none;
 }
 .chart-container {
-  width: 500px;
-  margin-left: 40px;
-  margin-right: 40px;
+  width: 40%;
+  margin-left: 4%;
+  margin-right: 4%;
 }
+
 .container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
 }
+@media only screen and (max-width: 1270px) {
+  .chart-container {
+    width: 500px;
+    margin-left: 4%;
+    margin-right: 4%;
+  }
+  .container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+} 
+
+
+/* @media (max-width:801px) and (min-width:1270px) {
+  .chart-container {
+    width: 500px;
+    margin-left: 4%;
+    margin-right: 4%;
+  }
+  .container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}  */

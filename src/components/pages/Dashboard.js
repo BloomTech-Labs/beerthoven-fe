@@ -3,8 +3,7 @@ import Chart from "./Chart/Chart";
 
 const Dashboard = () => (
   <div>
-    <h1>Dashboard</h1>
-    <p style={{ fontSize: "90px" }}>Welcome!</p>
+    <p style={{ fontSize: "3em" }}>Welcome to Beerthoven!</p>
     <Chart />
   </div>
 );

@@ -19,6 +19,7 @@ You can find the deployed project at https://www.beerthoven.dev/
 
 ![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
 ![React](https://img.shields.io/badge/react-v16.7.0--alpha.2-blue.svg)
+<img src="public/graph_ql.png" height = "20" />
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 ## Project Overview
