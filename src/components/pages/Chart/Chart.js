@@ -12,10 +12,10 @@ const Chart = () => {
   const [chartData, setChartData] = useState({})
 
   const { data } = useQuery(ALL_EVENTS);
-
+console.log(data)
   useEffect(() => {
     if (data && data.events) {
-      const states = data.events.map(item => item.state)
+      const states = data.events.map(item => item.state) //replace item.state with item.zip once all data is transfered
       const stateNames = states.filter((item, index, self) => self.indexOf(item) === index)
       const counts = {}
       states.forEach((x) => { counts[x] = (counts[x] || 0) + 1 })

@@ -74,7 +74,7 @@ const Venue = () => {
       });
     }
   };
-
+console.log(data)
   return (
     <div>
       <CRUD
