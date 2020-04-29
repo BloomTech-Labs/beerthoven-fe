@@ -20,9 +20,8 @@ const VenueForm = ({ onSubmit }) => {
   const [submitted, setSubmitted] = useState(false);
 
   const submitForm = (values) => {
-    values = normalizeVenueForGraphQL(values);
     setSubmitted(true);
-    onSubmit(values, params.id);
+    onSubmit(normalizeVenueForGraphQL(values), params.id);
   };
 
   const [form] = Form.useForm();
