@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
 import { GET_VENUE } from "../graphql/queries";
-import { Form, Input, Button, Row, Col } from "antd";
+import moment from "moment";
+import { Form, Input, TimePicker, Button, Row, Col } from "antd";
 import YesNoRadioGroup from "../YesNoRadioGroup";
 import { normalizeVenueForGraphQL } from "../utils/normalize-data";
 
@@ -19,14 +20,15 @@ const VenueForm = ({ onSubmit }) => {
   const [submitted, setSubmitted] = useState(false);
 
   const submitForm = (values) => {
-    values = normalizeVenueForGraphQL(values);
     setSubmitted(true);
-    onSubmit(values, params.id);
+    onSubmit(normalizeVenueForGraphQL(values), params.id);
   };
 
   const [form] = Form.useForm();
 
   if (!loading && data) {
+    data.venue.opening_time = moment(data.venue.opening_time);
+    data.venue.closing_time = moment(data.venue.closing_time);
     form.setFieldsValue(data.venue);
   }
 
@@ -200,13 +202,13 @@ const VenueForm = ({ onSubmit }) => {
 
         <Col span={6}>
           <Form.Item label="Opening Time" name="opening_time">
-            <Input placeholder="Opening Time" />
+            <TimePicker use12Hours format="h:mm a" />
           </Form.Item>
         </Col>
 
         <Col span={6}>
           <Form.Item label="Closing Time" name="closing_time">
-            <Input placeholder="Closing Time" />
+            <TimePicker use12Hours format="h:mm a" />
           </Form.Item>
         </Col>
 
