@@ -32,7 +32,6 @@ const ChartLine = () => {
         {}
       );
       const dailyTotals = Object.values(totals)
-      console.log(totals)
 
        //Extract and reformat Date string
       const dateLabel = (Object.keys(totals)).map(k => (k.split(' ').slice(1).join(' ')))
