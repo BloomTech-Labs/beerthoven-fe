@@ -4,6 +4,7 @@ import { Pie, Doughnut, Line, Bar } from 'react-chartjs-2';
 import { ALL_EVENTS } from '../../graphql/queries';
 import ChartLine from './ChartLine'
 import ChartPie from './ChartPie'
+import ChartZip from './ChartZip'
 import '../../../index.css'
 import { bgColor, bgColorBorder } from './colors';
 
@@ -40,8 +41,8 @@ console.log(data)
     {data && data.events.length && (
       <>
         <ChartSection chartData={chartData} list={data.events} />
-        <ChartPie/>
         <ChartLine />
+
       </>
     )}
   </div>)
@@ -124,7 +125,22 @@ const ChartSection = ({ chartData }) => {
         />
       </div>
 
+
+      <div className="chart-container">
+       
+      <ChartZip />
+
+      </div>
+
+      <div className="chart-container">
+       
+      <ChartPie/>
+ 
+       </div>
+
     </div>
+
+    
   )
 }
 
