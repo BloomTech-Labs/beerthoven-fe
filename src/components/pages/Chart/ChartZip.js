@@ -12,7 +12,6 @@ const ChartZip = () => {
   const [chartData, setChartData] = useState({})
   const { data } = useQuery(ALL_PERSONS);
 
-  console.log(data)
 
   useEffect(() => {
     if (data && data.persons) {
@@ -21,12 +20,10 @@ const ChartZip = () => {
       people.forEach((x) => { counts[x] = (counts[x] || 0) + 1 })
       const pplNum = Object.values(counts)
 
-      console.log(counts)
       const countEntry = Object.fromEntries(
         Object.entries(counts).slice(0, 20)
       );
 
-      console.log('countEntry', countEntry)
 
       setChartData(
         {
