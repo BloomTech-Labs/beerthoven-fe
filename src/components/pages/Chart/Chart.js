@@ -70,20 +70,7 @@ const ChartSection = ({ chartData }) => {
       </div>
 
       <div className="chart-container">
-        <Doughnut
-          data={chartData}
-          options={{
-            title: {
-              display: true,
-              text: 'Event Location- Doughnut Graph',
-              fontSize: 20
-            },
-            legend: {
-              display: true,
-              position: 'right'
-            }
-          }}
-        />
+        <ChartZip />
       </div>
 
       <div className="chart-container">
@@ -125,15 +112,8 @@ const ChartSection = ({ chartData }) => {
         />
       </div>
 
-
       <div className="chart-container">
-       
-      <ChartZip />
 
-      </div>
-
-      <div className="chart-container">
-       
       <ChartPie/>
  
        </div>

@@ -62,7 +62,6 @@ const ChartPieSection = ({ chartData }) => {
   return (
       <>
     <Pie
-    width={600}
           data={chartData}
           options={{
             title: {
