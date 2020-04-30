@@ -21,14 +21,9 @@ const ChartLine = () => {
   useEffect(() => {
     if (data && data.events) {
 
-      const sortData = sortByDate(data.events)
-
-      //Extract and reformat Date string
-      const dates = sortData.map(item => new Date(item.event_date).toDateString().split(' ').slice(1).join(' '))
+      sortByDate(data.events)
 
       //REMOVE DUPLICATES
-      const dateLabel = dates.filter((item, index, self) => self.indexOf(item) === index)
-
       const totals = data.events.reduce(
         (totals,{ event_date, sales_net }) =>
           totals[new Date(event_date).toDateString()]
@@ -38,6 +33,9 @@ const ChartLine = () => {
       );
       const dailyTotals = Object.values(totals)
       console.log(totals)
+
+       //Extract and reformat Date string
+      const dateLabel = (Object.keys(totals)).map(k => (k.split(' ').slice(1).join(' ')))
 
       setChartData({
         labels: dateLabel,

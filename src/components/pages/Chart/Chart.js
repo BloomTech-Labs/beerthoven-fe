@@ -4,6 +4,7 @@ import { Pie, Doughnut, Line, Bar } from 'react-chartjs-2';
 import { ALL_EVENTS } from '../../graphql/queries';
 import ChartLine from './ChartLine'
 import ChartPie from './ChartPie'
+import ChartZip from './ChartZip'
 import '../../../index.css'
 import { bgColor, bgColorBorder } from './colors';
 
@@ -20,6 +21,7 @@ console.log(data)
       const counts = {}
       states.forEach((x) => { counts[x] = (counts[x] || 0) + 1 })
       const statesNum = Object.values(counts)
+      console.log('hello worlde', counts)
       setChartData({
         labels: stateNames,
         datasets: [{
@@ -39,8 +41,8 @@ console.log(data)
     {data && data.events.length && (
       <>
         <ChartSection chartData={chartData} list={data.events} />
-        <ChartPie/>
         <ChartLine />
+
       </>
     )}
   </div>)
@@ -68,20 +70,7 @@ const ChartSection = ({ chartData }) => {
       </div>
 
       <div className="chart-container">
-        <Doughnut
-          data={chartData}
-          options={{
-            title: {
-              display: true,
-              text: 'Event Location- Doughnut Graph',
-              fontSize: 20
-            },
-            legend: {
-              display: true,
-              position: 'right'
-            }
-          }}
-        />
+        <ChartZip />
       </div>
 
       <div className="chart-container">
@@ -123,7 +112,15 @@ const ChartSection = ({ chartData }) => {
         />
       </div>
 
+      <div className="chart-container">
+
+      <ChartPie/>
+ 
+       </div>
+
     </div>
+
+    
   )
 }
 
